@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Boundless Alliance</title>
+  <script src="auth.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="home.html">
+      <img src="assets/logo.png" alt="Boundless Alliance Logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-text nav-home active" href="home.html">Home</a>
+      <a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a>
+      <a class="nav-text nav-fleet" href="#fleet">Fleet</a>
+      <a class="nav-text nav-about" href="#about">About Us</a>
+      <a class="nav-text nav-operations" href="#operations">Operations</a>
+      <a class="nav-text nav-pireps" href="pireps.html">PIREPs</a>
+      <a class="nav-text nav-pireps" href="#apply">Apply</a>
+      <a class="nav-text nav-portal portal-btn" href="#portal">Pilot Portal</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img class="hero-map" src="assets/world-map.png" alt="World route map" />
+      <div class="hero-copy">
+        <h1 class="hero-title">Connecting<br>pilots.<br>Expanding<br><span class="hero-title-accent">horizons.</span></h1>
+        <p class="hero-subtitle">A global virtual alliance uniting pilots and airlines across the world.</p>
+        <div class="hero-actions">
+          <a class="btn primary btn-dispatch" href="dispatch.html">✈ View Dispatch</a>
+          <a class="btn secondary btn-pirep" href="pireps.html">📝 Submit PIREP</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-bar" aria-label="Alliance statistics">
+      <article class="stat-card stat-registered">
+        <div class="stat-icon stat-icon-registered">♙</div>
+        <strong class="stat-number stat-number-registered">100</strong>
+        <span class="stat-label stat-label-registered">Registered Pilots</span>
+      </article>
+      <article class="stat-card stat-flights">
+        <div class="stat-icon stat-icon-flights">✈</div>
+        <strong class="stat-number stat-number-flights">50</strong>
+        <span class="stat-label stat-label-flights">Total Flights</span>
+      </article>
+      <article class="stat-card stat-hours">
+        <div class="stat-icon stat-icon-hours">◷</div>
+        <strong class="stat-number stat-number-hours">627</strong>
+        <span class="stat-label stat-label-hours">Total Flight Hours</span>
+      </article>
+      <article class="stat-card stat-destinations">
+        <div class="stat-icon stat-icon-destinations">◎</div>
+        <strong class="stat-number stat-number-destinations">35</strong>
+        <span class="stat-label stat-label-destinations">Destinations</span>
+      </article>
+      <article class="stat-card stat-performance">
+        <div class="stat-icon stat-icon-performance">▥</div>
+        <strong class="stat-number stat-number-performance">98.6%</strong>
+        <span class="stat-label stat-label-performance">On-Time Performance</span>
+      </article>
+    </section>
+
+    <section class="section featured-section" id="dispatch">
+      <div class="section-heading featured-heading">
+        <h2 class="section-title featured-title">Featured Flights</h2>
+        <a class="section-link featured-link" href="#">View All Flights →</a>
+      </div>
+
+      <div class="flight-grid">
+        <article class="flight-card flight-card-southwest">
+          <img src="assets/southwest.png" alt="Southwest 737-800" />
+          <div class="flight-info">
+            <small class="flight-number flight-number-southwest">SWA0006</small>
+            <h3 class="flight-route flight-route-southwest">KPHX - KLAS</h3>
+            <p class="flight-carrier flight-carrier-southwest">Southwest Airlines</p>
+            <p class="flight-airframe flight-airframe-southwest">737-800</p>
+          </div>
+        </article>
+
+        <article class="flight-card flight-card-american">
+          <img src="assets/american.png" alt="American Eagle CRJ" />
+          <div class="flight-info">
+            <small class="flight-number flight-number-american">AAL0008</small>
+            <h3 class="flight-route flight-route-american">KDFW - KAMA</h3>
+            <p class="flight-carrier flight-carrier-american">American Eagle</p>
+            <p class="flight-airframe flight-airframe-american">CRJ-700</p>
+          </div>
+        </article>
+
+        <article class="flight-card flight-card-frontier">
+          <img src="assets/frontier.png" alt="Frontier Airbus A320" />
+          <div class="flight-info">
+            <small class="flight-number flight-number-frontier">FFT0002</small>
+            <h3 class="flight-route flight-route-frontier">KDEN - KBNA</h3>
+            <p class="flight-carrier flight-carrier-frontier">Frontier Airlines</p>
+            <p class="flight-airframe flight-airframe-frontier">A320</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="news-section">
+      <div class="section-heading news-heading">
+        <h2 class="section-title news-title">Latest News</h2>
+        <a class="section-link news-link" href="#">View All News</a>
+      </div>
+
+      <div class="news-grid">
+        <article class="news-card news-card-summer">
+          <img src="assets/summer.png" alt="Summer aviation event" />
+          <div>
+            <small class="news-category news-category-summer">Summer Events</small>
+            <h3 class="news-headline news-headline-summer">Summer Events Are Here!</h3>
+            <p class="news-body news-body-summer">Join us for our seasonal events with exclusive routes, activities, and prizes throughout the summer.</p>
+            <a class="learn-btn learn-btn-summer" href="#">Learn More →</a>
+          </div>
+        </article>
+
+        <article class="news-card news-card-system light">
+          <img src="assets/cockpit.png" alt="Cockpit at sunset" />
+          <div>
+            <small class="news-category news-category-system">System Updates</small>
+            <h3 class="news-headline news-headline-system">System Updates Completed</h3>
+            <p class="news-body news-body-system">We've completed backend system upgrades to improve performance, stability, and your overall experience.</p>
+            <a class="learn-btn learn-btn-system" href="#">Learn More →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-overlay"></div>
+      <div class="cta-content">
+        <h2 class="cta-title">Ready To Take Off?</h2>
+        <p class="cta-subtitle">Join Boundless Alliance today and become a part of a global community.</p>
+        <a class="btn primary cta-button" href="#">Apply Today →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img src="assets/logo.png" alt="Boundless Alliance Logo" />
+    <div class="footer-social">
+      <span class="footer-heading">Connect With Us</span>
+      <a href="https://discord.gg/mwQuuQKqa5"
+        target="_blank"
+        class="footer-discord-link">
+      <img src="assets/discord_icon.png" class="footer-discord-icon" alt="Discord" />
+      <small class="footer-discord">Join Our Discord</small>
+      </a>
+    </div>
+    <p class="footer-copyright">© 2026 Boundless Alliance. All rights reserved.</p>
+  </footer>
+</body>
+</html>

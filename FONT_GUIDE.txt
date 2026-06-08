@@ -1,0 +1,52 @@
+BOUNDLESS ALLIANCE FONT GUIDE
+
+I edited index.html and styles.css so each visible text area has its own class and assignable font.
+
+WHERE TO CHANGE GLOBAL FONT GROUPS:
+Open styles.css and go to the :root section near the top.
+Change these variables:
+
+--font-body
+--font-nav
+--font-button
+--font-hero-title
+--font-hero-subtitle
+--font-stat-icon
+--font-stat-number
+--font-stat-label
+--font-section-title
+--font-section-link
+--font-flight-number
+--font-flight-route
+--font-flight-details
+--font-news-category
+--font-news-headline
+--font-news-body
+--font-cta-title
+--font-cta-subtitle
+--font-footer
+--font-footer-heading
+
+EXAMPLE:
+--font-stat-number: 'EurostileExtendedBlack', Impact, sans-serif;
+
+WHERE TO CHANGE ONE EXACT PIECE OF TEXT:
+Near the middle of styles.css, look for the section called TEXT FONT ASSIGNMENTS.
+Every item now has a class.
+
+Examples:
+.stat-number-registered { font-family: 'EurostileBlack'; }
+.flight-route-southwest { font-family: 'EurostileExtendedBlack'; }
+.news-headline-system { font-family: 'EurostileExtendedMedium'; }
+.nav-portal { font-family: 'EurostileBold'; }
+
+IMPORTANT:
+Your actual font files must be inside:
+assets/fonts/
+
+Example:
+assets/fonts/Eurostile.otf
+assets/fonts/Eurostile_Bold.otf
+assets/fonts/Eurostile_Extd_Black.otf
+
+If your filenames are different, update the @font-face file paths at the top of styles.css.

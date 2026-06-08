@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access | Boundless Alliance</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="access-page-body">
+  <main class="access-page">
+    <section class="access-card">
+      <img class="access-logo" src="assets/logo.png" alt="Boundless Alliance Logo" />
+
+      <p class="access-kicker">Virtual Airline Community</p>
+      <h1>About Boundless Alliance</h1>
+
+      <p class="access-lead">
+        Boundless Alliance is a virtual aviation community built around freedom. We are not locked to one airline, one fleet, or one route network.
+      </p>
+
+      <div class="access-pill-row" aria-label="Boundless Alliance core philosophy">
+        <span>Fly Any Airline</span>
+        <span>Fly Any Route</span>
+        <span>Fly Any Aircraft</span>
+      </div>
+
+      <p class="access-body-text">
+        Pilots can dispatch flights, submit PIREPs, track progress, and be part of a global alliance designed for realistic, flexible flight simulation.
+      </p>
+
+      <form id="accessForm" class="access-form">
+        <label for="accessKey">Access Key</label>
+        <div class="access-input-row">
+          <input id="accessKey" type="password" placeholder="Enter access key" autocomplete="off" required />
+          <button class="btn primary" type="submit">Unlock Site</button>
+        </div>
+        <p id="accessError" class="access-error" aria-live="polite"></p>
+      </form>
+
+      <p class="access-note">Access is currently limited during early launch testing.</p>
+    </section>
+  </main>
+
+  <script>
+    const ACCESS_KEYS = [
+      "BoundlessCEO2026",
+      "BoundlessDeveloper2026",
+      "BoundlessOperations2026",
+      "BoundlessPilot2026"
+    ];
+
+    const accessForm = document.getElementById("accessForm");
+    const accessKeyInput = document.getElementById("accessKey");
+    const accessError = document.getElementById("accessError");
+
+    accessForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const enteredKey = accessKeyInput.value.trim();
+
+      if (ACCESS_KEYS.includes(enteredKey)) {
+        sessionStorage.setItem("boundlessAccess", "granted");
+        window.location.href = "home.html";
+      } else {
+        accessError.textContent = "Incorrect access key. Please try again.";
+        accessKeyInput.classList.add("field-error");
+        accessKeyInput.focus();
+      }
+    });
+  </script>
+</body>
+</html>

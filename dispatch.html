@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dispatch | Boundless Alliance</title>
+  <script src="auth.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="home.html">
+      <img src="assets/logo.png" alt="Boundless Alliance Logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-text nav-home" href="home.html">Home</a>
+      <a class="nav-text nav-dispatch active" href="dispatch.html">Dispatch</a>
+      <a class="nav-text nav-fleet" href="#fleet">Fleet</a>
+      <a class="nav-text nav-about" href="#about">About Us</a>
+      <a class="nav-text nav-operations" href="#operations">Operations</a>
+      <a class="nav-text nav-pireps" href="pireps.html">PIREPs</a>
+      <a class="nav-text nav-pireps" href="#apply">Apply</a>
+      <a class="nav-text nav-portal portal-btn" href="#portal">Pilot Portal</a>
+    </nav>
+  </header>
+
+  <main class="dispatch-page">
+    <section class="dispatch-hero">
+      <div class="dispatch-hero-copy">
+        <h1 class="dispatch-title">Dispatch.</h1>
+        <h2 class="dispatch-kicker">Find your next flight.</h2>
+        <p class="dispatch-subtitle">Multiple ways to search. One global network.<br>Where will you go next?</p>
+      </div>
+    </section>
+
+    <section class="dispatch-shell" aria-label="Flight dispatch tools">
+      <div class="dispatch-methods">
+        <article class="dispatch-method dispatch-method-inop" aria-disabled="true">
+          <img src="assets/route-search.png" alt="" />
+          <h3>Route Search</h3>
+          <p>Find flights by departure, arrival, and aircraft type.</p>
+          <img class="inop-sticker" src="assets/inop.png" alt="INOP - See T/Log" />
+        </article>
+        <article class="dispatch-method dispatch-method-active">
+          <img src="assets/aircraft.png" alt="" />
+          <h3>Aircraft Search</h3>
+          <p>Find a specific aircraft by carrier, airframe, and registration.</p>
+        </article>
+      </div>
+
+      <section class="dispatch-search-panel">
+        <div class="dispatch-panel-heading">
+          <img src="assets/aircraft.png" alt="" />
+          <div>
+            <h2>Aircraft Search</h2>
+            <p>Select an airline, then choose an available airframe and registration number.</p>
+          </div>
+        </div>
+
+        <form class="dispatch-form aircraft-search-form" id="aircraftSearchForm">
+          <label>
+            <span>Airline</span>
+            <select id="airline"></select>
+          </label>
+          <label>
+            <span>Airframe</span>
+            <select id="airframe"></select>
+          </label>
+          <label>
+            <span>Registration</span>
+            <select id="registration"></select>
+          </label>
+          <button type="button" id="searchBtn" class="btn primary">Search Aircraft</button>
+        </form>
+      </section>
+
+      <section class="dispatch-results-panel">
+        <div class="results-heading">
+          <div>
+            <h2><span>✈</span> Available Aircraft</h2>
+            <p>Showing aircraft dispatch results</p>
+          </div>
+        </div>
+
+        <div class="result-card-grid" id="resultsGrid">
+          <article class="result-card">
+            <div class="result-card-top">
+              <img src="assets/jbu.png" alt="JetBlue" />
+              <span>Scheduled</span>
+            </div>
+            <p class="result-carrier">JetBlue</p>
+            <h3>JBU119</h3>
+            <div class="route-pair">
+              <div><strong>KJFK</strong><small>New York</small></div>
+              <b>→</b>
+              <div><strong>KATL</strong><small>Atlanta</small></div>
+            </div>
+            <div class="time-pair">
+              <div><strong>17:00</strong><small>Local (EST)</small></div>
+              <div><strong>19:39</strong><small>Local (EST)</small></div>
+            </div>
+            <div class="result-meta"><span>◷ 02:39</span><span>△ 760 NM</span><span>✈ A321</span></div>
+            <p class="registration">N766JB</p>
+            <a href="#" class="details-btn">View Details</a>
+          </article>
+
+          <article class="result-card">
+            <div class="result-card-top">
+              <img src="assets/fft.png" alt="Frontier" />
+              <span>Scheduled</span>
+            </div>
+            <p class="result-carrier">Frontier</p>
+            <h3>FFT4731</h3>
+            <div class="route-pair">
+              <div><strong>KJFK</strong><small>New York</small></div>
+              <b>→</b>
+              <div><strong>KATL</strong><small>Atlanta</small></div>
+            </div>
+            <div class="time-pair">
+              <div><strong>13:00</strong><small>Local (EST)</small></div>
+              <div><strong>15:50</strong><small>Local (EST)</small></div>
+            </div>
+            <div class="result-meta"><span>◷ 02:50</span><span>△ 760 NM</span><span>✈ A321</span></div>
+            <p class="registration">N624FR</p>
+            <a href="#" class="details-btn">View Details</a>
+          </article>
+
+          <article class="result-card">
+            <div class="result-card-top">
+              <img src="assets/dal.png" alt="Delta" />
+              <span>Scheduled</span>
+            </div>
+            <p class="result-carrier">Delta</p>
+            <h3>DAL2286</h3>
+            <div class="route-pair">
+              <div><strong>KJFK</strong><small>New York</small></div>
+              <b>→</b>
+              <div><strong>KATL</strong><small>Atlanta</small></div>
+            </div>
+            <div class="time-pair">
+              <div><strong>06:29</strong><small>Local (EST)</small></div>
+              <div><strong>08:58</strong><small>Local (EST)</small></div>
+            </div>
+            <div class="result-meta"><span>◷ 02:29</span><span>△ 760 NM</span><span>✈ A321</span></div>
+            <p class="registration">N586DT</p>
+            <a href="#" class="details-btn">View Details</a>
+          </article>
+        </div>
+      </section>
+
+      <aside class="dispatch-note">
+        <img src="assets/globe.png" class="info-icon-img" alt="Globe">
+        <div>
+          <strong>All flights are real-world operations</strong>
+          <p>Sourced from FlightRadar24, FlightAware, and other aviation data providers.</p>
+        </div>
+        <a href="#">Learn More</a>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer dispatch-footer">
+    <img src="assets/logo.png" alt="Boundless Alliance Logo" />
+    <div class="footer-social">
+      <span class="footer-heading">Connect With Us</span>
+      <a href="https://discord.gg/mwQuuQKqa5"
+        target="_blank"
+        class="footer-discord-link">
+        <img src="assets/discord_icon.png" class="footer-discord-icon" alt="Discord" />
+        <small class="footer-discord">Join Our Discord</small>
+      </a>
+    </div>
+    <p class="footer-copyright">© Boundless Alliance<br>All Rights Reserved</p>
+  </footer>
+<script src="aircraftDatabase.js"></script>
+<script src="dispatch.js"></script></body>
+</html>
