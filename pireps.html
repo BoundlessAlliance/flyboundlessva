@@ -18,7 +18,7 @@
                 <a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a>
                 <a class="nav-text nav-fleet" href="#fleet">Fleet</a>
                 <a class="nav-text nav-about" href="#about">About Us</a>
-                <a class="nav-text nav-operations" href="#operations">Operations</a>
+                <a class="nav-text nav-operations" href="operations.html">Operations</a>
                 <a class="nav-text nav-pireps active" href="pireps.html">PIREPs</a>
                 <a class="nav-text nav-portal portal-btn" href="#portal">Pilot Portal</a>
             </nav>
@@ -76,7 +76,7 @@
                                 >Callsign
                                 <input id="callsign" required type="text" placeholder="SWA123" readonly />
                             </label>
-                            <label>Aircraft Type<input required type="text" placeholder="e.g. B738" /></label>
+                            <label>Aircraft Type<input id="aircraftType" required type="text" placeholder="e.g. B738" /></label>
 
                             <label
                                 >Departure Airport
@@ -102,8 +102,8 @@
                                 />
                             </label>
 
-                            <label>Departure Gate<input required type="text" placeholder="e.g. A27" /></label>
-                            <label>Arrival Gate<input required type="text" placeholder="e.g. C12" /></label>
+                            <label>Departure Gate<input id="departureGate" required type="text" placeholder="e.g. A27" /></label>
+                            <label>Arrival Gate<input id="arrivalGate" required type="text" placeholder="e.g. C12" /></label>
                             <label>Date of Flight<input id="flightDate" required type="date" /></label>
 
                             <label
@@ -144,6 +144,7 @@
                         </div>
                         <label class="pirep-wide-field"
                             >Route (Include Runways)<textarea
+                                id="route"
                                 required
                                 placeholder="e.g. KLAX/24L DOTSS2 CNERY BLH HYDRR1 KPHX/26"
                             ></textarea>
@@ -163,17 +164,18 @@
                                   title="Please ensure the number is negative"
                                 />
                             </label>
-                            <label>Ground Speed<input required type="number" placeholder="e.g. 138" /></label>
+                            <label>Ground Speed<input id="groundSpeed" required type="number" placeholder="e.g. 138" /></label>
                             <label
                               >G-Force
                               <input
+                                id="gForce"
                                 required
                                 type="number"
                                 step="0.01"
                                 placeholder="e.g. 1.12" 
                               />
                             </label>
-                            <label>Approach Type<input required type="text" placeholder="e.g. ILS" /></label>
+                            <label>Approach Type<input id="approachType" required type="text" placeholder="e.g. ILS" /></label>
                         </div>
                     </section>
 
@@ -190,13 +192,14 @@
 
                     <section class="pirep-pane" data-pane="4">
                         <div class="pirep-field-grid">
-                            <label>Fuel Provider<input required type="text" placeholder="e.g. Lukoil" /></label>
+                            <label>Fuel Provider<input id="fuelProvider" required type="text" placeholder="e.g. Lukoil" /></label>
                             <label
-                                >Fueling Ammount (Gallons)<input required type="number" placeholder="e.g. 1,937"
+                                >Fueling Ammount (Gallons)<input id="fuelingAmount" required type="number" placeholder="e.g. 1,937"
                             /></label>
                             <label
                               >Unit Price
                               <input
+                                id="fuelUnitPrice"
                                 required
                                 type="number"
                                 step="0.01"
@@ -206,6 +209,7 @@
                             <label
                               >Fuel Tax
                               <input 
+                                id="fuelTax"
                                 required
                                 type="number"
                                 step="0.01"
@@ -215,6 +219,7 @@
                             <label
                               >Sales Tax / VAT
                               <input
+                                id="fuelSalesTax"
                                 required
                                 type="number"
                                 step="0.01"
@@ -227,12 +232,13 @@
                     <section class="pirep-pane" data-pane="5">
                         <div class="pirep-field-grid">
                             <label
-                                >Catering Provider<input required type="text" placeholder="e.g. Southwest Airlines"
+                                >Catering Provider<input id="cateringProvider" required type="text" placeholder="e.g. Southwest Airlines"
                             /></label>
-                            <label>Catering Quantity<input required type="number" placeholder="e.g. 148" /></label>
+                            <label>Catering Quantity<input id="cateringQuantity" required type="number" placeholder="e.g. 148" /></label>
                             <label
                               >Unit Price
                               <input
+                                id="cateringUnitPrice"
                                 required
                                 type="number"
                                 step="0.01"
@@ -240,8 +246,9 @@
                               />
                             </label>
                             <label
-                              >Sales Tax / VAT
+                               >Sales Tax / VAT
                               <input 
+                                id="cateringVat"
                                 required 
                                 type="number" 
                                 step="0.01"
@@ -254,11 +261,12 @@
                     <section class="pirep-pane" data-pane="6">
                         <div class="pirep-field-grid">
                             <label
-                                >Handling Provider<input required type="text" placeholder="e.g. Southwest Airlines"
+                                >Handling Provider<input id="groundProvider" required type="text" placeholder="e.g. Southwest Airlines"
                             /></label>
                             <label
                               >Boarding Cost
                               <input 
+                                id="boardingCost"
                                 required 
                                 type="number" 
                                 step="0.01"
@@ -268,6 +276,7 @@
                             <label
                                 >Pushback Service Cost
                               <input 
+                                id="pushbackCost"
                                 required 
                                 type="number" 
                                 step="0.01"
@@ -275,11 +284,12 @@
                               />
                             </label>
                             <label
-                                >Jetway / Stairs Connection Fee<input required type="number" placeholder="e.g. $100.00"
+                                >Jetway / Stairs Connection Fee<input id="jetwayCost" required type="number" step="0.01" placeholder="e.g. $100.00"
                             /></label>
                             <label
                                 >Jetway / Stairs Operation Time
                                 <input 
+                                    id="jetwayOperationTime"
                                     required
                                     type="number" 
                                     step="0.01"
@@ -289,6 +299,7 @@
                             <label
                                 >Jetway / Stairs Ops Cost / Hour
                                 <input
+                                  id="jetwayOpsCostPerHour"
                                   required
                                   type="number"
                                   step="0.01"
@@ -298,6 +309,7 @@
                             <label
                               >Sales Tax / VAT
                               <input 
+                                id="groundSalesTax"
                                 required 
                                 type="number" 
                                 step="0.01"
@@ -311,7 +323,7 @@
                         <div class="pirep-field-grid pirep-note-options">
                             <label
                                 >Flight Anomalies
-                                <select required>
+                                <select id="flightAnomaly1" required>
                                     <option value="">Select</option>
                                     <option value="None">None</option>
                                     <option value="Go Around">Go Around</option>
@@ -322,7 +334,7 @@
                             </label>
                             <label
                                 >Flight Anomalies
-                                <select required>
+                                <select id="flightAnomaly2" required>
                                     <option value="">Select</option>
                                     <option value="None">None</option>
                                     <option value="Go Around">Go Around</option>
@@ -333,7 +345,7 @@
                             </label>
                             <label
                                 >Flight Anomalies
-                                <select required>
+                                <select id="flightAnomaly3" required>
                                     <option value="">Select</option>
                                     <option value="None">None</option>
                                     <option value="Go Around">Go Around</option>
@@ -344,7 +356,7 @@
                             </label>
                             <label
                                 >Flight Anomalies
-                                <select required>
+                                <select id="flightAnomaly4" required>
                                     <option value="">Select</option>
                                     <option value="None">None</option>
                                     <option value="Go Around">Go Around</option>
@@ -356,6 +368,7 @@
                         </div>
                         <label class="pirep-wide-field"
                             >Additional Comments ("N/A" if None)<textarea
+                                id="additionalComments"
                                 required
                                 placeholder="Add any operational notes, ATC issues, routing comments, or unusual events."
                             ></textarea>
@@ -428,19 +441,53 @@
 
                 if (submitBtn.disabled) return;
 
+                const getValue = (id) => document.getElementById(id)?.value.trim() || "";
+
                 const data = {
-                    airline: document.getElementById("airline").value,
-                    flightNumber: document.getElementById("flightNumber").value,
-                    callsign: document.getElementById("callsign").value,
-                    departureAirport: document.getElementById("departureAirport").value,
-                    arrivalAirport: document.getElementById("arrivalAirport").value,
-                    dateOfFlight: document.getElementById("flightDate").value,
-                    estimatedFlightTime: document.getElementById("estFlightTime").value,
-                    blockTime: document.getElementById("blockTime").value,
-                    flightTime: document.getElementById("flightTime").value,
-                    landingRate: document.getElementById("landingRate").value,
-                    passengers: document.getElementById("passengers").value,
-                    ticketPrice: document.getElementById("ticketPrice").value,
+                    airline: getValue("airline"),
+                    flightNumber: getValue("flightNumber"),
+                    callsign: getValue("callsign"),
+                    aircraftType: getValue("aircraftType"),
+                    departureAirport: getValue("departureAirport"),
+                    arrivalAirport: getValue("arrivalAirport"),
+                    departureGate: getValue("departureGate"),
+                    arrivalGate: getValue("arrivalGate"),
+                    dateOfFlight: getValue("flightDate"),
+                    estimatedFlightTime: getValue("estFlightTime"),
+                    blockTime: getValue("blockTime"),
+                    flightTime: getValue("flightTime"),
+                    route: getValue("route"),
+                    landingRate: getValue("landingRate"),
+                    groundSpeed: getValue("groundSpeed"),
+                    gForce: getValue("gForce"),
+                    approachType: getValue("approachType"),
+                    passengers: getValue("passengers"),
+                    ticketPrice: getValue("ticketPrice"),
+                    grossIncome: "",
+                    pilotPay: "",
+                    netProfit: "",
+                    otherIncome: "",
+                    fuelProvider: getValue("fuelProvider"),
+                    fuelingAmount: getValue("fuelingAmount"),
+                    unitPrice: getValue("fuelUnitPrice"),
+                    fuelTax: getValue("fuelTax"),
+                    salesTax: getValue("fuelSalesTax"),
+                    cateringProvider: getValue("cateringProvider"),
+                    cateringQuantity: getValue("cateringQuantity"),
+                    cateringUnitPrice: getValue("cateringUnitPrice"),
+                    cateringVat: getValue("cateringVat"),
+                    groundProvider: getValue("groundProvider"),
+                    boardingCost: getValue("boardingCost"),
+                    pushbackCost: getValue("pushbackCost"),
+                    jetwayCost: getValue("jetwayCost"),
+                    jetwayOperationTime: getValue("jetwayOperationTime"),
+                    jetwayOpsCostPerHour: getValue("jetwayOpsCostPerHour"),
+                    groundSalesTax: getValue("groundSalesTax"),
+                    flightAnomaly1: getValue("flightAnomaly1"),
+                    flightAnomaly2: getValue("flightAnomaly2"),
+                    flightAnomaly3: getValue("flightAnomaly3"),
+                    flightAnomaly4: getValue("flightAnomaly4"),
+                    additionalComments: getValue("additionalComments"),
                 };
 
                 try {
