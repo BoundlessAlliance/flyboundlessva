@@ -3,68 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Access | Boundless Alliance</title>
+  <title>Login | Boundless Alliance</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body class="access-page-body">
   <main class="access-page">
     <section class="access-card">
       <img class="access-logo" src="assets/logo.png" alt="Boundless Alliance Logo" />
 
       <p class="access-kicker">Virtual Airline Community</p>
-      <h1>About Boundless Alliance</h1>
+      <h1>BOUNDLESS ALLIANCE</h1>
 
       <p class="access-lead">
-        Boundless Alliance is a virtual aviation community built around freedom. We are not locked to one airline, one fleet, or one route network.
+        Log in or create an account to begin your journey!.
       </p>
 
-      <div class="access-pill-row" aria-label="Boundless Alliance core philosophy">
+      <div class="access-pill-row">
         <span>Fly Any Airline</span>
         <span>Fly Any Route</span>
         <span>Fly Any Aircraft</span>
       </div>
 
-      <p class="access-body-text">
-        Pilots can dispatch flights, submit PIREPs, track progress, and be part of a global alliance designed for realistic, flexible flight simulation.
-      </p>
+      <form id="loginForm" class="access-form">
+        <label for="loginUsername">Username</label>
+        <input id="loginUsername" type="text" autocomplete="username" required />
 
-      <form id="accessForm" class="access-form">
-        <label for="accessKey">Access Key</label>
-        <div class="access-input-row">
-          <input id="accessKey" type="password" placeholder="Enter access key" autocomplete="off" required />
-          <button class="btn primary" type="submit">Unlock Site</button>
-        </div>
-        <p id="accessError" class="access-error" aria-live="polite"></p>
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" type="password" autocomplete="current-password" required />
+
+        <button class="btn primary" type="submit">Login</button>
+        <p id="loginMessage" class="access-error"></p>
       </form>
 
-      <p class="access-note">Access is currently limited during early launch testing.</p>
+      <hr />
+
+      <form id="registerForm" class="access-form">
+        <h2 class="access-section-title">Create Account</h2>
+
+        <label for="registerUsername">Username (must match Discord name)</label>
+        <input id="registerUsername" type="text" autocomplete="username" required />
+
+        <label for="registerPassword">Password</label>
+        <input id="registerPassword" type="password" autocomplete="new-password" required />
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" type="password" autocomplete="new-password" required />
+
+        <button class="btn secondary" type="submit">Create Account</button>
+        <p id="registerMessage" class="access-error"></p>
+      </form>
     </section>
   </main>
 
   <script>
-    const ACCESS_KEYS = [
-      "BoundlessCEO2026",
-      "BoundlessDeveloper2026",
-      "BoundlessOperations2026",
-      "BoundlessPilot2026"
-    ];
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzsdeVDsh3OThkWqQG_gFnmjUYpiX3kjBQWUTYn3NNKBIpasVs26yHKij_KJZSgAcscOA/exec";
 
-    const accessForm = document.getElementById("accessForm");
-    const accessKeyInput = document.getElementById("accessKey");
-    const accessError = document.getElementById("accessError");
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
 
-    accessForm.addEventListener("submit", function(event) {
+    const loginMessage = document.getElementById("loginMessage");
+    const registerMessage = document.getElementById("registerMessage");
+
+    loginForm.addEventListener("submit", async function(event) {
       event.preventDefault();
 
-      const enteredKey = accessKeyInput.value.trim();
+      loginMessage.textContent = "";
 
-      if (ACCESS_KEYS.includes(enteredKey)) {
-        sessionStorage.setItem("boundlessAccess", "granted");
+      const username = document.getElementById("loginUsername").value.trim();
+      const password = document.getElementById("loginPassword").value;
+
+      try {
+        const response = await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          body: JSON.stringify({
+            action: "loginUser",
+            username: username,
+            password: password
+          })
+        });
+
+        const result = await response.json();
+
+        if (!result.success) {
+          loginMessage.textContent = result.message || "Login failed.";
+          return;
+        }
+
+        localStorage.setItem("boundlessToken", result.token);
+        localStorage.setItem("boundlessUsername", result.username);
+        localStorage.setItem("boundlessRole", result.role);
+
         window.location.href = "home.html";
-      } else {
-        accessError.textContent = "Incorrect access key. Please try again.";
-        accessKeyInput.classList.add("field-error");
-        accessKeyInput.focus();
+
+      } catch (error) {
+        console.error("Login error:", error);
+        loginMessage.textContent = "Unable to log in. Please try again.";
+      }
+    });
+
+    registerForm.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      registerMessage.textContent = "";
+
+      const username = document.getElementById("registerUsername").value.trim();
+      const password = document.getElementById("registerPassword").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (password !== confirmPassword) {
+        registerMessage.textContent = "Passwords do not match.";
+        return;
+      }
+
+      try {
+        const response = await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          body: JSON.stringify({
+            action: "registerUser",
+            username: username,
+            password: password
+          })
+        });
+
+        const result = await response.json();
+
+        if (!result.success) {
+          registerMessage.textContent = result.message || "Account creation failed.";
+          return;
+        }
+
+        registerMessage.textContent = "Account created. You can now log in.";
+        registerForm.reset();
+
+      } catch (error) {
+        console.error("Register error:", error);
+        registerMessage.textContent = "Unable to create account. Please try again.";
       }
     });
   </script>

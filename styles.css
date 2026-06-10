@@ -555,7 +555,7 @@ body {
    DISPATCH PAGE
    ========================================================= */
 .dispatch-page {
-  background: #fff;
+  background: #ecefff;
   overflow: hidden;
 }
 
@@ -672,7 +672,7 @@ body {
 
 .dispatch-search-panel,
 .dispatch-results-panel {
-  background: #f6f6f9;
+  background: #ecefff;
   border-radius: 28px;
   padding: 24px;
   margin-bottom: 28px;
@@ -775,7 +775,7 @@ body {
   padding: 28px;
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 16px 35px rgba(25, 28, 50, 14);
+  box-shadow: 0 10px 10px rgba(25, 28, 50, .5);
   color: #101629;
   margin: 0 auto;
 }
@@ -944,7 +944,7 @@ body {
   padding: 18px 24px;
   border: 1px solid var(--purple);
   border-radius: 8px;
-  background: #f7f3ff;
+  background: #ecefff;
 }
 
 .note-icon {
@@ -1276,11 +1276,11 @@ body {
    PIREP PAGE - Mockup Matching Layout
    ========================================================= */
 .pirep-page-body {
-  background: #f0ecff;
+  background: #ecefff;
 }
 
 .pirep-page {
-  background: #f0ecff;
+  background: #ecefff;
   padding: 58px 0 72px;
 }
 
@@ -1634,146 +1634,14 @@ body {
 }
 
 /* =========================================================
-   ACCESS KEY LANDING PAGE
-   ========================================================= */
-.access-page-body {
-  min-height: 100vh;
-  background:
-    linear-gradient(135deg, rgba(7, 27, 61, 0.88), rgba(99, 56, 231, 0.72)),
-    url('assets/hero-map-bg.png') center center / cover no-repeat;
-  color: var(--white);
-}
-
-.access-page {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px 18px;
-}
-
-.access-card {
-  width: min(920px, 100%);
-  padding: clamp(28px, 5vw, 56px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--ink);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
-  text-align: center;
-}
-
-.access-logo {
-  width: min(260px, 72vw);
-  margin-bottom: 26px;
-}
-
-.access-kicker {
-  margin: 0 0 12px;
-  color: var(--purple);
-  font-family: var(--font-button);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 13px;
-}
-
-.access-card h1 {
-  margin: 0 0 20px;
-  font-family: var(--font-hero-title);
-  font-size: clamp(34px, 5vw, 64px);
-  line-height: 0.95;
-  text-transform: uppercase;
-}
-
-.access-lead,
-.access-body-text {
-  max-width: 680px;
-  margin: 0 auto 24px;
-  color: #303447;
-  font-size: 20px;
-  line-height: 1.45;
-}
-
-.access-pill-row {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin: 30px 0;
-}
-
-.access-pill-row span {
-  padding: 12px 18px;
-  border-radius: 999px;
-  background: rgba(99, 56, 231, 0.10);
-  color: var(--purple);
-  font-family: var(--font-button);
-  text-transform: uppercase;
-  font-size: 13px;
-}
-
-.access-form {
-  max-width: 620px;
-  margin: 34px auto 0;
-  text-align: left;
-}
-
-.access-form label {
-  display: block;
-  margin-bottom: 10px;
-  font-family: var(--font-button);
-  text-transform: uppercase;
-  font-size: 13px;
-  color: var(--navy);
-}
-
-.access-input-row {
-  display: flex;
-  gap: 12px;
-}
-
-.access-input-row input {
-  flex: 1;
-  min-height: 48px;
-  padding: 0 16px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  font: inherit;
-}
-
-.access-error {
-  min-height: 20px;
-  margin: 10px 0 0;
-  color: #c82333;
-  font-family: var(--font-button);
-  font-size: 14px;
-}
-
-.access-note {
-  margin: 26px 0 0;
-  color: var(--muted);
-  font-size: 15px;
-}
-
-@media (max-width: 640px) {
-  .access-input-row {
-    flex-direction: column;
-  }
-
-  .access-input-row .btn {
-    width: 100%;
-  }
-}
-
-/* =========================================================
    OPERATIONS PAGE
    ========================================================= */
 .operations-page-body {
-  background: #f0ecff;
+  background: #ecefff;
 }
 
 .operations-page {
-  background: #f0ecff;
+  background: #ecefff;
   padding: 58px 0 72px;
 }
 
@@ -2289,3 +2157,587 @@ body {
   background: #139700;
   color: #fff;
 }
+
+/* ================================
+   PILOT PORTAL
+================================ */
+
+.portal-body {
+  background: #ecefff;
+  min-height: 100vh;
+}
+
+.portal-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: calc(100vh - 90px);
+  background: #ecefff;
+}
+
+.portal-sidebar {
+  padding: 40px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.portal-side-link {
+  border: none;
+  background: transparent;
+  color: #6f6f6f;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 18px;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  transition: all .2s ease;
+}
+
+.portal-side-link img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.portal-side-link.active {
+  background: #5b35d5;
+  color: white;
+  box-shadow: 0 12px 25px rgba(91,53,213,.25);
+}
+
+.portal-side-link:hover:not(.active) {
+  background: rgba(91,53,213,.08);
+}
+
+.portal-side-link span {
+  font-size: 15px;
+}
+
+.portal-content {
+  padding: 28px 48px 60px;
+}
+
+.portal-content h1 {
+  font-size: 58px;
+  line-height: 1;
+  margin: 0;
+  font-weight: 900;
+  color: #050505;
+}
+
+.portal-subtitle {
+  font-size: 20px;
+  margin: 8px 0 26px;
+  color: #333;
+}
+
+.portal-card {
+  background: white;
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 12px 24px rgba(37, 25, 73, 0.18);
+  position: relative;
+}
+
+.profile-card {
+  display: block;
+}
+
+.portal-card h2 {
+  margin: 0 0 22px;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 28px 70px;
+}
+
+.profile-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profile-grid small {
+  color: #888;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.profile-grid strong {
+  color: #050505;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.profile-edit-btn {
+  display: block;
+  margin-top: 30px;
+  margin-left: auto;
+}
+
+.preferences-btn {
+  float: right;
+  margin-top: -40px;
+}
+
+.preferences-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 900px) {
+  .portal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 20px;
+  }
+
+  .portal-content {
+    padding: 24px;
+  }
+
+  .portal-content h1 {
+    font-size: 42px;
+  }
+
+  .profile-card {
+    grid-template-columns: 1fr;
+  }
+
+  .avatar-panel {
+    border-left: none;
+    border-top: 3px solid #cfcfcf;
+    padding-top: 24px;
+  }
+
+  .profile-grid,
+  .preferences-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================
+   LOGIN / REGISTER PAGE
+================================ */
+
+.access-page-body {
+  background: #f0ecff;
+  min-height: 100vh;
+  font-family: inherit;
+}
+
+.access-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+.access-card {
+  width: 100%;
+  max-width: 1050px;
+  background: white;
+  border-radius: 8px;
+  padding: 48px 72px;
+  box-shadow: 0 12px 28px rgba(37, 25, 73, 0.16);
+}
+
+.access-logo {
+  display: block;
+  width: 260px;
+  margin: 0 auto 28px;
+}
+
+.access-kicker {
+  text-align: center;
+  color: #5b35d5;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.access-card h1 {
+  text-align: center;
+  font-size: 64px;
+  line-height: 1;
+  margin: 0 0 18px;
+  color: #12182f;
+  font-weight: 900;
+}
+
+.access-lead {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+
+.access-pill-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.access-pill-row span {
+  background: #e8e0ff;
+  color: #5b35d5;
+  font-weight: 900;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.access-form {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.access-form label {
+  display: block;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: #06132f;
+}
+
+.access-form input {
+  width: 100%;
+  height: 46px;
+  border: 2px solid #d9d0ef;
+  background: #eee8fb;
+  border-radius: 5px;
+  padding: 0 16px;
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+.access-form input:focus {
+  outline: none;
+  border-color: #5b35d5;
+}
+
+.access-form button {
+  margin-top: 4px;
+}
+
+.access-card hr {
+  border: none;
+  border-top: 2px solid #ddd6ef;
+  margin: 42px auto;
+  max-width: 760px;
+}
+
+.access-form h2 {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 26px;
+  color: #12182f;
+  text-transform: none;
+  font-family: inherit;
+}
+
+.access-error {
+  color: #d00025;
+  font-weight: 800;
+  margin-top: 14px;
+}
+
+@media (max-width: 800px) {
+  .access-card {
+    padding: 36px 24px;
+  }
+
+  .access-card h1 {
+    font-size: 42px;
+  }
+
+  .access-logo {
+    width: 220px;
+  }
+
+  .access-pill-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.access-section-title {
+  font-family: var(--font-section-title) !important;
+  font-size: 54px !important;
+  font-weight: 900 !important;
+  color: #12182f !important;
+  line-height: 1 !important;
+  margin-bottom: 32px !important;
+  text-transform: none !important;
+}
+
+.access-page-body,
+.access-page-body * {
+  font-family: var(--font-body) !important;
+}
+
+.access-card h1,
+.access-section-title {
+  font-family: var(--font-section-title) !important;
+}
+
+.access-form label,
+.access-form button,
+.access-pill-row span,
+.access-kicker {
+  font-family: var(--font-button) !important;
+}
+
+/* ================================
+   EDIT PROFILE MODAL
+================================ */
+
+.portal-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: rgba(10, 10, 20, 0.58);
+}
+
+.portal-modal.open {
+  display: flex;
+}
+
+.portal-modal-card {
+  position: relative;
+  width: min(560px, 100%);
+  background: white;
+  border-radius: 10px;
+  padding: 32px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.portal-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  border: none;
+  background: transparent;
+  font-size: 38px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.portal-modal-card h2 {
+  margin: 0;
+  font-family: var(--font-section-title);
+  font-size: 42px;
+  color: #050509;
+}
+
+.portal-modal-card p {
+  margin: 8px 0 24px;
+  color: #5d6375;
+  font-size: 17px;
+}
+
+.portal-edit-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+  font-family: var(--font-section-link);
+  font-size: 15px;
+  color: #101010;
+  text-transform: uppercase;
+}
+
+.portal-edit-form input {
+  width: 100%;
+  height: 44px;
+  border: 2px solid #ded7ef;
+  border-radius: 5px;
+  background: #eee9fb;
+  color: #101629;
+  font-family: var(--font-body);
+  font-size: 17px;
+  padding: 0 14px;
+  outline: none;
+}
+
+.portal-edit-form input:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(99, 56, 231, .12);
+}
+
+.portal-edit-message {
+  min-height: 20px;
+  margin: 6px 0 18px;
+  color: #c82333;
+  font-family: var(--font-button);
+}
+
+.portal-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.portal-edit-form select {
+  width: 100%;
+  height: 44px;
+  border: 2px solid #ded7ef;
+  border-radius: 5px;
+  background: #eee9fb;
+  color: #101629;
+  font-family: var(--font-body);
+  font-size: 17px;
+  padding: 0 14px;
+  outline: none;
+}
+
+.portal-edit-form input[readonly] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.switch-row {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 14px;
+}
+
+.switch-row input {
+  display: none;
+}
+
+.portal-switch {
+  width: 56px;
+  height: 30px;
+  border-radius: 999px;
+  background: #bbb;
+  position: relative;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.portal-switch::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  transition: 0.2s ease;
+}
+
+.switch-row input:checked + .portal-switch {
+  background: var(--purple);
+}
+
+.switch-row input:checked + .portal-switch::after {
+  transform: translateX(26px);
+}
+
+/* Condense Pilot Portal profile layout */
+.portal-content {
+  max-width: 1100px;
+  padding: 28px 36px 60px;
+}
+
+.profile-grid,
+.preferences-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px 46px;
+}
+
+.portal-card {
+  padding: 24px 28px;
+}
+
+.profile-edit-btn,
+.preferences-btn {
+  float: none;
+  display: block;
+  margin: 24px 0 0 auto;
+}
+
+.portal-layout {
+  grid-template-columns: 220px 1fr;
+}
+
+.portal-sidebar {
+  padding: 34px 22px;
+}
+
+.portal-card.preferences-card {
+    max-width: 850px;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.preferences-card .preferences-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+  gap: 28px 70px;
+}
+
+/* Pilot Portal polish */
+.portal-layout {
+  grid-template-columns: 220px 1fr;
+}
+
+.portal-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 36px 60px;
+}
+
+.portal-card,
+.preferences-card {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 32px 36px;
+}
+
+.profile-grid,
+.preferences-card .preferences-grid {
+  gap: 34px 80px;
+}
+
+.portal-card h2 {
+  margin-bottom: 28px;
+}
+
+.profile-edit-btn,
+.preferences-btn {
+  margin-top: 34px;
+  margin-left: auto;
+}
+
+.portal-side-link {
+  min-height: 58px;
+}
+

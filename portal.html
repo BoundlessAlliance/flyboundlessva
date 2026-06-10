@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pilot Portal | Boundless Alliance</title>
+    <script src="auth.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="portal-body">
+    <header class="site-header">
+      <a class="brand" href="home.html">
+        <img src="assets/logo.png" alt="Boundless Alliance Logo" />
+      </a>
+      <nav class="main-nav">
+        <a class="nav-text" href="home.html">Home</a>
+        <a class="nav-text" href="dispatch.html">Dispatch</a>
+        <a class="nav-text" href="#fleet">Fleet</a>
+        <a class="nav-text" href="#about">About Us</a>
+        <a class="nav-text" href="operations.html">Operations</a>
+        <a class="nav-text" href="pireps.html">PIREPs</a>
+        <a class="nav-text nav-portal portal-btn active" href="portal.html">Pilot Portal</a>
+      </nav>
+    </header>
+    <main class="portal-layout">
+      <aside class="portal-sidebar">
+        <button class="portal-side-link" data-icon="dashboard">
+          <img src="assets/dashboard.png" alt="">
+          <span>Dashboard</span>
+        </button>
+        <button class="portal-side-link active" data-icon="profile">
+          <img src="assets/profile_w.png" alt="">
+          <span>Profile</span>
+        </button>
+        <button class="portal-side-link" data-icon="clipboard_portal">
+          <img src="assets/clipboard_portal.png" alt="">
+          <span>PIREPs</span>
+        </button>
+        <button class="portal-side-link" data-icon="achievements">
+          <img src="assets/achievements.png" alt="">
+          <span>Achievements</span>
+        </button>
+        <button class="portal-side-link" data-icon="documents">
+          <img src="assets/documents.png" alt="">
+          <span>Documents</span>
+        </button>
+        <button class="portal-side-link" data-icon="settings">
+          <img src="assets/settings.png" alt="">
+          <span>Settings</span>
+        </button>
+        <button class="portal-side-link" data-icon="log_out" onclick="logout()">
+          <img src="assets/log_out.png" alt="">
+          <span>Log Out</span>
+        </button>
+      </aside>
+      <section class="portal-content">
+        <h1>Pilot Portal</h1>
+        <p class="portal-subtitle">Manage your personal information and preferences</p>
+        <section class="portal-card profile-card">
+          <div class="portal-card-main">
+            <h2>Profile Information</h2>
+            <div class="profile-grid">
+              <div>
+                <small>Username</small>
+                <strong id="portalUsername">Loading...</strong>
+                </div>
+
+                <div>
+                <small>Pilot ID</small>
+                <strong id="portalPilotId">Loading...</strong>
+                </div>
+
+                <div>
+                <small>Rank</small>
+                <strong id="portalRank">Loading...</strong>
+                </div>
+
+                <div>
+                <small>Full Name</small>
+                <strong id="portalFullName">Loading...</strong>
+                </div>
+
+                <div>
+                <small>Email</small>
+                <strong id="portalEmail">Loading...</strong>
+                </div>
+
+                <div>
+                <small>Member Since</small>
+                <strong id="portalMemberSince">Loading...</strong>
+                </div>
+            </div>
+            <button class="btn primary profile-edit-btn" onclick="openEditProfileModal()">Edit Profile</button>
+          </div>
+        </section>
+        <section class="portal-card preferences-card">
+          <h2>Preferences</h2>
+          <div class="profile-grid preferences-grid">
+            <div>
+              <small>Preferred Aircraft</small>
+              <strong id="portalPreferredAircraft">Loading...</strong>
+            </div>
+            <div>
+              <small>Time Zone</small>
+              <strong id="portalTimeZone">Loading...</strong>
+            </div>
+            <div>
+              <small>Email Notifications</small>
+              <strong id="portalEmailNotifications">Loading...</strong>
+            </div>
+            <div>
+              <small>Home Base</small>
+              <strong id="portalHomeBase">Loading...</strong>
+            </div>
+          </div>
+          <button class="btn secondary preferences-btn" onclick="openEditPreferencesModal()">Edit Preferences</button>
+        </section>
+      </section>
+    </main>
+    <div id="editProfileModal" class="portal-modal">
+      <div class="portal-modal-card">
+        <button class="portal-modal-close" onclick="closeEditProfileModal()">×</button>
+        <h2>Edit Profile</h2>
+        <p>Update your pilot profile information.</p>
+        <form id="editProfileForm" class="portal-edit-form">
+          <label> Username <input id="editUsername" type="text" required />
+          </label>
+          <label> Full Name <input id="editFullName" type="text" />
+          </label>
+          <label> Email <input id="editEmail" type="email" />
+          </label>
+          <p id="editProfileMessage" class="portal-edit-message"></p>
+          <div class="portal-modal-actions">
+            <button type="button" class="btn secondary" onclick="closeEditProfileModal()">Cancel</button>
+            <button type="submit" class="btn primary">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="editPreferencesModal" class="portal-modal">
+      <div class="portal-modal-card">
+        <button class="portal-modal-close" onclick="closeEditPreferencesModal()">×</button>
+        <h2>Edit Preferences</h2>
+        <p>Update your pilot preferences.</p>
+        <form id="editPreferencesForm" class="portal-edit-form">
+          <label> Preferred Aircraft <input id="editPreferredAircraft" type="text" readonly />
+          </label>
+          <label> Home Base <input id="editHomeBase" type="text" maxlength="4" placeholder="KPHX" required />
+          </label>
+          <label> Time Zone <select id="editTimeZone" required>
+              <option value="">Select Time Zone</option>
+              <option value="America/New_York">Eastern Time</option>
+              <option value="America/Chicago">Central Time</option>
+              <option value="America/Denver">Mountain Time</option>
+              <option value="America/Phoenix">Arizona Time</option>
+              <option value="America/Los_Angeles">Pacific Time</option>
+              <option value="America/Anchorage">Alaska Time</option>
+              <option value="Pacific/Honolulu">Hawaii Time</option>
+              <option value="UTC">UTC / Zulu</option>
+              <option value="Europe/London">London</option>
+              <option value="Europe/Paris">Central Europe</option>
+              <option value="Asia/Dubai">Dubai</option>
+              <option value="Asia/Tokyo">Tokyo</option>
+              <option value="Australia/Sydney">Sydney</option>
+            </select>
+          </label>
+          <label class="switch-row"> Email Notifications <input id="editEmailNotifications" type="checkbox" />
+            <span class="portal-switch"></span>
+          </label>
+          <p id="editPreferencesMessage" class="portal-edit-message"></p>
+          <div class="portal-modal-actions">
+            <button type="button" class="btn secondary" onclick="closeEditPreferencesModal()">Cancel</button>
+            <button type="submit" class="btn primary">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      function loadPortalProfile() {
+        document.getElementById("portalUsername").textContent = localStorage.getItem("boundlessUsername") || "Pilot";
+        document.getElementById("portalPilotId").textContent = localStorage.getItem("boundlessPilotId") || "Not Set";
+        document.getElementById("portalFullName").textContent = localStorage.getItem("boundlessFullName") || "Not Set";
+        document.getElementById("portalRank").textContent = localStorage.getItem("boundlessRank") || "Cadet";
+        document.getElementById("portalEmail").textContent = localStorage.getItem("boundlessEmail") || "Not Set";
+        document.getElementById("portalMemberSince").textContent = localStorage.getItem("boundlessCreatedAt") || "Not Set";
+        document.getElementById("portalPreferredAircraft").textContent = localStorage.getItem("boundlessPreferredAircraft") || "Not Set";
+        document.getElementById("portalHomeBase").textContent = localStorage.getItem("boundlessHomeBase") || "Not Set";
+        document.getElementById("portalTimeZone").textContent = localStorage.getItem("boundlessTimeZone") || "Not Set";
+        document.getElementById("portalEmailNotifications").textContent = localStorage.getItem("boundlessEmailNotifications") || "Disabled";
+      }
+      document.addEventListener("boundlessAuthReady", loadPortalProfile);
+
+      function logout() {
+        localStorage.removeItem("boundlessToken");
+        localStorage.removeItem("boundlessUsername");
+        localStorage.removeItem("boundlessRole");
+        window.location.href = "index.html";
+      }
+    </script>
+    <script>
+      document.querySelectorAll(".portal-side-link").forEach(link => {
+        const icon = link.dataset.icon;
+        const img = link.querySelector("img");
+        if (!icon || !img) return;
+        if (link.classList.contains("active")) {
+          img.src = `assets/${icon}_w.png`;
+        } else {
+          img.src = `assets/${icon}.png`;
+        }
+      });
+
+      function openEditProfileModal() {
+        document.getElementById("editUsername").value = localStorage.getItem("boundlessUsername") || "";
+        document.getElementById("editFullName").value = localStorage.getItem("boundlessFullName") || "";
+        document.getElementById("editEmail").value = localStorage.getItem("boundlessEmail") || "";
+        document.getElementById("editProfileMessage").textContent = "";
+        document.getElementById("editProfileModal").classList.add("open");
+      }
+
+      function closeEditProfileModal() {
+        document.getElementById("editProfileModal").classList.remove("open");
+      }
+      document.getElementById("editProfileForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
+        const message = document.getElementById("editProfileMessage");
+        message.textContent = "Saving...";
+        const token = localStorage.getItem("boundlessToken");
+        const username = document.getElementById("editUsername").value.trim();
+        const fullName = document.getElementById("editFullName").value.trim();
+        const email = document.getElementById("editEmail").value.trim();
+        try {
+          const response = await fetch(APPS_SCRIPT_URL, {
+            method: "POST",
+            body: JSON.stringify({
+              action: "updateProfile",
+              token: token,
+              username: username,
+              fullName: fullName,
+              email: email
+            })
+          });
+          const result = await response.json();
+          console.log(result);
+          if (!result.success) {
+            message.textContent = result.message || "Unable to update profile.";
+            return;
+          }
+          localStorage.setItem("boundlessUsername", result.username || "");
+          localStorage.setItem("boundlessFullName", result.fullName || "");
+          localStorage.setItem("boundlessEmail", result.email || "");
+          loadPortalProfile();
+          closeEditProfileModal();
+        } catch (error) {
+          console.error("Profile update error:", error);
+          message.textContent = "Unable to update profile.";
+        }
+      });
+
+      function openEditPreferencesModal() {
+        document.getElementById("editPreferredAircraft").value = localStorage.getItem("boundlessPreferredAircraft") || "Not enough flight data yet";
+        document.getElementById("editHomeBase").value = localStorage.getItem("boundlessHomeBase") || "";
+        document.getElementById("editTimeZone").value = localStorage.getItem("boundlessTimeZone") || "";
+        document.getElementById("editEmailNotifications").checked = localStorage.getItem("boundlessEmailNotifications") === "Yes";
+        document.getElementById("editPreferencesMessage").textContent = "";
+        document.getElementById("editPreferencesModal").classList.add("open");
+      }
+
+      function closeEditPreferencesModal() {
+        document.getElementById("editPreferencesModal").classList.remove("open");
+      }
+      document.getElementById("editHomeBase").addEventListener("input", function() {
+        this.value = this.value.toUpperCase();
+      });
+      document.getElementById("editPreferencesForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
+        const message = document.getElementById("editPreferencesMessage");
+        message.textContent = "Saving...";
+        const token = localStorage.getItem("boundlessToken");
+        const homeBase = document.getElementById("editHomeBase").value.trim().toUpperCase();
+        const timeZone = document.getElementById("editTimeZone").value;
+        const emailNotifications = document.getElementById("editEmailNotifications").checked ? "Yes" : "No";
+        if (!/^[A-Z]{4}$/.test(homeBase)) {
+          message.textContent = "Home Base must be a 4-letter ICAO code.";
+          return;
+        }
+        try {
+          const response = await fetch(APPS_SCRIPT_URL, {
+            method: "POST",
+            body: JSON.stringify({
+              action: "updatePreferences",
+              token: token,
+              homeBase: homeBase,
+              timeZone: timeZone,
+              emailNotifications: emailNotifications
+            })
+          });
+          const result = await response.json();
+          if (!result.success) {
+            message.textContent = result.message || "Unable to update preferences.";
+            return;
+          }
+          localStorage.setItem("boundlessHomeBase", result.homeBase || "");
+          localStorage.setItem("boundlessTimeZone", result.timeZone || "");
+          localStorage.setItem("boundlessEmailNotifications", result.emailNotifications || "");
+          loadPortalProfile();
+          closeEditPreferencesModal();
+        } catch (error) {
+          console.error("Preferences update error:", error);
+          message.textContent = "Unable to update preferences.";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,196 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Operations | Boundless Alliance</title>
-  <script src="auth.js"></script>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Operations | Boundless Alliance</title>
+	<script src="auth.js"></script>
+	<link rel="stylesheet" href="styles.css" /> </head>
+
 <body class="operations-page-body">
-  <header class="site-header">
-    <a class="brand" href="home.html">
-      <img src="assets/logo.png" alt="Boundless Alliance Logo" />
-    </a>
-
-    <nav class="main-nav" aria-label="Main navigation">
-      <a class="nav-text nav-home" href="home.html">Home</a>
-      <a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a>
-      <a class="nav-text nav-fleet" href="#fleet">Fleet</a>
-      <a class="nav-text nav-about" href="#about">About Us</a>
-      <a class="nav-text nav-operations active" href="operations.html">Operations</a>
-      <a class="nav-text nav-pireps" href="pireps.html">PIREPs</a>
-      <a class="nav-text nav-portal portal-btn" href="#portal">Pilot Portal</a>
-    </nav>
-  </header>
-
-  <main class="operations-page">
-    <section class="operations-hero">
-      <div class="operations-title-block">
-        <img src="assets/operations_icon.png" alt="Operations icon" />
-        <div>
-          <h1>Operations</h1>
-          <h2>Operations Management Center</h2>
-          <p>Manage PIREPs, Featured Flights, Events, Economy, and more.</p>
-        </div>
-      </div>
-
-      <aside class="operations-stats-card">
-        <div class="operations-stat-block">
-          <img src="assets/clipboard_ops.png" alt="Pending PIREPs icon" />
-          <div>
-            <h3>Pending PIREPs</h3>
-            <strong id="pendingPirepCount">3</strong>
-            <span>Awaiting Review</span>
-          </div>
-        </div>
-
-        <div class="operations-stat-divider"></div>
-
-        <div class="operations-stat-block">
-          <img src="assets/aircraft_tilted.png" alt="Featured flights icon" />
-          <div>
-            <h3>Featured Flights</h3>
-            <strong id="featuredFlightCount">3</strong>
-            <span>Currently Active</span>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section class="operations-card">
-      <h2>Operations Details</h2>
-
-      <div class="operations-tabs" role="tablist" aria-label="Operations sections">
-        <button class="operations-tab active" type="button" data-target="pirepReview">PIREP Review</button>
-        <button class="operations-tab" type="button" data-target="featuredFlights">Featured Flights</button>
-        <button class="operations-tab" type="button" data-target="economy">Economy</button>
-        <button class="operations-tab" type="button" data-target="events">Events</button>
-        <button class="operations-tab" type="button" data-target="applications">Applications</button>
-      </div>
-
-      <div class="operations-divider"></div>
-
-      <section class="operations-panel active" id="pirepReview">
-        <div class="operations-panel-header">
-          <div>
-            <h3>Pending PIREPs</h3>
-            <p>Review and approve/deny pilot reports.</p>
-          </div>
-          <button class="operations-outline-btn" type="button">View All PIREPs</button>
-        </div>
-        <div class="pirep-review-grid" id="pendingPirepGrid"></div>
-      </section>
-
-      <section class="operations-panel" id="featuredFlights">
-        <div class="operations-panel-header">
-          <div>
-            <h3>Featured Flights</h3>
-            <p>Create and manage currently featured routes.</p>
-          </div>
-          <button class="operations-outline-btn" type="button">Add Featured Flight</button>
-        </div>
-        <div class="operations-placeholder-grid">
-          <div class="operations-tool-card">Featured Flight Editor</div>
-          <div class="operations-tool-card">Active Featured Flights</div>
-          <div class="operations-tool-card">Route Spotlight Settings</div>
-        </div>
-      </section>
-
-      <section class="operations-panel" id="economy">
-        <div class="operations-panel-header">
-          <div>
-            <h3>Economy</h3>
-            <p>Review company finances, pilot pay, and flight income.</p>
-          </div>
-        </div>
-        <div class="operations-placeholder-grid">
-          <div class="operations-tool-card">Company Balance</div>
-          <div class="operations-tool-card">Pilot Pay Review</div>
-          <div class="operations-tool-card">Income Reports</div>
-        </div>
-      </section>
-
-      <section class="operations-panel" id="events">
-        <div class="operations-panel-header">
-          <div>
-            <h3>Events</h3>
-            <p>Create and manage alliance events.</p>
-          </div>
-        </div>
-        <div class="operations-placeholder-grid">
-          <div class="operations-tool-card">Event Builder</div>
-          <div class="operations-tool-card">Active Events</div>
-          <div class="operations-tool-card">Event Archive</div>
-        </div>
-      </section>
-
-      <section class="operations-panel" id="applications">
-        <div class="operations-panel-header">
-          <div>
-            <h3>Applications</h3>
-            <p>Review pilot, staff, and operations applications.</p>
-          </div>
-        </div>
-        <div class="operations-placeholder-grid">
-          <div class="operations-tool-card">Pilot Applications</div>
-          <div class="operations-tool-card">Staff Applications</div>
-          <div class="operations-tool-card">Application Settings</div>
-        </div>
-      </section>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <img src="assets/logo.png" alt="Boundless Alliance Logo" />
-    <div class="footer-social">
-      <span class="footer-heading">Connect With Us</span>
-      <a href="https://discord.gg/mwQuuQKqa5" target="_blank" class="footer-discord-link">
-        <img src="assets/discord_icon.png" class="footer-discord-icon" alt="Discord" />
-        <small class="footer-discord">Join Our Discord</small>
-      </a>
-    </div>
-    <p class="footer-copyright">© Boundless Alliance<br>All Rights Reserved</p>
-  </footer>
-
-  <script>
-    const operationsTabs = document.querySelectorAll('.operations-tab');
-    const operationsPanels = document.querySelectorAll('.operations-panel');
-
-    operationsTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const target = tab.dataset.target;
-
-        operationsTabs.forEach(item => item.classList.remove('active'));
-        operationsPanels.forEach(panel => panel.classList.remove('active'));
-
-        tab.classList.add('active');
-        document.getElementById(target).classList.add('active');
-      });
-    });
-  </script>
-  <script>
-    const PIREP_WEB_APP_URL =
-    "https://script.google.com/macros/s/AKfycbzsdeVDsh3OThkWqQG_gFnmjUYpiX3kjBQWUTYn3NNKBIpasVs26yHKij_KJZSgAcscOA/exec";
-
-    const pendingPirepGrid = document.getElementById("pendingPirepGrid");
-    const pendingPirepCount = document.getElementById("pendingPirepCount");
-
-    async function loadPendingPireps() {
-      try {
-        const response = await fetch(PIREP_WEB_APP_URL);
-        const result = await response.json();
-        loadedPireps = result.pireps;
-
-        pendingPirepGrid.innerHTML = "";
-        pendingPirepCount.textContent = result.pireps.length;
-
-        result.pireps.forEach((pirep, index) => {
-          const values = pirep.values;
-          const card = document.createElement("article");
-          card.className = "ops-pirep-card";
-
-          card.innerHTML = `
+	<header class="site-header">
+		<a class="brand" href="home.html"> <img src="assets/logo.png" alt="Boundless Alliance Logo" /> </a>
+		<nav class="main-nav" aria-label="Main navigation"> <a class="nav-text nav-home" href="home.html">Home</a> <a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a> <a class="nav-text nav-fleet" href="#fleet">Fleet</a> <a class="nav-text nav-about" href="#about">About Us</a> <a class="nav-text nav-operations active" href="operations.html">Operations</a> <a class="nav-text nav-pireps" href="pireps.html">PIREPs</a> <a class="nav-text nav-portal portal-btn" href="portal.html">Pilot Portal</a> </nav>
+	</header>
+	<main class="operations-page">
+		<section class="operations-hero">
+			<div class="operations-title-block"> <img src="assets/operations_icon.png" alt="Operations icon" />
+				<div>
+					<h1>Operations</h1>
+					<h2>Operations Management Center</h2>
+					<p>Manage PIREPs, Featured Flights, Events, Economy, and more.</p>
+				</div>
+			</div>
+			<aside class="operations-stats-card">
+				<div class="operations-stat-block"> <img src="assets/clipboard_ops.png" alt="Pending PIREPs icon" />
+					<div>
+						<h3>Pending PIREPs</h3> <strong id="pendingPirepCount">3</strong> <span>Awaiting Review</span> </div>
+				</div>
+				<div class="operations-stat-divider"></div>
+				<div class="operations-stat-block"> <img src="assets/aircraft_tilted.png" alt="Featured flights icon" />
+					<div>
+						<h3>Featured Flights</h3> <strong id="featuredFlightCount">3</strong> <span>Currently Active</span> </div>
+				</div>
+			</aside>
+		</section>
+		<section class="operations-card">
+			<h2>Operations Details</h2>
+			<div class="operations-tabs" role="tablist" aria-label="Operations sections">
+				<button class="operations-tab active" type="button" data-target="pirepReview">PIREP Review</button>
+				<button class="operations-tab" type="button" data-target="featuredFlights">Featured Flights</button>
+				<button class="operations-tab" type="button" data-target="economy">Economy</button>
+				<button class="operations-tab" type="button" data-target="events">Events</button>
+				<button class="operations-tab" type="button" data-target="applications">Applications</button>
+			</div>
+			<div class="operations-divider"></div>
+			<section class="operations-panel active" id="pirepReview">
+				<div class="operations-panel-header">
+					<div>
+						<h3>Pending PIREPs</h3>
+						<p>Review and approve/deny pilot reports.</p>
+					</div>
+					<button class="operations-outline-btn" type="button">View All PIREPs</button>
+				</div>
+				<div class="pirep-review-grid" id="pendingPirepGrid"></div>
+			</section>
+			<section class="operations-panel" id="featuredFlights">
+				<div class="operations-panel-header">
+					<div>
+						<h3>Featured Flights</h3>
+						<p>Create and manage currently featured routes.</p>
+					</div>
+					<button class="operations-outline-btn" type="button">Add Featured Flight</button>
+				</div>
+				<div class="operations-placeholder-grid">
+					<div class="operations-tool-card">Featured Flight Editor</div>
+					<div class="operations-tool-card">Active Featured Flights</div>
+					<div class="operations-tool-card">Route Spotlight Settings</div>
+				</div>
+			</section>
+			<section class="operations-panel" id="economy">
+				<div class="operations-panel-header">
+					<div>
+						<h3>Economy</h3>
+						<p>Review company finances, pilot pay, and flight income.</p>
+					</div>
+				</div>
+				<div class="operations-placeholder-grid">
+					<div class="operations-tool-card">Company Balance</div>
+					<div class="operations-tool-card">Pilot Pay Review</div>
+					<div class="operations-tool-card">Income Reports</div>
+				</div>
+			</section>
+			<section class="operations-panel" id="events">
+				<div class="operations-panel-header">
+					<div>
+						<h3>Events</h3>
+						<p>Create and manage alliance events.</p>
+					</div>
+				</div>
+				<div class="operations-placeholder-grid">
+					<div class="operations-tool-card">Event Builder</div>
+					<div class="operations-tool-card">Active Events</div>
+					<div class="operations-tool-card">Event Archive</div>
+				</div>
+			</section>
+			<section class="operations-panel" id="applications">
+				<div class="operations-panel-header">
+					<div>
+						<h3>Applications</h3>
+						<p>Review pilot, staff, and operations applications.</p>
+					</div>
+				</div>
+				<div class="operations-placeholder-grid">
+					<div class="operations-tool-card">Pilot Applications</div>
+					<div class="operations-tool-card">Staff Applications</div>
+					<div class="operations-tool-card">Application Settings</div>
+				</div>
+			</section>
+		</section>
+	</main>
+	<footer class="site-footer"> <img src="assets/logo.png" alt="Boundless Alliance Logo" />
+		<div class="footer-social"> <span class="footer-heading">Connect With Us</span>
+			<a href="https://discord.gg/mwQuuQKqa5" target="_blank" class="footer-discord-link"> <img src="assets/discord_icon.png" class="footer-discord-icon" alt="Discord" /> <small class="footer-discord">Join Our Discord</small> </a>
+		</div>
+		<p class="footer-copyright">© Boundless Alliance
+			<br>All Rights Reserved</p>
+	</footer>
+	<script>
+	const operationsTabs = document.querySelectorAll('.operations-tab');
+	const operationsPanels = document.querySelectorAll('.operations-panel');
+	operationsTabs.forEach(tab => {
+		tab.addEventListener('click', () => {
+			const target = tab.dataset.target;
+			operationsTabs.forEach(item => item.classList.remove('active'));
+			operationsPanels.forEach(panel => panel.classList.remove('active'));
+			tab.classList.add('active');
+			document.getElementById(target).classList.add('active');
+		});
+	});
+	</script>
+	<script>
+	const PIREP_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsdeVDsh3OThkWqQG_gFnmjUYpiX3kjBQWUTYn3NNKBIpasVs26yHKij_KJZSgAcscOA/exec";
+	const pendingPirepGrid = document.getElementById("pendingPirepGrid");
+	const pendingPirepCount = document.getElementById("pendingPirepCount");
+	async function loadPendingPireps() {
+		try {
+			const response = await fetch(PIREP_WEB_APP_URL);
+			const result = await response.json();
+			loadedPireps = result.pireps;
+			pendingPirepGrid.innerHTML = "";
+			pendingPirepCount.textContent = result.pireps.length;
+			result.pireps.forEach((pirep, index) => {
+				const values = pirep.values;
+				const card = document.createElement("article");
+				card.className = "ops-pirep-card";
+				card.innerHTML = `
             <div class="ops-pirep-topline">
               <h4>#${String(index + 1).padStart(3, "0")}</h4>
               <span>Pending</span>
@@ -208,56 +162,40 @@
               Review PIREP
             </button>
           `;
+				pendingPirepGrid.appendChild(card);
+			});
+		} catch(error) {
+			console.error("Failed to load pending PIREPs:", error);
+			pendingPirepGrid.innerHTML = "<p>Unable to load pending PIREPs.</p>";
+		}
+	}
 
-          pendingPirepGrid.appendChild(card);
-        });
+	function formatDate(dateString) {
+		if(!dateString) return "";
+		const date = new Date(dateString);
+		const month = String(date.getMonth() + 1).padStart(2, "0");
+		const day = String(date.getDate()).padStart(2, "0");
+		const year = date.getFullYear();
+		const hours = String(date.getHours()).padStart(2, "0");
+		const minutes = String(date.getMinutes()).padStart(2, "0");
+		return `on ${month}/${day}/${year} at ${hours}:${minutes}`;
+	}
+	loadPendingPireps();
+	let loadedPireps = [];
+	let activePirepId = null;
 
-      } catch (error) {
-        console.error("Failed to load pending PIREPs:", error);
-        pendingPirepGrid.innerHTML = "<p>Unable to load pending PIREPs.</p>";
-      }
-    }
-
-    function formatDate(dateString) {
-      if (!dateString) return "";
-
-      const date = new Date(dateString);
-
-      const month = String(date.getMonth() + 1).padStart(2, "0");
-      const day = String(date.getDate()).padStart(2, "0");
-      const year = date.getFullYear();
-
-      const hours = String(date.getHours()).padStart(2, "0");
-      const minutes = String(date.getMinutes()).padStart(2, "0");
-
-      return `on ${month}/${day}/${year} at ${hours}:${minutes}`;
-    }
-
-    loadPendingPireps();
-
-    let loadedPireps = [];
-    let activePirepId = null;
-
-    function openPirepModal(pirepId) {
-      const pirep = loadedPireps.find(item => item.values[39] === pirepId);
-
-      document.getElementById("modalPirepSubtitle").textContent =
-        `${pirep["Airline"] || ""} → ${pirep["Callsign"] || ""}`;
-
-      if (!pirep) {
-        alert("Could not find this PIREP.");
-        return;
-      }
-
-      document.getElementById("modalPirepSubtitle").textContent =
-        `${pirep["Airline"] || ""} ${pirep["Flight Number"] || ""} | ${pirep["Departure Airport"] || ""} → ${pirep["Arrival Airport"] || ""}`;
-
-      const values = pirep.values;
-      activePirepId = values[39];
-      document.getElementById("modalPirepSubtitle").textContent =
-        `${values[0] || ""} → ${values[2] || ""}`;
-
-      document.getElementById("modalPirepContent").innerHTML = `
+	function openPirepModal(pirepId) {
+		const pirep = loadedPireps.find(item => item.values[39] === pirepId);
+		document.getElementById("modalPirepSubtitle").textContent = `${pirep["Airline"] || ""} → ${pirep["Callsign"] || ""}`;
+		if(!pirep) {
+			alert("Could not find this PIREP.");
+			return;
+		}
+		document.getElementById("modalPirepSubtitle").textContent = `${pirep["Airline"] || ""} ${pirep["Flight Number"] || ""} | ${pirep["Departure Airport"] || ""} → ${pirep["Arrival Airport"] || ""}`;
+		const values = pirep.values;
+		activePirepId = values[39];
+		document.getElementById("modalPirepSubtitle").textContent = `${values[0] || ""} → ${values[2] || ""}`;
+		document.getElementById("modalPirepContent").innerHTML = `
         <div class="modal-section">
           <h3>Flight Info</h3>
           <div class="modal-grid">
@@ -339,50 +277,43 @@
           <div class="modal-wide"><span>Additional Comments</span><strong>${values[38] || ""}</strong></div>
         </div>
       `;
+		document.getElementById("pirepReviewModal").classList.add("open");
+	}
 
-      document.getElementById("pirepReviewModal").classList.add("open");
-    }
-
-    function closePirepModal() {
-      document.getElementById("pirepReviewModal").classList.remove("open");
-    }
-    async function decidePirep(decision) {
-      if (!activePirepId) {
-        alert("No PIREP selected.");
-        return;
-      }
-
-      const action = decision === "approve" ? "approvePirep" : "denyPirep";
-
-      await fetch(PIREP_WEB_APP_URL, {
-        method: "POST",
-        mode: "no-cors",
-        body: JSON.stringify({
-          action: action,
-          pirepId: activePirepId
-        })
-      });
-
-      alert(`PIREP ${decision === "approve" ? "approved" : "denied"}.`);
-
-      closePirepModal();
-      loadPendingPireps();
-    }
-  </script>
-      <div id="pirepReviewModal" class="pirep-modal">
-      <div class="pirep-modal-card">
-        <button type="button" class="pirep-modal-close" onclick="closePirepModal()">×</button>
-
-        <h2>PIREP Review</h2>
-        <p id="modalPirepSubtitle">Review submitted pilot report.</p>
-
-        <div id="modalPirepContent" class="modal-pirep-content"></div>
-
-        <div class="pirep-modal-actions">
-          <button type="button" class="modal-deny-btn" onclick="decidePirep('deny')">Deny</button>
-          <button type="button" class="modal-approve-btn" onclick="decidePirep('approve')">Approve</button>
-        </div>
-      </div>
-    </div>
+	function closePirepModal() {
+		document.getElementById("pirepReviewModal").classList.remove("open");
+	}
+	async function decidePirep(decision) {
+		if(!activePirepId) {
+			alert("No PIREP selected.");
+			return;
+		}
+		const action = decision === "approve" ? "approvePirep" : "denyPirep";
+		await fetch(PIREP_WEB_APP_URL, {
+			method: "POST",
+			mode: "no-cors",
+			body: JSON.stringify({
+				action: action,
+				pirepId: activePirepId
+			})
+		});
+		alert(`PIREP ${decision === "approve" ? "approved" : "denied"}.`);
+		closePirepModal();
+		loadPendingPireps();
+	}
+	</script>
+	<div id="pirepReviewModal" class="pirep-modal">
+		<div class="pirep-modal-card">
+			<button type="button" class="pirep-modal-close" onclick="closePirepModal()">×</button>
+			<h2>PIREP Review</h2>
+			<p id="modalPirepSubtitle">Review submitted pilot report.</p>
+			<div id="modalPirepContent" class="modal-pirep-content"></div>
+			<div class="pirep-modal-actions">
+				<button type="button" class="modal-deny-btn" onclick="decidePirep('deny')">Deny</button>
+				<button type="button" class="modal-approve-btn" onclick="decidePirep('approve')">Approve</button>
+			</div>
+		</div>
+	</div>
 </body>
+
 </html>
