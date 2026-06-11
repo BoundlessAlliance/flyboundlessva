@@ -3,143 +3,199 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login | Boundless Alliance</title>
+  <title>Home | Boundless Alliance</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Boundless Alliance Logo" />
+    </a>
 
-<body class="access-page-body">
-  <main class="access-page">
-    <section class="access-card">
-      <img class="access-logo" src="assets/logo.png" alt="Boundless Alliance Logo" />
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-text nav-home active" href="index.html">Home</a>
+      <a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a>
+      <a class="nav-text nav-fleet" href="#fleet">Fleet</a>
+      <a class="nav-text nav-about" href="#about">About Us</a>
+      <a id="operationsNavLink" class="nav-text operations-only" href="operations.html">Operations</a>
+      <a class="nav-text nav-pireps" href="pireps.html">PIREPs</a>
+      <a class="nav-text nav-pireps" href="#apply">Apply</a>
+      <a class="nav-text nav-portal portal-btn" href="#" id="pilotPortalLink">Pilot Portal</a>
+    </nav>
+  </header>
 
-      <p class="access-kicker">Virtual Airline Community</p>
-      <h1>BOUNDLESS ALLIANCE</h1>
+  <main>
+    <section class="hero">
+      <img class="hero-map" src="assets/world-map.png" alt="World route map" />
+      <div class="hero-copy">
+        <h1 class="hero-title">Connecting<br>pilots.<br>Expanding<br><span class="hero-title-accent">horizons.</span></h1>
+        <p class="hero-subtitle">A global virtual alliance uniting pilots and airlines across the world.</p>
+        <div class="hero-actions">
+          <a class="btn primary btn-dispatch" href="dispatch.html">✈ View Dispatch</a>
+          <a class="btn secondary btn-pirep" href="pireps.html">📝 Submit PIREP</a>
+        </div>
+      </div>
+    </section>
 
-      <p class="access-lead">
-        Log in or create an account to begin your journey!.
-      </p>
+    <section class="stats-bar" aria-label="Alliance statistics">
+      <article class="stat-card stat-registered">
+        <img src="assets/inop.png" class="inop1" alt="">
+        <div class="stat-icon stat-icon-registered">♙</div>
+        <strong class="stat-number stat-number-registered">100</strong>
+        <span class="stat-label stat-label-registered">Registered Pilots</span>
+      </article>
+      <article class="stat-card stat-flights">
+        <img src="assets/inop.png" class="inop2" alt="">
+        <div class="stat-icon stat-icon-flights">✈</div>
+        <strong class="stat-number stat-number-flights">50</strong>
+        <span class="stat-label stat-label-flights">Total Flights</span>
+      </article>
+      <article class="stat-card stat-hours">
+        <img src="assets/inop.png" class="inop3" alt="">
+        <div class="stat-icon stat-icon-hours">◷</div>
+        <strong class="stat-number stat-number-hours">627</strong>
+        <span class="stat-label stat-label-hours">Total Flight Hours</span>
+      </article>
+      <article class="stat-card stat-destinations">
+        <img src="assets/inop.png" class="inop4" alt="">
+        <div class="stat-icon stat-icon-destinations">◎</div>
+        <strong class="stat-number stat-number-destinations">35</strong>
+        <span class="stat-label stat-label-destinations">Destinations</span>
+      </article>
+      <article class="stat-card stat-performance">
+        <img src="assets/inop.png" class="inop5" alt="">
+        <div class="stat-icon stat-icon-performance">▥</div>
+        <strong class="stat-number stat-number-performance">98.6%</strong>
+        <span class="stat-label stat-label-performance">On-Time Performance</span>
+      </article>
+    </section>
 
-      <div class="access-pill-row">
-        <span>Fly Any Airline</span>
-        <span>Fly Any Route</span>
-        <span>Fly Any Aircraft</span>
+    <section class="section featured-section" id="dispatch">
+      <div class="section-heading featured-heading">
+        <h2 class="section-title featured-title">Featured Flights</h2>
+        <a class="section-link featured-link" href="#">View All Flights →</a>
       </div>
 
-      <form id="loginForm" class="access-form">
-        <label for="loginUsername">Username</label>
-        <input id="loginUsername" type="text" autocomplete="username" required />
+      <div class="flight-grid">
+        <article class="flight-card flight-card-southwest">
+          <img src="assets/southwest.png" alt="Southwest 737-800" />
+          <div class="flight-info">
+            <small class="flight-number flight-number-southwest">SWA0006</small>
+            <h3 class="flight-route flight-route-southwest">KPHX - KLAS</h3>
+            <p class="flight-carrier flight-carrier-southwest">Southwest Airlines</p>
+            <p class="flight-airframe flight-airframe-southwest">737-800</p>
+          </div>
+        </article>
 
-        <label for="loginPassword">Password</label>
-        <input id="loginPassword" type="password" autocomplete="current-password" required />
+        <article class="flight-card flight-card-american">
+          <img src="assets/american.png" alt="American Eagle CRJ" />
+          <div class="flight-info">
+            <small class="flight-number flight-number-american">AAL0008</small>
+            <h3 class="flight-route flight-route-american">KDFW - KAMA</h3>
+            <p class="flight-carrier flight-carrier-american">American Eagle</p>
+            <p class="flight-airframe flight-airframe-american">CRJ-700</p>
+          </div>
+        </article>
 
-        <button class="btn primary" type="submit">Login</button>
-        <p id="loginMessage" class="access-error"></p>
-      </form>
+        <article class="flight-card flight-card-frontier">
+          <img src="assets/frontier.png" alt="Frontier Airbus A320" />
+          <div class="flight-info">
+            <small class="flight-number flight-number-frontier">FFT0002</small>
+            <h3 class="flight-route flight-route-frontier">KDEN - KBNA</h3>
+            <p class="flight-carrier flight-carrier-frontier">Frontier Airlines</p>
+            <p class="flight-airframe flight-airframe-frontier">A320</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-      <hr />
+    <section class="news-section">
+      <div class="section-heading news-heading">
+        <h2 class="section-title news-title">Latest News</h2>
+        <a class="section-link news-link" href="#">View All News</a>
+      </div>
 
-      <form id="registerForm" class="access-form">
-        <h2 class="access-section-title">Create Account</h2>
+      <div class="news-grid">
+        <article class="news-card news-card-summer">
+          <img src="assets/summer.png" alt="Summer aviation event" />
+          <div>
+            <small class="news-category news-category-summer">Summer Events</small>
+            <h3 class="news-headline news-headline-summer">Summer Events Are Here!</h3>
+            <p class="news-body news-body-summer">Join us for our seasonal events with exclusive routes, activities, and prizes throughout the summer.</p>
+            <a class="learn-btn learn-btn-summer" href="#">Learn More →</a>
+          </div>
+        </article>
 
-        <label for="registerUsername">Username (must match Discord name)</label>
-        <input id="registerUsername" type="text" autocomplete="username" required />
+        <article class="news-card news-card-system light">
+          <img src="assets/cockpit.png" alt="Cockpit at sunset" />
+          <div>
+            <small class="news-category news-category-system">System Updates</small>
+            <h3 class="news-headline news-headline-system">System Updates Completed</h3>
+            <p class="news-body news-body-system">We've completed backend system upgrades to improve performance, stability, and your overall experience.</p>
+            <a class="learn-btn learn-btn-system" href="#">Learn More →</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <label for="registerPassword">Password</label>
-        <input id="registerPassword" type="password" autocomplete="new-password" required />
-
-        <label for="confirmPassword">Confirm Password</label>
-        <input id="confirmPassword" type="password" autocomplete="new-password" required />
-
-        <button class="btn secondary" type="submit">Create Account</button>
-        <p id="registerMessage" class="access-error"></p>
-      </form>
+    <section class="cta-section">
+      <div class="cta-overlay"></div>
+      <div class="cta-content">
+        <h2 class="cta-title">Ready To Take Off?</h2>
+        <p class="cta-subtitle">Join Boundless Alliance today and become a part of a global community.</p>
+        <a class="btn primary cta-button" href="#">Apply Today →</a>
+      </div>
     </section>
   </main>
 
+  <footer class="site-footer">
+    <img src="assets/logo.png" alt="Boundless Alliahref="homence Logo" />
+    <div class="footer-social">
+      <span class="footer-heading">Connect With Us</span>
+      <a href="https://discord.gg/mwQuuQKqa5"
+        target="_blank"
+        class="footer-discord-link">
+      <img src="assets/discord_icon.png" class="footer-discord-icon" alt="Discord" />
+      <small class="footer-discord">Join Our Discord</small>
+      </a>
+    </div>
+    <p class="footer-copyright">© 2026 Boundless Alliance. All rights reserved.</p>
+  </footer>
+
   <script>
-    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzsdeVDsh3OThkWqQG_gFnmjUYpiX3kjBQWUTYn3NNKBIpasVs26yHKij_KJZSgAcscOA/exec";
+    document.getElementById("pilotPortalLink").addEventListener("click", (e) => {
+        e.preventDefault();
 
-    const loginForm = document.getElementById("loginForm");
-    const registerForm = document.getElementById("registerForm");
+        const token = localStorage.getItem("boundlessToken");
 
-    const loginMessage = document.getElementById("loginMessage");
-    const registerMessage = document.getElementById("registerMessage");
-
-    loginForm.addEventListener("submit", async function(event) {
-      event.preventDefault();
-
-      loginMessage.textContent = "";
-
-      const username = document.getElementById("loginUsername").value.trim();
-      const password = document.getElementById("loginPassword").value;
-
-      try {
-        const response = await fetch(APPS_SCRIPT_URL, {
-          method: "POST",
-          body: JSON.stringify({
-            action: "loginUser",
-            username: username,
-            password: password
-          })
-        });
-
-        const result = await response.json();
-
-        if (!result.success) {
-          loginMessage.textContent = result.message || "Login failed.";
-          return;
+        if (token) {
+            window.location.href = "portal.html";
+        } else {
+            window.location.href = "login.html";
         }
-
-        localStorage.setItem("boundlessToken", result.token);
-        localStorage.setItem("boundlessUsername", result.username);
-        localStorage.setItem("boundlessRole", result.role);
-
-        window.location.href = "home.html";
-
-      } catch (error) {
-        console.error("Login error:", error);
-        loginMessage.textContent = "Unable to log in. Please try again.";
-      }
     });
+  </script>
 
-    registerForm.addEventListener("submit", async function(event) {
-      event.preventDefault();
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
 
-      registerMessage.textContent = "";
+        const token = localStorage.getItem("boundlessToken");
 
-      const username = document.getElementById("registerUsername").value.trim();
-      const password = document.getElementById("registerPassword").value;
-      const confirmPassword = document.getElementById("confirmPassword").value;
+        const operationsLink = document.getElementById("operationsNavLink");
 
-      if (password !== confirmPassword) {
-        registerMessage.textContent = "Passwords do not match.";
-        return;
-      }
+        const pirepLinks = document.querySelectorAll(".nav-pireps");
 
-      try {
-        const response = await fetch(APPS_SCRIPT_URL, {
-          method: "POST",
-          body: JSON.stringify({
-            action: "registerUser",
-            username: username,
-            password: password
-          })
-        });
+        if (!token) {
 
-        const result = await response.json();
+            if (operationsLink) {
+                operationsLink.style.display = "none";
+            }
 
-        if (!result.success) {
-          registerMessage.textContent = result.message || "Account creation failed.";
-          return;
+            pirepLinks.forEach(link => {
+                link.style.display = "none";
+            });
+
         }
-
-        registerMessage.textContent = "Account created. You can now log in.";
-        registerForm.reset();
-
-      } catch (error) {
-        console.error("Register error:", error);
-        registerMessage.textContent = "Unable to create account. Please try again.";
-      }
     });
   </script>
 </body>
