@@ -29,7 +29,7 @@
 			<a class="nav-text nav-home" href="index.html">Home</a>
 			<a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a>
 			<a class="nav-text nav-fleet" href="#fleet">Fleet</a>
-			<a class="nav-text nav-about" href="#about">About Us</a>
+			<a class="nav-text nav-about" href="about.html">About Us</a>
 			<a id="operationsNavLink" class="nav-text" href="operations.html">Operations</a>
 			<a class="nav-text nav-pireps" href="pireps.html">PIREPs</a>
 			<a class="nav-text nav-pireps" href="#apply">Apply</a>
@@ -187,13 +187,28 @@
               <span>Pending</span>
             </div>
 
-            <p>${values[0] || "Unknown Airline"} - ${values[1] || ""}<br>
-            ${values[2] || ""}</p>
+            <p class="ops-pirep-callsign">${values[2] || "Unknown Callsign"}</p>
 
-            <strong>${values[4] || "----"} → ${values[5] || "----"}</strong>
+			<strong>${values[4] || "----"} → ${values[5] || "----"}</strong>
 
-            <p>${values[3] || "Unknown Aircraft"}</p>
-            <p>Submitted ${formatDate(values[41])}</p>
+			<div class="ops-pirep-meta">
+				<div class="ops-pirep-row">
+					<span class="ops-pirep-label">Pilot:</span>
+					<span class="ops-pirep-value">${values[39]}</span>
+				</div>
+
+				<div class="ops-pirep-row">
+					<span class="ops-pirep-label">Aircraft:</span>
+					<span class="ops-pirep-value">${values[3]}</span>
+				</div>
+
+				<div class="ops-pirep-row">
+					<span class="ops-pirep-label">Anomalies:</span>
+					<span class="ops-pirep-value">${getAnomalySummary(values)}</span>
+				</div>
+			</div>
+
+			<p>Submitted ${formatDate(values[42])}</p>
 
             <button type="button" onclick="openPirepModal('${values[39]}')">
               Review PIREP
@@ -217,6 +232,18 @@
 		const minutes = String(date.getMinutes()).padStart(2, "0");
 		return `on ${month}/${day}/${year} at ${hours}:${minutes}`;
 	}
+
+	function getAnomalySummary(values) {
+		const anomalies = [
+			values[34],
+			values[35],
+			values[36],
+			values[37]
+		].filter(item => item && item !== "None");
+
+		return anomalies.length ? anomalies.join(", ") : "None";
+		}
+
 	let loadedPireps = [];
 	let activePirepId = null;
 
