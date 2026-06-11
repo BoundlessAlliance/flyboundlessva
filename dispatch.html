@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dispatch | Boundless Alliance</title>
-  <script src="auth.js"></script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,7 +17,7 @@
       <a class="nav-text nav-dispatch active" href="dispatch.html">Dispatch</a>
       <a class="nav-text nav-fleet" href="#fleet">Fleet</a>
       <a class="nav-text nav-about" href="#about">About Us</a>
-      <a class="nav-text nav-operations" href="operations.html">Operations</a>
+      <a id="operationsNavLink" class="nav-text" href="operations.html">Operations</a>
       <a class="nav-text nav-pireps" href="pireps.html">PIREPs</a>
       <a class="nav-text nav-pireps" href="#apply">Apply</a>
       <a class="nav-text nav-portal portal-btn" href="portal.html">Pilot Portal</a>
@@ -174,5 +173,28 @@
     <p class="footer-copyright">© Boundless Alliance<br>All Rights Reserved</p>
   </footer>
 <script src="aircraftDatabase.js"></script>
-<script src="dispatch.js"></script></body>
+<script src="dispatch.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const token = localStorage.getItem("boundlessToken");
+
+    const operationsLink = document.getElementById("operationsNavLink");
+
+    const pirepLinks = document.querySelectorAll(".nav-pireps");
+
+    if (!token) {
+
+        if (operationsLink) {
+            operationsLink.style.display = "none";
+        }
+
+        pirepLinks.forEach(link => {
+            link.style.display = "none";
+        });
+
+    }
+});
+</script>
+</body>
 </html>

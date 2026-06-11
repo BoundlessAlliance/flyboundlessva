@@ -5,13 +5,36 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Operations | Boundless Alliance</title>
+	<style>
+		html,
+		body {
+			margin: 0;
+			background: #ecefff;
+		}
+		</style>
 	<script src="auth.js"></script>
 	<link rel="stylesheet" href="styles.css" /> </head>
 
 <body class="operations-page-body">
+	<div id="authLoadingOverlay" class="auth-loading-overlay">
+		<div class="auth-loading-card">
+			<img src="assets/logo.png" alt="Boundless Alliance">
+			<h2>Ensuring Access</h2>
+			<p>Please wait while we verify your access.</p>
+		</div>
+		</div>
 	<header class="site-header">
 		<a class="brand" href="home.html"> <img src="assets/logo.png" alt="Boundless Alliance Logo" /> </a>
-		<nav class="main-nav" aria-label="Main navigation"> <a class="nav-text nav-home" href="home.html">Home</a> <a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a> <a class="nav-text nav-fleet" href="#fleet">Fleet</a> <a class="nav-text nav-about" href="#about">About Us</a> <a class="nav-text nav-operations active" href="operations.html">Operations</a> <a class="nav-text nav-pireps" href="pireps.html">PIREPs</a> <a class="nav-text nav-portal portal-btn" href="portal.html">Pilot Portal</a> </nav>
+		<nav class="main-nav" aria-label="Main navigation">
+			<a class="nav-text nav-home" href="home.html">Home</a>
+			<a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a>
+			<a class="nav-text nav-fleet" href="#fleet">Fleet</a>
+			<a class="nav-text nav-about" href="#about">About Us</a>
+			<a id="operationsNavLink" class="nav-text" href="operations.html">Operations</a>
+			<a class="nav-text nav-pireps" href="pireps.html">PIREPs</a>
+			<a class="nav-text nav-pireps" href="#apply">Apply</a>
+			<a class="nav-text nav-portal portal-btn" href="portal.html">Pilot Portal</a>
+		</nav>
 	</header>
 	<main class="operations-page">
 		<section class="operations-hero">
@@ -135,8 +158,22 @@
 	const pendingPirepCount = document.getElementById("pendingPirepCount");
 	async function loadPendingPireps() {
 		try {
-			const response = await fetch(PIREP_WEB_APP_URL);
-			const result = await response.json();
+			const response = await fetch(PIREP_WEB_APP_URL, {
+                method: "POST",
+                body: JSON.stringify({
+                    action: "getPendingPireps",
+                    token: localStorage.getItem("boundlessToken")
+                })
+            });
+            const result = await response.json();
+
+            if (!result.success) {
+                if (result.message === "Unauthorized") {
+                    window.location.replace("portal.html");
+                    return;
+                }
+                throw new Error(result.message || "Unable to load pending PIREPs.");
+            }
 			loadedPireps = result.pireps;
 			pendingPirepGrid.innerHTML = "";
 			pendingPirepCount.textContent = result.pireps.length;
@@ -180,7 +217,6 @@
 		const minutes = String(date.getMinutes()).padStart(2, "0");
 		return `on ${month}/${day}/${year} at ${hours}:${minutes}`;
 	}
-	loadPendingPireps();
 	let loadedPireps = [];
 	let activePirepId = null;
 
@@ -289,14 +325,27 @@
 			return;
 		}
 		const action = decision === "approve" ? "approvePirep" : "denyPirep";
-		await fetch(PIREP_WEB_APP_URL, {
+		const response = await fetch(PIREP_WEB_APP_URL, {
 			method: "POST",
-			mode: "no-cors",
 			body: JSON.stringify({
 				action: action,
-				pirepId: activePirepId
+				pirepId: activePirepId,
+				token: localStorage.getItem("boundlessToken")
 			})
 		});
+
+		const result = await response.json();
+
+		if (!result.success) {
+			if (result.message === "Unauthorized") {
+				window.location.replace("portal.html");
+				return;
+			}
+
+			alert(result.message || "Unable to update PIREP.");
+			return;
+		}
+
 		alert(`PIREP ${decision === "approve" ? "approved" : "denied"}.`);
 		closePirepModal();
 		loadPendingPireps();
@@ -314,6 +363,20 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		document.addEventListener("boundlessAuthReady", () => {
+
+		const overlay = document.getElementById("authLoadingOverlay");
+
+		if (overlay) {
+			overlay.remove();
+		}
+
+		loadPendingPireps();
+
+		});
+		</script>
 </body>
 
 </html>

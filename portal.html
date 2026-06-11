@@ -17,18 +17,22 @@
         <a class="nav-text" href="dispatch.html">Dispatch</a>
         <a class="nav-text" href="#fleet">Fleet</a>
         <a class="nav-text" href="#about">About Us</a>
-        <a class="nav-text" href="operations.html">Operations</a>
+        <a id="operationsNavLink" class="nav-text" href="operations.html">Operations</a>
         <a class="nav-text" href="pireps.html">PIREPs</a>
         <a class="nav-text nav-portal portal-btn active" href="portal.html">Pilot Portal</a>
       </nav>
     </header>
     <main class="portal-layout">
       <aside class="portal-sidebar">
-        <button class="portal-side-link" data-icon="dashboard">
+        <button class="portal-side-link active"
+          data-icon="dashboard"
+          onclick="showPortalPage('dashboard')">
           <img src="assets/dashboard.png" alt="">
           <span>Dashboard</span>
         </button>
-        <button class="portal-side-link active" data-icon="profile">
+        <button class="portal-side-link"
+          data-icon="profile"
+          onclick="showPortalPage('profile')">
           <img src="assets/profile_w.png" alt="">
           <span>Profile</span>
         </button>
@@ -53,7 +57,7 @@
           <span>Log Out</span>
         </button>
       </aside>
-      <section class="portal-content">
+      <section id="profilePage" class="portal-content portal-page">
         <h1>Pilot Portal</h1>
         <p class="portal-subtitle">Manage your personal information and preferences</p>
         <section class="portal-card profile-card">
@@ -115,6 +119,90 @@
           </div>
           <button class="btn secondary preferences-btn" onclick="openEditPreferencesModal()">Edit Preferences</button>
         </section>
+      </section>
+
+      <section id="dashboardPage" class="portal-content portal-page active">
+        <h1 class="dashboard-title">Dashboard</h1>
+        <p class="portal-subtitle">Welcome back, <span id="dashboardWelcomeName">Pilot</span>. Here's your Pilot overview</p>
+
+        <div class="dashboard-stat-grid">
+          <article class="dashboard-stat-card">
+            <img src="assets/dashboard.png" alt="">
+            <div>
+              <small>Total Flights</small>
+              <strong>0</strong>
+              <span>All-time flights completed</span>
+            </div>
+          </article>
+
+          <article class="dashboard-stat-card">
+            <img src="assets/settings.png" alt="">
+            <div>
+              <small>Total Flight Time</small>
+              <strong>0h 0m</strong>
+              <span>All-time flight time</span>
+            </div>
+          </article>
+
+          <article class="dashboard-stat-card">
+            <img src="assets/clipboard_portal.png" alt="">
+            <div>
+              <small>PIREPs Submitted</small>
+              <strong>0</strong>
+              <span>All-time PIREPs submitted</span>
+            </div>
+          </article>
+
+          <article class="dashboard-stat-card">
+            <img src="assets/achievements.png" alt="">
+            <div>
+              <small>Achievements</small>
+              <strong>0</strong>
+              <span>Badges earned</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="dashboard-main-grid">
+          <section class="dashboard-card">
+            <div class="dashboard-card-heading">
+              <div class="dashboard-heading-left">
+                <img class="dashboard-heading-icon" src="assets/clipboard_portal.png" alt="PIREPs">
+                <h2>Recent PIREPs</h2>
+              </div>
+
+              <a href="#">View All</a>
+            </div>
+
+            <div class="recent-pirep-list">
+              <div class="empty-pirep-state">
+                <p>No PIREPs found.</p>
+                <small>Your submitted flights will appear here.</small>
+              </div>
+            </div>
+
+            <a class="dashboard-outline-btn" href="pireps.html">Submit New PIREP</a>
+          </section>
+
+          <section class="dashboard-card">
+            <div class="dashboard-card-heading">
+              <div class="dashboard-heading-left">
+                <img class="dashboard-heading-icon" src="assets/clock.png" alt="Statistics">
+                <h2>Flight Time Overview</h2>
+              </div>
+            </div>
+
+            <div class="fake-chart empty-chart">
+              <div style="height: 2%"><span id="weekLabel1"></span></div>
+              <div style="height: 2%"><span id="weekLabel2"></span></div>
+              <div style="height: 2%"><span id="weekLabel3"></span></div>
+              <div style="height: 2%"><span id="weekLabel4"></span></div>
+              <div style="height: 2%"><span id="weekLabel5"></span></div>
+            </div>
+
+            <button class="dashboard-outline-btn">View Detailed Statistics</button>
+          </section>
+        </div>
       </section>
     </main>
     <div id="editProfileModal" class="portal-modal">
@@ -187,6 +275,13 @@
         document.getElementById("portalHomeBase").textContent = localStorage.getItem("boundlessHomeBase") || "Not Set";
         document.getElementById("portalTimeZone").textContent = localStorage.getItem("boundlessTimeZone") || "Not Set";
         document.getElementById("portalEmailNotifications").textContent = localStorage.getItem("boundlessEmailNotifications") || "Disabled";
+
+        document.getElementById("dashboardWelcomeName").textContent =
+          localStorage.getItem("boundlessFullName") ||
+          localStorage.getItem("boundlessUsername") ||
+          "Pilot";
+
+        loadFlightTimeLabels();
       }
       document.addEventListener("boundlessAuthReady", loadPortalProfile);
 
@@ -198,6 +293,52 @@
       }
     </script>
     <script>
+
+      function showPortalPage(pageName) {
+        document.querySelectorAll(".portal-page").forEach(page => {
+          page.classList.remove("active");
+        });
+
+        document.querySelectorAll(".portal-side-link").forEach(link => {
+          link.classList.remove("active");
+
+          const icon = link.dataset.icon;
+          const img = link.querySelector("img");
+
+          if (icon && img) {
+            img.src = `assets/${icon}.png`;
+          }
+        });
+
+        const selectedPage = document.getElementById(`${pageName}Page`);
+        if (selectedPage) {
+          selectedPage.classList.add("active");
+        }
+
+        const selectedButton = document.querySelector(`[onclick="showPortalPage('${pageName}')"]`);
+        if (selectedButton) {
+          selectedButton.classList.add("active");
+
+          const icon = selectedButton.dataset.icon;
+          const img = selectedButton.querySelector("img");
+
+          if (icon && img) {
+            img.src = `assets/${icon}_w.png`;
+          }
+        }
+
+        if (pageName === "dashboard") {
+          const dashboardWelcomeName = document.getElementById("dashboardWelcomeName");
+
+          if (dashboardWelcomeName) {
+            dashboardWelcomeName.textContent =
+              localStorage.getItem("boundlessFullName") ||
+              localStorage.getItem("boundlessUsername") ||
+              "Pilot";
+          }
+        }
+      }
+
       document.querySelectorAll(".portal-side-link").forEach(link => {
         const icon = link.dataset.icon;
         const img = link.querySelector("img");
@@ -249,6 +390,7 @@
           localStorage.setItem("boundlessFullName", result.fullName || "");
           localStorage.setItem("boundlessEmail", result.email || "");
           loadPortalProfile();
+          loadFlightTimeLabels();
           closeEditProfileModal();
         } catch (error) {
           console.error("Profile update error:", error);
@@ -309,6 +451,45 @@
           message.textContent = "Unable to update preferences.";
         }
       });
+
+      function loadFlightTimeLabels() {
+        const labels = [];
+
+        const today = new Date();
+
+        // Find current week's Sunday
+        const currentSunday = new Date(today);
+        currentSunday.setDate(today.getDate() - today.getDay());
+
+        for (let i = 4; i >= 0; i--) {
+          const weekStart = new Date(currentSunday);
+          weekStart.setDate(currentSunday.getDate() - (i * 7));
+
+          const weekEnd = new Date(weekStart);
+          weekEnd.setDate(weekStart.getDate() + 6);
+
+          const startMonth = weekStart.toLocaleString("en-US", {
+            month: "short"
+          });
+
+          const endMonth = weekEnd.toLocaleString("en-US", {
+            month: "short"
+          });
+
+          const label =
+            startMonth === endMonth
+              ? `${startMonth} ${weekStart.getDate()} - ${weekEnd.getDate()}`
+              : `${startMonth} ${weekStart.getDate()} - ${endMonth} ${weekEnd.getDate()}`;
+
+          labels.push(label);
+        }
+
+        document.getElementById("weekLabel1").textContent = labels[0];
+        document.getElementById("weekLabel2").textContent = labels[1];
+        document.getElementById("weekLabel3").textContent = labels[2];
+        document.getElementById("weekLabel4").textContent = labels[3];
+        document.getElementById("weekLabel5").textContent = labels[4];
+      }
     </script>
   </body>
 </html>
