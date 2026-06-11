@@ -5,25 +5,25 @@ const searchBtn = document.getElementById('searchBtn');
 const resultsGrid = document.getElementById('resultsGrid');
 
 const airlineLogoMap = {
-  'American': 'assets/aal_icon.png',
-  'American Airlines': 'assets/aal_icon.png',
-  'Delta': 'assets/dal_icon.png',
-  'Delta Air Lines': 'assets/dal_icon.png',
-  'Southwest': 'assets/swa_icon.png',
-  'Southwest Airlines': 'assets/swa_icon.png',
-  'United': 'assets/ual_icon.png',
-  'United Airlines': 'assets/ual_icon.png'
+  'American': 'assets/aal_icon.webp',
+  'American Airlines': 'assets/aal_icon.webp',
+  'Delta': 'assets/dal_icon.webp',
+  'Delta Air Lines': 'assets/dal_icon.webp',
+  'Southwest': 'assets/swa_icon.webp',
+  'Southwest Airlines': 'assets/swa_icon.webp',
+  'United': 'assets/ual_icon.webp',
+  'United Airlines': 'assets/ual_icon.webp'
 };
 
 const airlineTailMap = {
-  'American': 'assets/aal_tail.png',
-  'American Airlines': 'assets/aal_tail.png',
-  'Delta': 'assets/dal_tail.png',
-  'Delta Air Lines': 'assets/dal_tail.png',
-  'Southwest': 'assets/swa_tail.png',
-  'Southwest Airlines': 'assets/swa_tail.png',
-  'United': 'assets/ual_tail.png',
-  'United Airlines': 'assets/ual_tail.png'
+  'American': 'assets/aal_tail.webp',
+  'American Airlines': 'assets/aal_tail.webp',
+  'Delta': 'assets/dal_tail.webp',
+  'Delta Air Lines': 'assets/dal_tail.webp',
+  'Southwest': 'assets/swa_tail.webp',
+  'Southwest Airlines': 'assets/swa_tail.webp',
+  'United': 'assets/ual_tail.webp',
+  'United Airlines': 'assets/ual_tail.webp'
 };
 
 function uniqueValues(list, key) {
@@ -71,7 +71,7 @@ function getFilteredAircraft() {
 }
 
 function getLogo(airline) {
-  return airlineLogoMap[airline] || 'assets/logo.png';
+  return airlineLogoMap[airline] || 'assets/logo.webp';
 }
 
 function getTailImage(airline) {

@@ -149,7 +149,7 @@ body {
   align-items: center;
   padding: 56px 48px 52px;
   overflow: hidden;
-  background: url('assets/hero-map-bg.png') center center / cover no-repeat;
+  background: url('assets/hero-map-bg.webp') center center / cover no-repeat;
   border-bottom: 1px solid var(--line);
 }
 
@@ -410,7 +410,7 @@ body {
   overflow: hidden;
   background:
     linear-gradient(rgba(235,240,255,.6), rgba(235,240,255,.6)),
-    url('assets/summer.png') center 58% / cover no-repeat;
+    url('assets/summer.webp') center 58% / cover no-repeat;
 }
 .cta-section::before {
   content: '';
@@ -569,7 +569,7 @@ body {
   padding: 58px 48px 74px;
   background:
     linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.84) 29%, rgba(255,255,255,0.30) 100%),
-    url('assets/hero-map-bg.png') center center / cover no-repeat;
+    url('assets/hero-map-bg.webp') center center / cover no-repeat;
 }
 
 .dispatch-hero-copy {
@@ -1090,7 +1090,7 @@ body {
   font-size: 18px;
 }
 
-.aircraft-result-card .result-card-top img[src$="logo.png"] {
+.aircraft-result-card .result-card-top img[src$="logo.webp"] {
   object-fit: contain;
   padding: 4px;
 }

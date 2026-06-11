@@ -10,7 +10,7 @@
   <body class="portal-body">
     <header class="site-header">
       <a class="brand" href="home.html">
-        <img src="assets/logo.png" alt="Boundless Alliance Logo" />
+        <img src="assets/logo.webp" alt="Boundless Alliance Logo" />
       </a>
       <nav class="main-nav">
         <a class="nav-text" href="index.html">Home</a>
@@ -27,33 +27,33 @@
         <button class="portal-side-link active"
           data-icon="dashboard"
           onclick="showPortalPage('dashboard')">
-          <img src="assets/dashboard.png" alt="">
+          <img src="assets/dashboard.webp" alt="">
           <span>Dashboard</span>
         </button>
         <button class="portal-side-link"
           data-icon="profile"
           onclick="showPortalPage('profile')">
-          <img src="assets/profile_w.png" alt="">
+          <img src="assets/profile_w.webp" alt="">
           <span>Profile</span>
         </button>
         <button class="portal-side-link" data-icon="clipboard_portal">
-          <img src="assets/clipboard_portal.png" alt="">
+          <img src="assets/clipboard_portal.webp" alt="">
           <span>PIREPs</span>
         </button>
         <button class="portal-side-link" data-icon="achievements">
-          <img src="assets/achievements.png" alt="">
+          <img src="assets/achievements.webp" alt="">
           <span>Achievements</span>
         </button>
         <button class="portal-side-link" data-icon="documents">
-          <img src="assets/documents.png" alt="">
+          <img src="assets/documents.webp" alt="">
           <span>Documents</span>
         </button>
         <button class="portal-side-link" data-icon="settings">
-          <img src="assets/settings.png" alt="">
+          <img src="assets/settings.webp" alt="">
           <span>Settings</span>
         </button>
         <button class="portal-side-link" data-icon="log_out" onclick="logout()">
-          <img src="assets/log_out.png" alt="">
+          <img src="assets/log_out.webp" alt="">
           <span>Log Out</span>
         </button>
       </aside>
@@ -127,7 +127,7 @@
 
         <div class="dashboard-stat-grid">
           <article class="dashboard-stat-card">
-            <img src="assets/dashboard.png" alt="">
+            <img src="assets/dashboard.webp" alt="">
             <div>
               <small>Total Flights</small>
               <strong>0</strong>
@@ -136,7 +136,7 @@
           </article>
 
           <article class="dashboard-stat-card">
-            <img src="assets/settings.png" alt="">
+            <img src="assets/settings.webp" alt="">
             <div>
               <small>Total Flight Time</small>
               <strong>0h 0m</strong>
@@ -145,7 +145,7 @@
           </article>
 
           <article class="dashboard-stat-card">
-            <img src="assets/clipboard_portal.png" alt="">
+            <img src="assets/clipboard_portal.webp" alt="">
             <div>
               <small>PIREPs Submitted</small>
               <strong>0</strong>
@@ -154,7 +154,7 @@
           </article>
 
           <article class="dashboard-stat-card">
-            <img src="assets/achievements.png" alt="">
+            <img src="assets/achievements.webp" alt="">
             <div>
               <small>Achievements</small>
               <strong>0</strong>
@@ -167,7 +167,7 @@
           <section class="dashboard-card">
             <div class="dashboard-card-heading">
               <div class="dashboard-heading-left">
-                <img class="dashboard-heading-icon" src="assets/clipboard_portal.png" alt="PIREPs">
+                <img class="dashboard-heading-icon" src="assets/clipboard_portal.webp" alt="PIREPs">
                 <h2>Recent PIREPs</h2>
               </div>
 
@@ -187,7 +187,7 @@
           <section class="dashboard-card">
             <div class="dashboard-card-heading">
               <div class="dashboard-heading-left">
-                <img class="dashboard-heading-icon" src="assets/clock.png" alt="Statistics">
+                <img class="dashboard-heading-icon" src="assets/clock.webp" alt="Statistics">
                 <h2>Flight Time Overview</h2>
               </div>
             </div>
@@ -306,7 +306,7 @@
           const img = link.querySelector("img");
 
           if (icon && img) {
-            img.src = `assets/${icon}.png`;
+            img.src = `assets/${icon}.webp`;
           }
         });
 
@@ -323,7 +323,7 @@
           const img = selectedButton.querySelector("img");
 
           if (icon && img) {
-            img.src = `assets/${icon}_w.png`;
+            img.src = `assets/${icon}_w.webp`;
           }
         }
 
@@ -344,9 +344,9 @@
         const img = link.querySelector("img");
         if (!icon || !img) return;
         if (link.classList.contains("active")) {
-          img.src = `assets/${icon}_w.png`;
+          img.src = `assets/${icon}_w.webp`;
         } else {
-          img.src = `assets/${icon}.png`;
+          img.src = `assets/${icon}.webp`;
         }
       });
 
