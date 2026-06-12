@@ -130,7 +130,7 @@
             <img src="assets/dashboard.webp" alt="">
             <div>
               <small>Total Flights</small>
-              <strong>0</strong>
+              <strong id="dashboardTotalFlights">0</strong>
               <span>All-time flights completed</span>
             </div>
           </article>
@@ -139,7 +139,7 @@
             <img src="assets/settings.webp" alt="">
             <div>
               <small>Total Flight Time</small>
-              <strong>0h 0m</strong>
+              <strong id="dashboardTotalFlightTime">0h 0m</strong>
               <span>All-time flight time</span>
             </div>
           </article>
@@ -148,7 +148,7 @@
             <img src="assets/clipboard_portal.webp" alt="">
             <div>
               <small>PIREPs Submitted</small>
-              <strong>0</strong>
+              <strong id="dashboardPirepsSubmitted">0</strong>
               <span>All-time PIREPs submitted</span>
             </div>
           </article>
@@ -157,7 +157,7 @@
             <img src="assets/achievements.webp" alt="">
             <div>
               <small>Achievements</small>
-              <strong>0</strong>
+              <strong id="dashboardAchievements">0</strong>
               <span>Badges earned</span>
             </div>
           </article>
@@ -174,10 +174,9 @@
               <a href="#">View All</a>
             </div>
 
-            <div class="recent-pirep-list">
+            <div id="recentPirepList" class="recent-pirep-list">
               <div class="empty-pirep-state">
-                <p>No PIREPs found.</p>
-                <small>Your submitted flights will appear here.</small>
+                <p>Loading...</p>
               </div>
             </div>
 
@@ -193,11 +192,30 @@
             </div>
 
             <div class="fake-chart empty-chart">
-              <div style="height: 2%"><span id="weekLabel1"></span></div>
-              <div style="height: 2%"><span id="weekLabel2"></span></div>
-              <div style="height: 2%"><span id="weekLabel3"></span></div>
-              <div style="height: 2%"><span id="weekLabel4"></span></div>
-              <div style="height: 2%"><span id="weekLabel5"></span></div>
+              <div id="weekBar1" style="height: 2%">
+                <small id="weekValue1" class="chart-value-label"></small>
+                <span id="weekLabel1"></span>
+              </div>
+
+              <div id="weekBar2" style="height: 2%">
+                <small id="weekValue2" class="chart-value-label"></small>
+                <span id="weekLabel2"></span>
+              </div>
+
+              <div id="weekBar3" style="height: 2%">
+                <small id="weekValue3" class="chart-value-label"></small>
+                <span id="weekLabel3"></span>
+              </div>
+
+              <div id="weekBar4" style="height: 2%">
+                <small id="weekValue4" class="chart-value-label"></small>
+                <span id="weekLabel4"></span>
+              </div>
+
+              <div id="weekBar5" style="height: 2%">
+                <small id="weekValue5" class="chart-value-label"></small>
+                <span id="weekLabel5"></span>
+              </div>
             </div>
 
             <button class="dashboard-outline-btn">View Detailed Statistics</button>
@@ -282,9 +300,171 @@
           "Pilot";
 
         loadFlightTimeLabels();
+        loadWeeklyFlightChart();
+        loadPilotStats();
+        loadRecentPireps();
       }
       document.addEventListener("boundlessAuthReady", loadPortalProfile);
 
+      async function loadPilotStats() {
+        const token = localStorage.getItem("boundlessToken");
+
+        if (!token) {
+          return;
+        }
+
+        try {
+          const response = await fetch(APPS_SCRIPT_URL, {
+            method: "POST",
+            body: JSON.stringify({
+              action: "getPilotStats",
+              token: token
+            })
+          });
+
+          const result = await response.json();
+
+          if (!result.success) {
+            console.error(result.message);
+            return;
+          }
+
+          document.getElementById("dashboardTotalFlights").textContent =
+            result.totalFlights || 0;
+
+          document.getElementById("dashboardTotalFlightTime").textContent =
+            result.totalFlightTime || "0h 0m";
+
+          document.getElementById("dashboardPirepsSubmitted").textContent =
+            result.pirepsSubmitted || 0;
+
+          document.getElementById("dashboardAchievements").textContent =
+            result.achievements || 0;
+        } catch (error) {
+          console.error("Unable to load pilot stats:", error);
+        }
+      }
+      
+      async function loadWeeklyFlightChart() {
+        try {
+          const response = await fetch(APPS_SCRIPT_URL, {
+            method: "POST",
+            body: JSON.stringify({
+              action: "getPilotWeeklyStats",
+              token: localStorage.getItem("boundlessToken")
+            })
+          });
+
+          const result = await response.json();
+
+          if (!result.success) {
+            return;
+          }
+
+          const weeks = result.weeks || [];
+
+          const highestMinutes = Math.max(
+            ...weeks.map(w => Number(w.minutes || 0)),
+            1
+          );
+
+          const chartMaxMinutes = getChartMax(highestMinutes);
+
+          weeks.forEach((week, index) => {
+            const bar = document.getElementById(`weekBar${index + 1}`);
+
+            if (!bar) return;
+
+            const percent =
+              (Number(week.minutes || 0) / chartMaxMinutes) * 100;
+
+            bar.style.height = `${Math.max(percent, 2)}%`;
+            bar.title = week.displayTime;
+
+            const valueLabel = document.getElementById(
+              `weekValue${index + 1}`
+            );
+
+            if (valueLabel) {
+              valueLabel.textContent = week.displayTime;
+            }
+          });
+
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      function getChartMax(minutes) {
+        const hours = minutes / 60;
+
+        if (hours <= 2) return 2 * 60;
+        if (hours <= 5) return 5 * 60;
+        if (hours <= 10) return 10 * 60;
+        if (hours <= 25) return 25 * 60;
+        if (hours <= 50) return 50 * 60;
+
+        return Math.ceil(hours / 10) * 10 * 60;
+      }
+      
+      async function loadRecentPireps() {
+        try {
+          const response = await fetch(APPS_SCRIPT_URL, {
+            method: "POST",
+            body: JSON.stringify({
+              action: "getRecentApprovedPireps",
+              token: localStorage.getItem("boundlessToken")
+            })
+          });
+
+          const result = await response.json();
+
+          if (!result.success) {
+            return;
+          }
+
+          const container = document.getElementById("recentPirepList");
+
+          if (!container) return;
+
+          if (!result.pireps || result.pireps.length === 0) {
+            container.innerHTML = `
+              <div class="empty-pirep-state">
+                <p>No PIREPs found.</p>
+              </div>
+            `;
+            return;
+          }
+
+          container.innerHTML = result.pireps.map(pirep => `
+            <div class="recent-pirep-row">
+              <div class="recent-pirep-left">
+                <div class="recent-pirep-route">
+                  ${pirep.departureAirport} → ${pirep.arrivalAirport}
+                </div>
+
+                <div class="recent-pirep-details">
+                  ${pirep.callsign} - ${pirep.aircraftType}
+                </div>
+              </div>
+
+              <div class="recent-pirep-right">
+                <div class="recent-pirep-status approved">
+                  APPROVED
+                </div>
+
+                <div class="recent-pirep-date">
+                  ${pirep.dateOfFlight}
+                </div>
+              </div>
+            </div>
+          `).join("");
+
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      
       function logout() {
         localStorage.removeItem("boundlessToken");
         localStorage.removeItem("boundlessUsername");

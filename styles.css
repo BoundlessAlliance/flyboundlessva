@@ -2910,9 +2910,10 @@ body {
   display: flex;
   align-items: end;
   gap: 26px;
-  padding: 20px 14px 34px;
+  padding: 40px 14px 34px;
   border-left: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+  overflow: visible;
 }
 
 .fake-chart div {
@@ -3024,6 +3025,18 @@ body {
     font-size: 12px;
     font-weight: 700;
     color: #555;
+}
+
+.chart-value-label {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: 700;
+    color: #555;
+    z-index: 2;
 }
 
 .auth-loading-overlay {
@@ -3542,4 +3555,81 @@ body {
     grid-column: auto;
     justify-self: center;
   }
+}
+
+.chart-value-label {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 600;
+  color: #555;
+  white-space: nowrap;
+}
+
+.recent-pirep-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0eef8;
+}
+
+.recent-pirep-row:last-child {
+  border-bottom: none;
+}
+
+.recent-pirep-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.recent-pirep-route {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+}
+
+.recent-pirep-details {
+  font-size: 14px;
+  color: #777;
+}
+
+.recent-pirep-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.recent-pirep-status {
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.recent-pirep-status.approved {
+  background: #d7f4c8;
+  border: 2px solid #66b84e;
+  color: #2f6f1f;
+}
+
+.recent-pirep-date {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #777;
+}
+
+.recent-pirep-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.recent-pirep-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 2px;
 }
