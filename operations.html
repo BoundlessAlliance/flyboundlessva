@@ -210,7 +210,7 @@
 
 			<p>Submitted ${formatDate(values[42])}</p>
 
-            <button type="button" onclick="openPirepModal('${values[39]}')">
+            <button type="button" onclick="openPirepModal('${values[40]}')">
               Review PIREP
             </button>
           `;
@@ -248,7 +248,7 @@
 	let activePirepId = null;
 
 	function openPirepModal(pirepId) {
-		const pirep = loadedPireps.find(item => item.values[39] === pirepId);
+		const pirep = loadedPireps.find(item => item.values[40] === pirepId);
 		document.getElementById("modalPirepSubtitle").textContent = `${pirep["Airline"] || ""} → ${pirep["Callsign"] || ""}`;
 		if(!pirep) {
 			alert("Could not find this PIREP.");
@@ -256,7 +256,7 @@
 		}
 		document.getElementById("modalPirepSubtitle").textContent = `${pirep["Airline"] || ""} ${pirep["Flight Number"] || ""} | ${pirep["Departure Airport"] || ""} → ${pirep["Arrival Airport"] || ""}`;
 		const values = pirep.values;
-		activePirepId = values[39];
+		activePirepId = values[40];
 		document.getElementById("modalPirepSubtitle").textContent = `${values[0] || ""} → ${values[2] || ""}`;
 		document.getElementById("modalPirepContent").innerHTML = `
         <div class="modal-section">
