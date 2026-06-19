@@ -1,29 +1,23 @@
-const airlineSelect = document.getElementById('airline');
+const aircraftFamilySelect = document.getElementById('aircraftFamily');
 const airframeSelect = document.getElementById('airframe');
+const airlineSelect = document.getElementById('airline');
 const registrationSelect = document.getElementById('registration');
 const searchBtn = document.getElementById('searchBtn');
 const resultsGrid = document.getElementById('resultsGrid');
 
-const airlineLogoMap = {
-  'American': 'assets/aal_icon.webp',
-  'American Airlines': 'assets/aal_icon.webp',
-  'Delta': 'assets/dal_icon.webp',
-  'Delta Air Lines': 'assets/dal_icon.webp',
-  'Southwest': 'assets/swa_icon.webp',
-  'Southwest Airlines': 'assets/swa_icon.webp',
-  'United': 'assets/ual_icon.webp',
-  'United Airlines': 'assets/ual_icon.webp'
-};
-
 const airlineTailMap = {
-  'American': 'assets/aal_tail.webp',
   'American Airlines': 'assets/aal_tail.webp',
-  'Delta': 'assets/dal_tail.webp',
-  'Delta Air Lines': 'assets/dal_tail.webp',
-  'Southwest': 'assets/swa_tail.webp',
+  'Delta Airlines': 'assets/dal_tail.webp',
   'Southwest Airlines': 'assets/swa_tail.webp',
-  'United': 'assets/ual_tail.webp',
-  'United Airlines': 'assets/ual_tail.webp'
+  'United Airlines': 'assets/ual_tail.webp',
+  'Alaska Airlines': 'assets/asa_tail.webp',
+  'JetBlue': 'assets/jbu_tail.webp',
+  'Frontier': 'assets/fft_tail.webp',
+  'easyJet': 'assets/ezy_tail.webp',
+  'British Airways': 'assets/baw_tail.webp',
+  'Lufthansa': 'assets/dlh_tail.webp',
+  'Jetstar': 'assets/jst_tail.webp',
+  'Eurowings': 'assets/ewg_tail.webp'
 };
 
 function uniqueValues(list, key) {
@@ -42,16 +36,32 @@ function setSelectOptions(select, placeholder, values) {
 }
 
 function getFilteredAircraft() {
-  const airline = airlineSelect.value;
+  const family = aircraftFamilySelect.value;
   const airframe = airframeSelect.value;
+  const airline = airlineSelect.value;
   let registration = registrationSelect.value;
 
-  if (registration === 'RANDOM') {
-    const matchingAircraft = aircraftDatabase.filter(aircraft =>
-      aircraft.airline === airline &&
-      aircraft.airframe === airframe
-    );
+  const matchingAircraft = aircraftDatabase.filter(aircraft => {
 
+  const familyMatch =
+    family === 'RANDOM' ||
+    !family ||
+    getAircraftFamily(aircraft.airframe) === family;
+
+  const typeMatch =
+    airframe === 'RANDOM' ||
+    !airframe ||
+    aircraft.airframe === airframe;
+
+  const airlineMatch =
+    airline === 'RANDOM' ||
+    !airline ||
+    aircraft.airline === airline;
+
+  return familyMatch && typeMatch && airlineMatch;
+});
+
+  if (registration === 'RANDOM') {
     if (!matchingAircraft.length) return [];
 
     const randomAircraft =
@@ -60,13 +70,8 @@ function getFilteredAircraft() {
     return [randomAircraft];
   }
 
-  return aircraftDatabase.filter(aircraft => {
-    const matchesAirline = !airline || aircraft.airline === airline;
-    const matchesAirframe = !airframe || aircraft.airframe === airframe;
-    const matchesRegistration =
-      !registration || aircraft.registration === registration;
-
-    return matchesAirline && matchesAirframe && matchesRegistration;
+  return matchingAircraft.filter(aircraft => {
+    return !registration || aircraft.registration === registration;
   });
 }
 
@@ -88,9 +93,6 @@ function aircraftCard(aircraft) {
     <div class="aircraft-showcase-main">
       <div class="aircraft-image-stack">
         <img class="aircraft-tail-circle" src="${getTailImage(aircraft.airline)}" alt="${aircraft.airline} aircraft tail">
-        <span class="aircraft-logo-circle">
-          <img src="${getLogo(aircraft.airline)}" alt="${aircraft.airline} logo">
-        </span>
       </div>
 
       <div class="aircraft-showcase-details">
@@ -132,62 +134,177 @@ function render(list) {
   resultsGrid.innerHTML = list.map(aircraftCard).join('');
 }
 
-function populateAirlines() {
-  setSelectOptions(airlineSelect, 'Select Airline', uniqueValues(aircraftDatabase, 'airline'));
+function getAircraftFamily(airframe) {
+  const normalized = String(airframe || '').toUpperCase();
+
+  if (
+    normalized.includes('737') ||
+    normalized.includes('B737') ||
+    normalized.includes('MAX')
+  ) {
+    return 'B737 Family';
+  }
+
+  if (
+    normalized.includes('A319') ||
+    normalized.includes('A320') ||
+    normalized.includes('A321')
+  ) {
+    return 'A320 Family';
+  }
+
+  return 'Other';
+}
+
+function populateAircraftFamilies() {
+  const families = uniqueValues(
+    aircraftDatabase.map(aircraft => ({
+      family: getAircraftFamily(aircraft.airframe)
+    })),
+    'family'
+  );
+
+  setSelectOptions(aircraftFamilySelect, 'Select Aircraft Family', families);
+
+const anyFamily = document.createElement('option');
+anyFamily.value = 'RANDOM';
+anyFamily.textContent = '🎲 Any Aircraft Family';
+aircraftFamilySelect.insertBefore(anyFamily, aircraftFamilySelect.options[1]);
+
+  airframeSelect.disabled = true;
+  airlineSelect.disabled = true;
+  registrationSelect.disabled = true;
 }
 
 function populateAirframes() {
-  const airline = airlineSelect.value;
-  const aircraftForAirline = aircraftDatabase.filter(aircraft => !airline || aircraft.airline === airline);
+  const family = aircraftFamilySelect.value;
 
-  setSelectOptions(airframeSelect, 'Select Airframe', uniqueValues(aircraftForAirline, 'airframe'));
+  const matchingAircraft = aircraftDatabase.filter(aircraft => {
+
+    const familyMatch =
+      family === 'RANDOM' ||
+      !family ||
+      getAircraftFamily(aircraft.airframe) === family;
+
+    return familyMatch;
+  });
+
+  setSelectOptions(
+    airframeSelect,
+    'Select Aircraft Type',
+    uniqueValues(matchingAircraft, 'airframe')
+  );
+
+  const anyType = document.createElement('option');
+  anyType.value = 'RANDOM';
+  anyType.textContent = '🎲 Any Aircraft Type';
+  airframeSelect.insertBefore(anyType, airframeSelect.options[1]);
+
+  setSelectOptions(airlineSelect, 'Select Airline', []);
   setSelectOptions(registrationSelect, 'Select Registration', []);
 
-  airframeSelect.disabled = !airline;
+  airframeSelect.disabled = !family;
+  airlineSelect.disabled = true;
+  registrationSelect.disabled = true;
+}
+
+function populateAirlines() {
+  const family = aircraftFamilySelect.value;
+  const airframe = airframeSelect.value;
+
+  const matchingAircraft = aircraftDatabase.filter(aircraft => {
+
+    const familyMatch =
+      family === 'RANDOM' ||
+      !family ||
+      getAircraftFamily(aircraft.airframe) === family;
+
+    const typeMatch =
+      airframe === 'RANDOM' ||
+      !airframe ||
+      aircraft.airframe === airframe;
+
+    return familyMatch && typeMatch;
+  });
+
+  setSelectOptions(
+    airlineSelect,
+    'Select Airline',
+    uniqueValues(matchingAircraft, 'airline')
+  );
+
+  const anyAirline = document.createElement('option');
+  anyAirline.value = 'RANDOM';
+  anyAirline.textContent = '🎲 Any Airline';
+  airlineSelect.insertBefore(anyAirline, airlineSelect.options[1]);
+
+  setSelectOptions(registrationSelect, 'Select Registration', []);
+
+  airlineSelect.disabled = !family || !airframe;
   registrationSelect.disabled = true;
 }
 
 function populateRegistrations() {
-  const airline = airlineSelect.value;
+  const family = aircraftFamilySelect.value;
   const airframe = airframeSelect.value;
+  const airline = airlineSelect.value;
 
   const matchingAircraft = aircraftDatabase.filter(aircraft => {
-    return aircraft.airline === airline && aircraft.airframe === airframe;
+
+    const familyMatch =
+      family === 'RANDOM' ||
+      !family ||
+      getAircraftFamily(aircraft.airframe) === family;
+
+    const typeMatch =
+      airframe === 'RANDOM' ||
+      !airframe ||
+      aircraft.airframe === airframe;
+
+    const airlineMatch =
+      airline === 'RANDOM' ||
+      !airline ||
+      aircraft.airline === airline;
+
+    return familyMatch && typeMatch && airlineMatch;
   });
 
-  const registrations = uniqueValues(matchingAircraft, 'registration');
+  registrationSelect.innerHTML = `
+    <option value="">Select Registration</option>
+    <option value="RANDOM">🎲 Random Registration</option>
+  `;
 
-    registrationSelect.innerHTML = `
-      <option value="">Select Registration</option>
-      <option value="RANDOM">🎲 Random Registration</option>
-    `;
+  uniqueValues(matchingAircraft, 'registration').forEach(registration => {
+    const option = document.createElement('option');
+    option.value = registration;
+    option.textContent = registration;
+    registrationSelect.appendChild(option);
+  });
 
-    registrations.forEach(reg => {
-      const option = document.createElement('option');
-      option.value = reg;
-      option.textContent = reg;
-      registrationSelect.appendChild(option);
-    });
-  registrationSelect.disabled = !airline || !airframe;
+  registrationSelect.disabled = !family || !airframe || !airline;
 }
 
 function showStartingMessage() {
   resultsGrid.innerHTML = `<article class="result-card empty-result">
     <h3>Select an Aircraft</h3>
-    <p>Choose an airline, then an available airframe, then a registration number.</p>
+    <p>Choose an aircraft family, aircraft type, airline, and registration number.</p>
   </article>`;
 }
 
-populateAirlines();
-populateAirframes();
+populateAircraftFamilies();
 showStartingMessage();
 
-airlineSelect.addEventListener('change', () => {
+aircraftFamilySelect.addEventListener('change', () => {
   populateAirframes();
   showStartingMessage();
 });
 
 airframeSelect.addEventListener('change', () => {
+  populateAirlines();
+  showStartingMessage();
+});
+
+airlineSelect.addEventListener('change', () => {
   populateRegistrations();
   showStartingMessage();
 });
