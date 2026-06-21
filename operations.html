@@ -28,9 +28,9 @@
 		<nav class="main-nav" aria-label="Main navigation">
 			<a class="nav-text nav-home" href="index.html">Home</a>
 			<a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a>
-			<a class="nav-text nav-fleet" href="#fleet">Fleet</a>
+			<a class="nav-text nav-fleet" href="fleet.html">Fleet</a>
 			<a class="nav-text nav-about" href="about.html">About Us</a>
-			<a id="operationsNavLink" class="nav-text" href="operations.html">Operations</a>
+			<a class="nav-text nav-home active" href="operations.html">Operations</a>
 			<a class="nav-text nav-pireps" href="pireps.html">PIREPs</a>
 			<a class="nav-text nav-pireps" href="#apply">Apply</a>
 			<a class="nav-text nav-portal portal-btn" href="portal.html">Pilot Portal</a>
@@ -48,12 +48,12 @@
 			<aside class="operations-stats-card">
 				<div class="operations-stat-block"> <img src="assets/clipboard_ops.webp" alt="Pending PIREPs icon" />
 					<div>
-						<h3>Pending PIREPs</h3> <strong id="pendingPirepCount">3</strong> <span>Awaiting Review</span> </div>
+						<h3>Pending PIREPs</h3> <strong id="pendingPirepCount">---</strong> <span>Awaiting Review</span> </div>
 				</div>
 				<div class="operations-stat-divider"></div>
 				<div class="operations-stat-block"> <img src="assets/aircraft_tilted.webp" alt="Featured flights icon" />
 					<div>
-						<h3>Featured Flights</h3> <strong id="featuredFlightCount">3</strong> <span>Currently Active</span> </div>
+						<h3>Featured Flights</h3> <strong id="featuredFlightCount">---</strong> <span>Currently Active</span> </div>
 				</div>
 			</aside>
 		</section>
@@ -83,13 +83,9 @@
 						<h3>Featured Flights</h3>
 						<p>Create and manage currently featured routes.</p>
 					</div>
-					<button class="operations-outline-btn" type="button">Add Featured Flight</button>
+					<button class="operations-outline-btn" type="button" onclick="openFeaturedFlightModal()">Add Featured Flight</button>
 				</div>
-				<div class="operations-placeholder-grid">
-					<div class="operations-tool-card">Featured Flight Editor</div>
-					<div class="operations-tool-card">Active Featured Flights</div>
-					<div class="operations-tool-card">Route Spotlight Settings</div>
-				</div>
+				<div id="featuredFlightsList" class="featured-flight-card-grid"></div>
 			</section>
 			<section class="operations-panel" id="economy">
 				<div class="operations-panel-header">
@@ -391,9 +387,163 @@
 		</div>
 	</div>
 
-	<script>
-		document.addEventListener("boundlessAuthReady", () => {
+	<div id="featuredFlightModal" class="featured-flight-modal">
+		<div class="featured-flight-modal-card">
+			<button type="button" class="featured-flight-modal-close" onclick="closeFeaturedFlightModal()">×</button>
+			<h2>Edit Featured Flight</h2>
+			<p>Update one of the three homepage featured flight slots.</p>
 
+			<form class="featured-flight-modal-form" onsubmit="event.preventDefault(); saveFeaturedFlight();">
+				<label>
+					<span>Featured Slot</span>
+					<select id="ffSlot">
+						<option value="1">Featured Flight #1</option>
+						<option value="2">Featured Flight #2</option>
+						<option value="3">Featured Flight #3</option>
+					</select>
+				</label>
+
+				<label>
+					<span>Callsign</span>
+					<input id="ffCallsign" placeholder="SWA0006">
+				</label>
+
+				<label>
+					<span>Departure Airport</span>
+					<input id="ffDeparture" placeholder="KPHX" maxlength="4">
+				</label>
+
+				<label>
+					<span>Arrival Airport</span>
+					<input id="ffArrival" placeholder="KLAS" maxlength="4">
+				</label>
+
+				<label>
+					<span>Airline</span>
+					<input id="ffAirline" placeholder="Southwest Airlines">
+				</label>
+
+				<label>
+					<span>Aircraft Type</span>
+					<input id="ffAircraft" placeholder="737-800">
+				</label>
+
+				<label class="featured-flight-wide-field">
+					<span>Image URL / Asset Path</span>
+					<select id="ffImage">
+						<option value="">Select Featured Image</option>
+						<option value="assets/southwest.webp">Southwest 737</option>
+						<option value="assets/swa_independence.webp">Southwest 737MAX - Independence One</option>
+						<option value="assets/aal_two.webp">American 738 - 250th</option>
+						<option value="assets/american.webp">American Eagle CRJ</option>
+						<option value="assets/frontier.webp">Frontier A320</option>
+						<option value="assets/ual_250.webp">United 738 - 250th</option>
+					</select>
+				</label>
+
+				<div class="featured-flight-modal-actions">
+					<button type="button" class="operations-outline-btn" onclick="closeFeaturedFlightModal()">Cancel</button>
+					<button type="submit" class="featured-flight-save-btn">Save Featured Flight</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<script>
+	async function saveFeaturedFlight() {
+		try {
+			const response = await fetch(PIREP_WEB_APP_URL, {
+				method: "POST",
+				body: JSON.stringify({
+					action: "saveFeaturedFlight",
+					token: localStorage.getItem("boundlessToken"),
+					slot: document.getElementById("ffSlot").value,
+					callsign: document.getElementById("ffCallsign").value.trim(),
+					departure: document.getElementById("ffDeparture").value.trim().toUpperCase(),
+					arrival: document.getElementById("ffArrival").value.trim().toUpperCase(),
+					airline: document.getElementById("ffAirline").value.trim(),
+					aircraft: document.getElementById("ffAircraft").value.trim(),
+					image: document.getElementById("ffImage").value.trim()
+				})
+			});
+
+			const result = await response.json();
+
+			if (!result.success) {
+				alert(result.message || "Unable to save featured flight.");
+				return;
+			}
+
+			alert("Featured flight updated.");
+			closeFeaturedFlightModal();
+			loadFeaturedFlights();
+		} catch (error) {
+			console.error("Failed to save featured flight:", error);
+			alert("Unable to save featured flight.");
+		}
+	}
+
+	async function loadFeaturedFlights() {
+		const list = document.getElementById("featuredFlightsList");
+
+		try {
+			const response = await fetch(PIREP_WEB_APP_URL, {
+				method: "POST",
+				body: JSON.stringify({
+					action: "getFeaturedFlights"
+				})
+			});
+
+			const result = await response.json();
+
+			if (!result.success) {
+				list.innerHTML = "<p>Unable to load featured flights.</p>";
+				return;
+			}
+
+			const flights = result.flights || [];
+			document.getElementById("featuredFlightCount").textContent = flights.length;
+
+			list.innerHTML = flights.map(flight => `
+				<article class="featured-flight-active-card" onclick="openFeaturedFlightModal('${flight.slot}')">
+					${flight.image ? `<img src="${flight.image}" alt="${flight.airline || 'Featured flight'}">` : `<div class="featured-flight-image-placeholder">No Image</div>`}
+					<div class="featured-flight-active-content">
+						<span>Slot #${flight.slot}</span>
+						<h4>${flight.callsign || "No Callsign"}</h4>
+						<strong>${flight.departure || "----"} → ${flight.arrival || "----"}</strong>
+						<p>${flight.airline || "No Airline"}</p>
+						<small>${flight.aircraft || "No Aircraft Type"}</small>
+					</div>
+				</article>
+			`).join("");
+
+			window.featuredFlightsCache = flights;
+		} catch (error) {
+			console.error("Failed to load featured flights:", error);
+			list.innerHTML = "<p>Unable to load featured flights.</p>";
+		}
+	}
+
+	function openFeaturedFlightModal(slot = "1") {
+		const flights = window.featuredFlightsCache || [];
+		const flight = flights.find(item => String(item.slot) === String(slot));
+
+		document.getElementById("ffSlot").value = slot;
+		document.getElementById("ffCallsign").value = flight?.callsign || "";
+		document.getElementById("ffDeparture").value = flight?.departure || "";
+		document.getElementById("ffArrival").value = flight?.arrival || "";
+		document.getElementById("ffAirline").value = flight?.airline || "";
+		document.getElementById("ffAircraft").value = flight?.aircraft || "";
+		document.getElementById("ffImage").value = flight?.image || "";
+
+		document.getElementById("featuredFlightModal").classList.add("open");
+	}
+
+	function closeFeaturedFlightModal() {
+		document.getElementById("featuredFlightModal").classList.remove("open");
+	}
+
+	document.addEventListener("boundlessAuthReady", () => {
 		const overlay = document.getElementById("authLoadingOverlay");
 
 		if (overlay) {
@@ -401,9 +551,9 @@
 		}
 
 		loadPendingPireps();
-
-		});
-		</script>
+		loadFeaturedFlights();
+	});
+	</script>
 </body>
 
 </html>

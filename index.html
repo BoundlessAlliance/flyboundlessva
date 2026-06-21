@@ -15,7 +15,7 @@
     <nav class="main-nav" aria-label="Main navigation">
       <a class="nav-text nav-home active" href="index.html">Home</a>
       <a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a>
-      <a class="nav-text nav-fleet" href="#fleet">Fleet</a>
+      <a class="nav-text nav-fleet" href="fleet.html">Fleet</a>
       <a class="nav-text nav-about" href="about.html">About Us</a>
       <a id="operationsNavLink" class="nav-text operations-only" href="operations.html">Operations</a>
       <a class="nav-text nav-pireps" href="pireps.html">PIREPs</a>
@@ -39,73 +39,43 @@
 
     <section class="stats-bar" aria-label="Alliance statistics">
       <article class="stat-card stat-registered">
-        <img src="assets/inop.webp" class="inop1" alt="">
-        <div class="stat-icon stat-icon-registered">♙</div>
-        <strong class="stat-number stat-number-registered">100</strong>
+        <img class="stat-icon-img" src="assets/pilot.webp" alt="Registered Pilots">
+        <strong class="stat-number stat-number-registered">---</strong>
         <span class="stat-label stat-label-registered">Registered Pilots</span>
       </article>
       <article class="stat-card stat-flights">
-        <img src="assets/inop.webp" class="inop2" alt="">
-        <div class="stat-icon stat-icon-flights">✈</div>
-        <strong class="stat-number stat-number-flights">50</strong>
+        <img class="stat-icon-img" src="assets/aircraft_tilted.webp" alt="Registered Pilots">
+        <strong class="stat-number stat-number-flights">---</strong>
         <span class="stat-label stat-label-flights">Total Flights</span>
       </article>
       <article class="stat-card stat-hours">
-        <img src="assets/inop.webp" class="inop3" alt="">
-        <div class="stat-icon stat-icon-hours">◷</div>
-        <strong class="stat-number stat-number-hours">627</strong>
+        <img class="stat-icon-img" src="assets/clock2.webp" alt="Registered Pilots">
+        <strong class="stat-number stat-number-hours">---</strong>
         <span class="stat-label stat-label-hours">Total Flight Hours</span>
       </article>
       <article class="stat-card stat-destinations">
-        <img src="assets/inop.webp" class="inop4" alt="">
-        <div class="stat-icon stat-icon-destinations">◎</div>
-        <strong class="stat-number stat-number-destinations">35</strong>
+        <img class="stat-icon-img" src="assets/destination.webp" alt="Registered Pilots">
+        <strong class="stat-number stat-number-destinations">---</strong>
         <span class="stat-label stat-label-destinations">Destinations</span>
       </article>
       <article class="stat-card stat-performance">
-        <img src="assets/inop.webp" class="inop5" alt="">
-        <div class="stat-icon stat-icon-performance">▥</div>
-        <strong class="stat-number stat-number-performance">98.6%</strong>
+        <img class="stat-icon-img" src="assets/clock.webp" alt="Registered Pilots">
+        <strong class="stat-number stat-number-performance">---</strong>
         <span class="stat-label stat-label-performance">On-Time Performance</span>
       </article>
     </section>
 
     <section class="section featured-section" id="dispatch">
       <div class="section-heading featured-heading">
-        <h2 class="section-title featured-title">Featured Flights</h2>
-        <a class="section-link featured-link" href="#">View All Flights →</a>
+        <h2 class="section-title featured-title">Featured Flights (X2 Hours)</h2>
       </div>
 
-      <div class="flight-grid">
-        <article class="flight-card flight-card-southwest">
-          <img src="assets/southwest.webp" alt="Southwest 737-800" />
-          <div class="flight-info">
-            <small class="flight-number flight-number-southwest">SWA0006</small>
-            <h3 class="flight-route flight-route-southwest">KPHX - KLAS</h3>
-            <p class="flight-carrier flight-carrier-southwest">Southwest Airlines</p>
-            <p class="flight-airframe flight-airframe-southwest">737-800</p>
-          </div>
-        </article>
+      <div class="flight-grid" id="featuredFlightsGrid">
 
-        <article class="flight-card flight-card-american">
-          <img src="assets/american.webp" alt="American Eagle CRJ" />
-          <div class="flight-info">
-            <small class="flight-number flight-number-american">AAL0008</small>
-            <h3 class="flight-route flight-route-american">KDFW - KAMA</h3>
-            <p class="flight-carrier flight-carrier-american">American Eagle</p>
-            <p class="flight-airframe flight-airframe-american">CRJ-700</p>
-          </div>
-        </article>
+        <div class="featured-skeleton"></div>
+        <div class="featured-skeleton"></div>
+        <div class="featured-skeleton"></div>
 
-        <article class="flight-card flight-card-frontier">
-          <img src="assets/frontier.webp" alt="Frontier Airbus A320" />
-          <div class="flight-info">
-            <small class="flight-number flight-number-frontier">FFT0002</small>
-            <h3 class="flight-route flight-route-frontier">KDEN - KBNA</h3>
-            <p class="flight-carrier flight-carrier-frontier">Frontier Airlines</p>
-            <p class="flight-airframe flight-airframe-frontier">A320</p>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -198,5 +168,101 @@
         }
     });
   </script>
+
+
+  <script>
+    const FEATURED_FLIGHTS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsdeVDsh3OThkWqQG_gFnmjUYpiX3kjBQWUTYn3NNKBIpasVs26yHKij_KJZSgAcscOA/exec";
+
+    function escapeFeaturedFlightText(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    async function loadHomeFeaturedFlights() {
+      const grid = document.getElementById("featuredFlightsGrid");
+
+      if (!grid) return;
+
+      try {
+        const response = await fetch(FEATURED_FLIGHTS_WEB_APP_URL, {
+          method: "POST",
+          body: JSON.stringify({
+            action: "getFeaturedFlights"
+          })
+        });
+
+        const result = await response.json();
+
+        if (!result.success || !Array.isArray(result.flights) || result.flights.length === 0) {
+          return;
+        }
+
+        const flights = result.flights.slice(0, 3);
+
+        grid.innerHTML = flights.map(flight => {
+          const image = escapeFeaturedFlightText(flight.image || "assets/hero-map-bg.webp");
+          const callsign = escapeFeaturedFlightText(flight.callsign || "TBD");
+          const departure = escapeFeaturedFlightText(flight.departure || "----");
+          const arrival = escapeFeaturedFlightText(flight.arrival || "----");
+          const airline = escapeFeaturedFlightText(flight.airline || "Boundless Alliance");
+          const aircraft = escapeFeaturedFlightText(flight.aircraft || "Aircraft TBD");
+          const altText = `${airline} ${aircraft}`;
+
+          return `
+            <article class="flight-card">
+              <img src="${image}" alt="${altText}" />
+              <div class="flight-info">
+                <small class="flight-number">${callsign}</small>
+                <h3 class="flight-route">${departure} - ${arrival}</h3>
+                <p class="flight-carrier">${airline}</p>
+                <p class="flight-airframe">${aircraft}</p>
+              </div>
+            </article>
+          `;
+        }).join("");
+      } catch (error) {
+        console.error("Failed to load featured flights:", error);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadHomeFeaturedFlights);
+  </script>
+
+  <script>
+  const HOME_STATS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsdeVDsh3OThkWqQG_gFnmjUYpiX3kjBQWUTYn3NNKBIpasVs26yHKij_KJZSgAcscOA/exec";
+
+  async function loadHomeStats() {
+    try {
+      const response = await fetch(HOME_STATS_WEB_APP_URL, {
+        method: "POST",
+        body: JSON.stringify({
+          action: "getHomeStats"
+        })
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(result.message || "Unable to load home stats.");
+      }
+
+      document.querySelector(".stat-number-registered").textContent = result.registeredPilots;
+      document.querySelector(".stat-number-flights").textContent = result.totalFlights;
+      document.querySelector(".stat-number-hours").textContent = result.totalFlightHours;
+      document.querySelector(".stat-number-destinations").textContent = result.destinations;
+      document.querySelector(".stat-number-performance").textContent = result.onTimePerformance;
+
+    } catch (error) {
+      console.error("Failed to load home stats:", error);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", loadHomeStats);
+  </script>
+
 </body>
 </html>

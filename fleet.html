@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fleet | Boundless Alliance</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="fleet-page-body">
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.webp" alt="Boundless Alliance Logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-text nav-home" href="index.html">Home</a>
+      <a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a>
+      <a class="nav-text nav-fleet active" href="fleet.html">Fleet</a>
+      <a class="nav-text nav-about" href="about.html">About Us</a>
+      <a id="operationsNavLink" class="nav-text" href="operations.html">Operations</a>
+      <a class="nav-text nav-pireps" href="pireps.html">PIREPs</a>
+      <a class="nav-text nav-pireps" href="#apply">Apply</a>
+      <a class="nav-text nav-portal portal-btn" href="portal.html">Pilot Portal</a>
+    </nav>
+  </header>
+
+  <main class="fleet-page">
+    <section class="fleet-hero-card">
+      <div class="fleet-hero-copy">
+        <small>Our Fleet Philosophy</small>
+        <h1>Any Airline.<br><span>Any Aircraft.</span><br>Any Route.</h1>
+        <div class="fleet-title-line"></div>
+        <p>Boundless Alliance does not operate a fixed fleet. We support real-world aircraft operated by real-world airlines around the globe.</p>
+      </div>
+      <div class="fleet-hero-image-wrap">
+        <img src="assets/fleet-hero.webp" alt="View from an aircraft window above the clouds" />
+      </div>
+    </section>
+
+    <section class="fleet-pillars" aria-label="Boundless Alliance fleet principles">
+      <article>
+        <img src="assets/globe.webp" alt="" class="fleet-icon">
+        <h3>Any Airline</h3>
+        <p>Fly for any real-world airline.</p>
+      </article>
+      <article>
+        <img src="assets/aircraft_tilted.webp" alt="" class="fleet-icon">
+        <h3>Any Aircraft</h3>
+        <p>If it is in service, you can fly it.</p>
+      </article>
+      <article>
+        <img src="assets/route-search.webp" alt="" class="fleet-icon-small">
+        <h3>Any Route</h3>
+        <p>Fly anywhere in the world.</p>
+      </article>
+      <article>
+        <img src="assets/community.webp" alt="" class="fleet-icon-small">
+        <h3>One Community</h3>
+        <p>United by aviation, driven by passion.</p>
+      </article>
+    </section>
+
+    <section class="fleet-section">
+      <div class="fleet-section-heading center">
+        <h2>Currently Supported Aircraft Families</h2>
+        <p>The aircraft families below are currently supported by the Dispatch system. Boundless Alliance is not limited to these aircraft types—pilots are free to fly any aircraft that complies with Alliance rules and standards.</p>
+      </div>
+
+      <div class="fleet-family-grid">
+        <article class="fleet-family-card">
+          <img src="assets/fleet-airbus.webp" alt="Blank Airbus A320 aircraft" />
+          <div>
+            <h3>Airbus A320 Family</h3>
+            <ul>
+              <li>A319</li>
+              <li>A320</li>
+              <li>A321</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="fleet-family-card">
+          <img src="assets/fleet-boeing.webp" alt="Blank Boeing 737 aircraft" />
+          <div>
+            <h3>Boeing 737 Family</h3>
+            <ul>
+              <li>737-700</li>
+              <li>737-800</li>
+              <li>737-900</li>
+              <li>737 MAX 8</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="fleet-section fleet-expansion-card">
+      <div class="fleet-section-heading center">
+        <h2>Future Expansion</h2>
+        <p>Additional aircraft families are planned as Boundless Alliance continues to grow.</p>
+      </div>
+
+      <div class="fleet-expansion-grid">
+        <span>A330</span>
+        <span>A350</span>
+        <span>B777</span>
+        <span>E-Jets</span>
+        <span>CRJs</span>
+      </div>
+    </section>
+
+    <section class="fleet-requirements-card">
+      <div class="fleet-section-heading center">
+        <h2>Aircraft Requirements</h2>
+      </div>
+
+      <div class="fleet-requirements-grid">
+        <article>
+          <span>✓</span>
+          <div>
+            <h3>Real-World Airlines</h3>
+            <p>Aircraft must be operated by a real-world airline.</p>
+          </div>
+        </article>
+        <article>
+          <span>✓</span>
+          <div>
+            <h3>Active Service</h3>
+            <p>Aircraft must be in active service.</p>
+          </div>
+        </article>
+        <article>
+          <span>✓</span>
+          <div>
+            <h3>Match the Airline</h3>
+            <p>Aircraft must match the selected airline.</p>
+          </div>
+        </article>
+        <article>
+          <span>✓</span>
+          <div>
+            <h3>No Fictional Liveries</h3>
+            <p>Fictional liveries are not permitted.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer dispatch-footer">
+    <img src="assets/logo.webp" alt="Boundless Alliance Logo" />
+    <div class="footer-social">
+      <span class="footer-heading">Connect With Us</span>
+      <a href="https://discord.gg/mwQuuQKqa5" target="_blank" class="footer-discord-link">
+        <img src="assets/discord_icon.webp" class="footer-discord-icon" alt="Discord" />
+        <small class="footer-discord">Join Our Discord</small>
+      </a>
+    </div>
+    <p class="footer-copyright">© Boundless Alliance<br>All Rights Reserved</p>
+  </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("boundlessToken");
+  const operationsLink = document.getElementById("operationsNavLink");
+  const pirepLinks = document.querySelectorAll(".nav-pireps");
+
+  if (!token) {
+    if (operationsLink) operationsLink.style.display = "none";
+    pirepLinks.forEach(link => link.style.display = "none");
+  }
+});
+</script>
+</body>
+</html>
