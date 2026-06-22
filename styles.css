@@ -1953,6 +1953,164 @@ body {
   font-size: 22px;
 }
 
+/* =========================================================
+   OPERATIONS - ECONOMY DASHBOARD
+   ========================================================= */
+
+.economy-dashboard {
+  display: grid;
+  gap: 24px;
+}
+
+.economy-hero-card {
+  padding: 34px 36px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #6338e7 0%, #4b26d0 100%);
+  color: #fff;
+  box-shadow: 0 14px 30px rgba(99, 56, 231, .28);
+}
+
+.economy-hero-card span {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-button);
+  font-size: 15px;
+  text-transform: uppercase;
+  opacity: .9;
+}
+
+.economy-hero-card strong {
+  display: block;
+  font-family: var(--font-stat-number);
+  font-size: clamp(54px, 7vw, 82px);
+  line-height: .85;
+}
+
+.economy-hero-card p {
+  margin: 14px 0 0;
+  font-size: 20px;
+}
+
+.economy-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.economy-stat-card,
+.economy-breakdown-card {
+  background: #fff;
+  border: 2px solid #ded7ef;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(16, 22, 41, .12);
+}
+
+.economy-stat-card span {
+  display: block;
+  margin-bottom: 10px;
+  color: #5d6375;
+  font-family: var(--font-button);
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.economy-stat-card strong {
+  display: block;
+  color: var(--purple);
+  font-family: var(--font-section-title);
+  font-size: 34px;
+  line-height: 1;
+}
+
+.economy-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.economy-breakdown-card h4 {
+  margin: 0 0 18px;
+  color: #050509;
+  font-family: var(--font-section-title);
+  font-size: 26px;
+}
+
+.economy-breakdown-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 0;
+  border-top: 2px solid #eee9fb;
+}
+
+.economy-breakdown-row span {
+  color: #5d6375;
+  font-size: 17px;
+}
+
+.economy-breakdown-row strong {
+  color: #101629;
+  font-family: var(--font-button);
+  font-size: 20px;
+}
+
+.economy-distribution-item {
+  padding: 16px 0;
+  border-top: 2px solid #eee9fb;
+}
+
+.economy-distribution-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+
+.economy-distribution-label span {
+  color: #5d6375;
+  font-size: 17px;
+}
+
+.economy-distribution-label strong {
+  color: #101629;
+  font-family: var(--font-button);
+  font-size: 20px;
+}
+
+.economy-distribution-track {
+  width: 100%;
+  height: 13px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #eee9fb;
+}
+
+.economy-distribution-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--purple);
+  transition: width .45s ease;
+}
+
+.economy-distribution-item small {
+  display: block;
+  margin-top: 7px;
+  color: #5d6375;
+  font-family: var(--font-button);
+  font-size: 13px;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .economy-summary-grid,
+  .economy-breakdown-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 1100px) {
   .operations-hero,
   .operations-card {

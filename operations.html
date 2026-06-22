@@ -90,16 +90,96 @@
 			<section class="operations-panel" id="economy">
 				<div class="operations-panel-header">
 					<div>
-						<h3>Economy</h3>
-						<p>Review company finances, pilot pay, and flight income.</p>
+						<h3>Company Economy</h3>
+						<p>Live financial overview based on approved PIREPs.</p>
+					</div>
+					<button class="operations-outline-btn" type="button" onclick="loadEconomyStats()">Refresh Economy</button>
+				</div>
+
+				<div class="economy-dashboard">
+					<div class="economy-hero-card">
+						<span>Company Net Profit</span>
+						<strong id="economyNetProfit">Loading...</strong>
+						<p id="economyProfitMargin">Average Margin: Loading...</p>
+					</div>
+
+					<div class="economy-summary-grid">
+						<div class="economy-stat-card">
+							<span>Total Revenue</span>
+							<strong id="economyTotalRevenue">Loading...</strong>
+						</div>
+
+						<div class="economy-stat-card">
+							<span>Total Expenses</span>
+							<strong id="economyTotalExpenses">Loading...</strong>
+						</div>
+
+						<div class="economy-stat-card">
+							<span>Total Flights</span>
+							<strong id="economyTotalFlights">Loading...</strong>
+						</div>
+					</div>
+
+					<div class="economy-breakdown-grid">
+						<div class="economy-breakdown-card">
+							<h4>Expense Distribution</h4>
+
+							<div class="economy-distribution-item">
+								<div class="economy-distribution-label">
+									<span>Fuel</span>
+									<strong id="economyFuelExpense">Loading...</strong>
+								</div>
+								<div class="economy-distribution-track">
+									<div class="economy-distribution-fill" id="economyFuelBar"></div>
+								</div>
+								<small id="economyFuelPercent">Loading...</small>
+							</div>
+
+							<div class="economy-distribution-item">
+								<div class="economy-distribution-label">
+									<span>Catering</span>
+									<strong id="economyCateringExpense">Loading...</strong>
+								</div>
+								<div class="economy-distribution-track">
+									<div class="economy-distribution-fill" id="economyCateringBar"></div>
+								</div>
+								<small id="economyCateringPercent">Loading...</small>
+							</div>
+
+							<div class="economy-distribution-item">
+								<div class="economy-distribution-label">
+									<span>Ground Handling</span>
+									<strong id="economyGroundExpense">Loading...</strong>
+								</div>
+								<div class="economy-distribution-track">
+									<div class="economy-distribution-fill" id="economyGroundBar"></div>
+								</div>
+								<small id="economyGroundPercent">Loading...</small>
+							</div>
+						</div>
+
+						<div class="economy-breakdown-card">
+							<h4>Financial Metrics</h4>
+
+							<div class="economy-breakdown-row">
+								<span>Average Revenue / Flight</span>
+								<strong id="economyRevenuePerFlight">Loading...</strong>
+							</div>
+
+							<div class="economy-breakdown-row">
+								<span>Average Expense / Flight</span>
+								<strong id="economyExpensePerFlight">Loading...</strong>
+							</div>
+
+							<div class="economy-breakdown-row">
+								<span>Average Profit / Flight</span>
+								<strong id="economyProfitPerFlight">Loading...</strong>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="operations-placeholder-grid">
-					<div class="operations-tool-card">Company Balance</div>
-					<div class="operations-tool-card">Pilot Pay Review</div>
-					<div class="operations-tool-card">Income Reports</div>
-				</div>
 			</section>
+
 			<section class="operations-panel" id="events">
 				<div class="operations-panel-header">
 					<div>
@@ -548,6 +628,115 @@
 		document.getElementById("featuredFlightModal").classList.remove("open");
 	}
 
+	async function loadEconomyStats() {
+		try {
+			const response = await fetch(PIREP_WEB_APP_URL, {
+				method: "POST",
+				body: JSON.stringify({
+					action: "getEconomyStats",
+					token: localStorage.getItem("boundlessToken")
+				})
+			});
+
+			const result = await response.json();
+
+			if (!result.success) {
+				console.error(result.message);
+				return;
+			}
+
+			const formatMoney = value => {
+				value = Number(value || 0);
+
+				if (value >= 1000000000) {
+					return `$${(value / 1000000000).toFixed(2)}B`;
+				}
+
+				if (value >= 1000000) {
+					return `$${(value / 1000000).toFixed(2)}M`;
+				}
+
+				if (value >= 1000) {
+					return `$${(value / 1000).toFixed(1)}K`;
+				}
+
+				return `$${value.toFixed(2)}`;
+			};
+
+			document.getElementById("economyNetProfit").textContent =
+				formatMoney(result.totalProfit);
+
+			document.getElementById("economyProfitMargin").textContent =
+				`Average Margin: ${(Number(result.averageProfitMargin) * 100).toFixed(2)}%`;
+
+			document.getElementById("economyTotalRevenue").textContent =
+				formatMoney(result.totalRevenue);
+
+			document.getElementById("economyTotalExpenses").textContent =
+				formatMoney(result.totalExpenses);
+
+			document.getElementById("economyTotalFlights").textContent =
+				Number(result.totalFlights).toLocaleString();
+
+			document.getElementById("economyFuelExpense").textContent =
+				formatMoney(result.fuelExpense);
+
+			document.getElementById("economyCateringExpense").textContent =
+				formatMoney(result.cateringExpense);
+
+			document.getElementById("economyGroundExpense").textContent =
+				formatMoney(result.groundExpense);
+
+			const formatPercent = value =>
+				`${(Number(value || 0) * 100).toFixed(1)}%`;
+
+			document.getElementById("economyFuelPercent").textContent =
+				formatPercent(result.fuelPercent);
+
+			document.getElementById("economyCateringPercent").textContent =
+				formatPercent(result.cateringPercent);
+
+			document.getElementById("economyGroundPercent").textContent =
+				formatPercent(result.groundPercent);
+
+			document.getElementById("economyFuelBar").style.width =
+				formatPercent(result.fuelPercent);
+
+			document.getElementById("economyCateringBar").style.width =
+				formatPercent(result.cateringPercent);
+
+			document.getElementById("economyGroundBar").style.width =
+				formatPercent(result.groundPercent);
+
+			const revenuePerFlight =
+				result.totalFlights > 0
+					? result.totalRevenue / result.totalFlights
+					: 0;
+
+			const expensePerFlight =
+				result.totalFlights > 0
+					? result.totalExpenses / result.totalFlights
+					: 0;
+			
+					const profitPerFlight =
+				result.totalFlights > 0
+					? result.totalProfit / result.totalFlights
+					: 0;
+
+			document.getElementById("economyRevenuePerFlight").textContent =
+				formatMoney(revenuePerFlight);
+
+			document.getElementById("economyExpensePerFlight").textContent =
+				formatMoney(expensePerFlight);
+
+			document.getElementById("economyProfitPerFlight").textContent =
+				formatMoney(profitPerFlight);
+
+		} catch (error) {
+			console.error("Failed to load economy stats:", error);
+		}
+	}
+	
 	document.addEventListener("boundlessAuthReady", () => {
 		const overlay = document.getElementById("authLoadingOverlay");
 
@@ -557,6 +746,7 @@
 
 		loadPendingPireps();
 		loadFeaturedFlights();
+		loadEconomyStats();
 	});
 	</script>
 </body>
