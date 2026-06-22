@@ -190,7 +190,7 @@
 			<div class="ops-pirep-meta">
 				<div class="ops-pirep-row">
 					<span class="ops-pirep-label">Pilot:</span>
-					<span class="ops-pirep-value">${values[39]}</span>
+					<span class="ops-pirep-value">${values[40]}</span>
 				</div>
 
 				<div class="ops-pirep-row">
@@ -204,9 +204,9 @@
 				</div>
 			</div>
 
-			<p>Submitted ${formatDate(values[42])}</p>
+			<p>Submitted ${formatDate(values[43])}</p>
 
-            <button type="button" onclick="openPirepModal('${values[40]}')">
+            <button type="button" onclick="openPirepModal('${values[41]}')">
               Review PIREP
             </button>
           `;
@@ -221,6 +221,11 @@
 	function formatDate(dateString) {
 		if(!dateString) return "";
 		const date = new Date(dateString);
+
+		if (Number.isNaN(date.getTime())) {
+			return dateString;
+		}
+
 		const month = String(date.getMonth() + 1).padStart(2, "0");
 		const day = String(date.getDate()).padStart(2, "0");
 		const year = date.getFullYear();
@@ -231,10 +236,10 @@
 
 	function getAnomalySummary(values) {
 		const anomalies = [
-			values[34],
 			values[35],
 			values[36],
-			values[37]
+			values[37],
+			values[38]
 		].filter(item => item && item !== "None");
 
 		return anomalies.length ? anomalies.join(", ") : "None";
@@ -244,15 +249,14 @@
 	let activePirepId = null;
 
 	function openPirepModal(pirepId) {
-		const pirep = loadedPireps.find(item => item.values[40] === pirepId);
-		document.getElementById("modalPirepSubtitle").textContent = `${pirep["Airline"] || ""} → ${pirep["Callsign"] || ""}`;
+		const pirep = loadedPireps.find(item => item.values[41] === pirepId);
+
 		if(!pirep) {
 			alert("Could not find this PIREP.");
 			return;
 		}
-		document.getElementById("modalPirepSubtitle").textContent = `${pirep["Airline"] || ""} ${pirep["Flight Number"] || ""} | ${pirep["Departure Airport"] || ""} → ${pirep["Arrival Airport"] || ""}`;
 		const values = pirep.values;
-		activePirepId = values[40];
+		activePirepId = values[41];
 		document.getElementById("modalPirepSubtitle").textContent = `${values[0] || ""} → ${values[2] || ""}`;
 		document.getElementById("modalPirepContent").innerHTML = `
         <div class="modal-section">
@@ -298,42 +302,43 @@
             <div><span>Fuel Provider</span><strong>${values[19] || ""}</strong></div>
             <div><span>Fueling Amount (Gallons)</span><strong>${values[20] || ""}</strong></div>
             <div><span>Unit Price</span><strong>${values[21] || ""}</strong></div>
-            <div><span>Sales Tax / VAT</span><strong>${values[22] || ""}</strong></div>
+            <div><span>Fuel Tax</span><strong>${values[22] || ""}</strong></div>
+            <div><span>Sales Tax / VAT</span><strong>${values[23] || ""}</strong></div>
           </div>
         </div>
 
         <div class="modal-section">
           <h3>Catering</h3>
           <div class="modal-grid">
-            <div><span>Catering Provider</span><strong>${values[23] || ""}</strong></div>
-            <div><span>Catering Quantity</span><strong>${values[24] || ""}</strong></div>
-            <div><span>Unit Price</span><strong>${values[25] || ""}</strong></div>
-            <div><span>Sales Tax / VAT</span><strong>${values[26] || ""}</strong></div>
+            <div><span>Catering Provider</span><strong>${values[24] || ""}</strong></div>
+            <div><span>Catering Quantity</span><strong>${values[25] || ""}</strong></div>
+            <div><span>Unit Price</span><strong>${values[26] || ""}</strong></div>
+            <div><span>Sales Tax / VAT</span><strong>${values[27] || ""}</strong></div>
           </div>
         </div>
 
         <div class="modal-section">
           <h3>Ground</h3>
           <div class="modal-grid">
-            <div><span>Handling Provider</span><strong>${values[27] || ""}</strong></div>
-            <div><span>Boarding Cost</span><strong>${values[28] || ""}</strong></div>
-            <div><span>Pushback Service Cost</span><strong>${values[29] || ""}</strong></div>
-            <div><span>Jetway / Stairs Connection Fee</span><strong>${values[30] || ""}</strong></div>
-            <div><span>Jetway / Stairs Operation Time</span><strong>${values[31] || ""}</strong></div>
-            <div><span>Jetway / Stairs Ops Cost / Hour</span><strong>${values[32] || ""}</strong></div>
-            <div><span>Sales Tax / VAT</span><strong>${values[33] || ""}</strong></div>
+            <div><span>Handling Provider</span><strong>${values[28] || ""}</strong></div>
+            <div><span>Boarding Cost</span><strong>${values[29] || ""}</strong></div>
+            <div><span>Pushback Service Cost</span><strong>${values[30] || ""}</strong></div>
+            <div><span>Jetway / Stairs Connection Fee</span><strong>${values[31] || ""}</strong></div>
+            <div><span>Jetway / Stairs Operation Time</span><strong>${values[32] || ""}</strong></div>
+            <div><span>Jetway / Stairs Ops Cost / Hour</span><strong>${values[33] || ""}</strong></div>
+            <div><span>Sales Tax / VAT</span><strong>${values[34] || ""}</strong></div>
           </div>
         </div>
 
         <div class="modal-section">
           <h3>Notes</h3>
           <div class="modal-grid">
-            <div><span>Flight Anomaly 1</span><strong>${values[34] || ""}</strong></div>
-            <div><span>Flight Anomaly 2</span><strong>${values[35] || ""}</strong></div>
-            <div><span>Flight Anomaly 3</span><strong>${values[36] || ""}</strong></div>
-            <div><span>Flight Anomaly 4</span><strong>${values[37] || ""}</strong></div>
+            <div><span>Flight Anomaly 1</span><strong>${values[35] || ""}</strong></div>
+            <div><span>Flight Anomaly 2</span><strong>${values[36] || ""}</strong></div>
+            <div><span>Flight Anomaly 3</span><strong>${values[37] || ""}</strong></div>
+            <div><span>Flight Anomaly 4</span><strong>${values[38] || ""}</strong></div>
           </div>
-          <div class="modal-wide"><span>Additional Comments</span><strong>${values[38] || ""}</strong></div>
+          <div class="modal-wide"><span>Additional Comments</span><strong>${values[39] || ""}</strong></div>
         </div>
       `;
 		document.getElementById("pirepReviewModal").classList.add("open");
