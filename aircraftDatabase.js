@@ -14050,6 +14050,724 @@ const aircraftDatabase = [
     "registration": "N398DN"
   },
   {
+    "airline": "Delta Airlines",
+    "airframe": "A330-200",
+    "registration": "N851NW"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-200",
+    "registration": "N852NW"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-200",
+    "registration": "N853NW"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-200",
+    "registration": "N854NW"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-200",
+    "registration": "N855NW"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-200",
+    "registration": "N856NW"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-200",
+    "registration": "N857NW"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-200",
+    "registration": "N858NW"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-200",
+    "registration": "N859NW"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-200",
+    "registration": "N860NW"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-200",
+    "registration": "N861NW"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N801NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N802NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N803NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N804NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N805NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N806NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N807NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N808NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N809NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N810NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N811NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N812NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N813NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N814NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N815NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N816NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N817NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N818NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N819NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N820NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N821NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N822NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N823NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N824NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N825NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N826NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N827NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N828NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N829NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N830NW"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-300",
+    "registration": "N831NW"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N401DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N402DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N403DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N404DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N405DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N406DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N407DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N408DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N409DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N410DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N411DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N412DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N413DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N414DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N415DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N416DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N417DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N418DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N419DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N420DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N421DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N422DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N423DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N424DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N425DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N426DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N427DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N428DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N429DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N430DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N431DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N432DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N433DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N434DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N435DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N436DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N437DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N438DX"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A330-900",
+    "registration": "N439DX"
+  },
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N501DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N502DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N503DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N504DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N505DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N506DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N507DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N508DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N509DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N510DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N511DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N512DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N513DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N514DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N515DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N516DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N517DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N518DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N519DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N520DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N521DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N522DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N523DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N524DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N525DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N526DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N527DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N528DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N529DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N530DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N531DN"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N532DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N568DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N569DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N570DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N571DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N572DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N573DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N574DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N575DZ"
+  },
+
+  {
+    "airline": "Delta Airlines",
+    "airframe": "A350-900",
+    "registration": "N576DZ"
+  },
+  {
     "airline": "JetBlue",
     "airframe": "A320",
     "registration": "N504JB"
