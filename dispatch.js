@@ -153,6 +153,21 @@ function getAircraftFamily(airframe) {
     return 'A320 Family';
   }
 
+  if (
+    normalized.includes('A330-200') ||
+    normalized.includes('A330-300') ||
+    normalized.includes('A330-900')
+  ) {
+    return 'A330 Family';
+  }
+
+    if (
+    normalized.includes('A350-900') ||
+    normalized.includes('A350-1000')
+  ) {
+    return 'A350 Family';
+  }
+
   return 'Other';
 }
 
