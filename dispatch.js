@@ -17,7 +17,8 @@ const airlineTailMap = {
   'British Airways': 'assets/baw_tail.webp',
   'Lufthansa': 'assets/dlh_tail.webp',
   'Jetstar': 'assets/jst_tail.webp',
-  'Eurowings': 'assets/ewg_tail.webp'
+  'Eurowings': 'assets/ewg_tail.webp',
+  'Ryanair': 'assets/ryr_tail.webp',
 };
 
 function uniqueValues(list, key) {
@@ -161,11 +162,17 @@ function getAircraftFamily(airframe) {
     return 'A330 Family';
   }
 
-    if (
+  if (
     normalized.includes('A350-900') ||
     normalized.includes('A350-1000')
   ) {
     return 'A350 Family';
+  }
+
+  if (
+    normalized.includes('A380')
+  ) {
+    return 'A380 Family';
   }
 
   return 'Other';
