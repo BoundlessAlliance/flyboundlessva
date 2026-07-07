@@ -4389,3 +4389,296 @@ body {
     from { background-position: 200% 0; }
     to { background-position: -200% 0; }
 }
+/* =========================================================
+   APPLY PAGE + APPLICATION REVIEW
+   ========================================================= */
+
+.apply-page-body {
+  margin: 0;
+  background: #ecefff;
+  color: #101629;
+}
+
+.apply-page {
+  width: min(1180px, calc(100% - 40px));
+  margin: 42px auto 70px;
+}
+
+.apply-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  align-items: center;
+  gap: 28px;
+  padding: 42px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #101629 0%, #251c54 55%, #6338e7 100%);
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(37, 28, 84, .22);
+}
+
+.apply-hero .eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--font-section-link);
+  font-size: 14px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #bfc9ff;
+}
+
+.apply-hero h1 {
+  margin: 0;
+  font-family: var(--font-page-title);
+  font-size: clamp(46px, 7vw, 86px);
+  line-height: .88;
+  text-transform: uppercase;
+}
+
+.apply-hero p {
+  max-width: 680px;
+  margin: 18px 0 0;
+  font-size: 20px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, .86);
+}
+
+.apply-hero img {
+  width: 100%;
+  transform: rotate(-7deg);
+  filter: drop-shadow(0 18px 26px rgba(0, 0, 0, .35));
+}
+
+.apply-card {
+  margin-top: 34px;
+  padding: 34px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 16px 38px rgba(17, 18, 35, .12);
+}
+
+.apply-card-header h2 {
+  margin: 0;
+  font-family: var(--font-section-title);
+  font-size: 44px;
+}
+
+.apply-card-header p {
+  margin: 8px 0 28px;
+  color: #5d6375;
+  font-size: 18px;
+}
+
+.apply-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.apply-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.apply-form span {
+  font-family: var(--font-section-link);
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #251c54;
+}
+
+.apply-form input,
+.apply-form select,
+.apply-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ded7ef;
+  border-radius: 8px;
+  background: #f8f6ff;
+  padding: 13px 14px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: #101629;
+  outline: none;
+}
+
+.apply-form textarea {
+  resize: vertical;
+}
+
+.apply-form input:focus,
+.apply-form select:focus,
+.apply-form textarea:focus {
+  border-color: var(--purple);
+  background: #fff;
+}
+
+.apply-wide-field,
+.apply-actions {
+  grid-column: 1 / -1;
+}
+
+.apply-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 6px;
+}
+
+.apply-actions p {
+  margin: 0;
+  color: #5d6375;
+  font-size: 16px;
+}
+
+.apply-actions button,
+.application-review-card button {
+  border: 3px solid var(--purple);
+  border-radius: 7px;
+  background: var(--purple);
+  color: #fff;
+  font-family: var(--font-button);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.apply-actions button {
+  min-width: 220px;
+  height: 50px;
+}
+
+.apply-actions button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.applications-review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.application-review-card {
+  padding: 22px;
+  border: 2px solid #ded7ef;
+  border-radius: 12px;
+  background: #f8f6ff;
+  box-shadow: 0 10px 24px rgba(17, 18, 35, .08);
+}
+
+.application-review-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.application-review-topline h4 {
+  margin: 0;
+  font-family: var(--font-section-title);
+  font-size: 26px;
+  color: var(--purple);
+}
+
+.application-review-topline span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff;
+  color: #251c54;
+  font-family: var(--font-section-link);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.application-review-card > strong {
+  display: block;
+  font-family: var(--font-section-title);
+  font-size: 30px;
+  color: #101629;
+}
+
+.application-review-card p {
+  margin: 6px 0 18px;
+  color: #5d6375;
+}
+
+.application-review-meta {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.application-review-meta div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ded7ef;
+}
+
+.application-review-meta span {
+  color: #5d6375;
+}
+
+.application-review-meta b {
+  color: #101629;
+  text-align: right;
+}
+
+.application-review-card small {
+  display: block;
+  margin-bottom: 16px;
+  color: #5d6375;
+}
+
+.application-review-card button {
+  width: 100%;
+  min-height: 44px;
+}
+
+@media (max-width: 900px) {
+  .apply-hero,
+  .apply-form,
+  .applications-review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .apply-hero img {
+    max-width: 260px;
+    justify-self: center;
+  }
+
+  .apply-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .apply-actions button {
+    width: 100%;
+  }
+}
+
+.application-notice {
+    background: rgba(99, 56, 231, 0.08);
+    border: 1px solid rgba(99, 56, 231, 0.35);
+    border-left: 4px solid #6338e7;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 8px;
+    color: #d9d9e6;
+    line-height: 1.6;
+}
+
+.application-notice strong {
+    color: #a50000;
+}
+
+.application-notice,
+.application-notice p,
+.application-notice span {
+    color: #000000 !important;
+    opacity: 1 !important;
+}

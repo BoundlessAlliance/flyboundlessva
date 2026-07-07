@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply | Boundless Alliance</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="apply-page-body">
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.webp" alt="Boundless Alliance Logo" />
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-text nav-home" href="index.html">Home</a>
+      <a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a>
+      <a class="nav-text nav-fleet" href="fleet.html">Fleet</a>
+      <a class="nav-text nav-about" href="about.html">About Us</a>
+      <a id="operationsNavLink" class="nav-text operations-only" href="operations.html">Operations</a>
+      <a class="nav-text nav-pireps" href="pireps.html">PIREPs</a>
+      <a class="nav-text nav-apply active" href="apply.html">Apply</a>
+      <a class="nav-text nav-portal portal-btn" href="portal.html">Pilot Portal</a>
+    </nav>
+  </header>
+
+  <main class="apply-page">
+    <section class="apply-hero">
+      <div>
+        <span class="eyebrow">Boundless Alliance Application</span>
+        <h1>Ready to fly with us?</h1>
+        <p>
+          Submit your pilot application below. Operations will review your application and follow up with next steps via Discord. Please ensure to join the Boundless Discord.
+        </p>
+      </div>
+      <img src="assets/aircraft_tilted.webp" alt="Boundless aircraft" />
+    </section>
+
+    <section class="apply-card">
+      <div class="apply-card-header">
+        <h2>Pilot Application</h2>
+        <p>Please answer each question honestly so Operations can get to know you.</p>
+      </div>
+
+      <form id="applicationForm" class="apply-form">
+        <label>
+          <span>Full Name</span>
+          <input id="appFullName" name="fullName" required placeholder="John Smith" />
+        </label>
+
+        <label>
+          <span>Discord Username</span>
+          <input id="appDiscord" name="discordUsername" required placeholder="username#0000 or @username" />
+        </label>
+
+        <label>
+          <span>Email Address</span>
+          <input id="appEmail" name="email" type="email" required placeholder="you@example.com" />
+        </label>
+
+        <label>
+          <span>Website Username</span>
+          <input id="appWebsiteUsername" name="websiteUsername" placeholder="If you already created one" />
+        </label>
+
+        <label>
+          <span>Home Airport</span>
+          <input id="appHomeBase" name="homeBase" maxlength="4" required placeholder="KPHX" />
+        </label>
+
+        <label>
+          <span>Preferred Aircraft</span>
+          <input id="appPreferredAircraft" name="preferredAircraft" required placeholder="737-800, A320, etc." />
+        </label>
+
+        <label>
+          <span>Flight Simulator</span>
+          <select id="appSimulator" name="simulator" required>
+            <option value="">Select simulator</option>
+            <option>Microsoft Flight Simulator 2024</option>
+            <option>Microsoft Flight Simulator 2020</option>
+            <option>Prepar3D</option>
+            <option>Other</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Experience Level</span>
+          <select id="appExperience" name="experience" required>
+            <option value="">Select experience</option>
+            <option>New / Beginner</option>
+            <option>Casual Sim Pilot</option>
+            <option>Experienced Sim Pilot</option>
+            <option>Real World Aviation Experience</option>
+          </select>
+        </label>
+
+        <div class="apply-wide-field">
+          <div class="application-notice">
+            <strong>Required Add-ons</strong><br>
+            Boundless Alliance requires all pilots to own and use <strong>ElevateX</strong> and <strong>GSX Pro</strong>. If you do not currently own both add-ons, please wait to apply until you have them.
+          </div>
+        </div>
+
+        <label>
+          <span>Do you own ElevateX?</span>
+          <select id="appElevateX" name="elevatex" required>
+            <option value="">Select one</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Do you own GSX Pro?</span>
+          <select id="appGsx" name="gsx" required>
+            <option value="">Select one</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </label>
+
+        <label class="apply-wide-field">
+          <span>Why do you want to join Boundless Alliance?</span>
+          <textarea id="appWhyJoin" name="whyJoin" required rows="5" placeholder="Tell us why you want to be part of the VA."></textarea>
+        </label>
+
+        <label class="apply-wide-field">
+          <span>Anything else Operations should know?</span>
+          <textarea id="appNotes" name="notes" rows="4" placeholder="Optional"></textarea>
+        </label>
+
+        <div class="apply-actions">
+          <p id="applicationStatus" aria-live="polite"></p>
+          <button type="submit" id="applicationSubmitBtn">Submit Application</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img src="assets/logo.webp" alt="Boundless Alliance Logo" />
+    <div class="footer-social">
+      <span class="footer-heading">Connect With Us</span>
+      <a href="https://discord.gg/mwQuuQKqa5" target="_blank" class="footer-discord-link">
+        <img src="assets/discord_icon.webp" class="footer-discord-icon" alt="Discord" />
+        <small class="footer-discord">Join Our Discord</small>
+      </a>
+    </div>
+    <p class="footer-copyright">© Boundless Alliance<br>All Rights Reserved</p>
+  </footer>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzsdeVDsh3OThkWqQG_gFnmjUYpiX3kjBQWUTYn3NNKBIpasVs26yHKij_KJZSgAcscOA/exec";
+    const applicationForm = document.getElementById("applicationForm");
+    const applicationStatus = document.getElementById("applicationStatus");
+    const applicationSubmitBtn = document.getElementById("applicationSubmitBtn");
+
+    applicationForm.addEventListener("submit", async event => {
+      event.preventDefault();
+
+      applicationStatus.textContent = "Submitting application...";
+      applicationSubmitBtn.disabled = true;
+
+      const applicationData = {
+        action: "submitApplication",
+        fullName: document.getElementById("appFullName").value.trim(),
+        discordUsername: document.getElementById("appDiscord").value.trim(),
+        email: document.getElementById("appEmail").value.trim(),
+        websiteUsername: document.getElementById("appWebsiteUsername").value.trim(),
+        homeBase: document.getElementById("appHomeBase").value.trim().toUpperCase(),
+        preferredAircraft: document.getElementById("appPreferredAircraft").value.trim(),
+        simulator: document.getElementById("appSimulator").value,
+        experience: document.getElementById("appExperience").value,
+        elevatex: document.getElementById("appElevateX").value,
+        gsx: document.getElementById("appGsx").value,
+        whyJoin: document.getElementById("appWhyJoin").value.trim(),
+        notes: document.getElementById("appNotes").value.trim()
+      };
+
+      try {
+        const response = await fetch(SCRIPT_URL, {
+          method: "POST",
+          body: JSON.stringify(applicationData)
+        });
+
+        const result = await response.json();
+
+        if (!result.success) {
+          throw new Error(result.message || "Application could not be submitted.");
+        }
+
+        applicationStatus.textContent = `Application submitted successfully. Your Application ID is ${result.applicationId}.`;
+        applicationForm.reset();
+      } catch (error) {
+        applicationStatus.textContent = error.message;
+      } finally {
+        applicationSubmitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+
+</html>

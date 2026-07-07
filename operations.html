@@ -24,7 +24,7 @@
 		</div>
 		</div>
 	<header class="site-header">
-		<a class="brand" href="home.html"> <img src="assets/logo.webp" alt="Boundless Alliance Logo" /> </a>
+		<a class="brand" href="index.html"> <img src="assets/logo.webp" alt="Boundless Alliance Logo" /> </a>
 		<nav class="main-nav" aria-label="Main navigation">
 			<a class="nav-text nav-home" href="index.html">Home</a>
 			<a class="nav-text nav-dispatch" href="dispatch.html">Dispatch</a>
@@ -32,7 +32,7 @@
 			<a class="nav-text nav-about" href="about.html">About Us</a>
 			<a class="nav-text nav-home active" href="operations.html">Operations</a>
 			<a class="nav-text nav-pireps" href="pireps.html">PIREPs</a>
-			<a class="nav-text nav-pireps" href="#apply">Apply</a>
+			<a class="nav-text nav-apply" href="apply.html">Apply</a>
 			<a class="nav-text nav-portal portal-btn" href="portal.html">Pilot Portal</a>
 		</nav>
 	</header>
@@ -200,10 +200,8 @@
 						<p>Review pilot, staff, and operations applications.</p>
 					</div>
 				</div>
-				<div class="operations-placeholder-grid">
-					<div class="operations-tool-card">Pilot Applications</div>
-					<div class="operations-tool-card">Staff Applications</div>
-					<div class="operations-tool-card">Application Settings</div>
+				<div id="applicationsGrid" class="applications-review-grid">
+					<p>Loading applications...</p>
 				</div>
 			</section>
 		</section>
@@ -468,6 +466,20 @@
 			<div class="pirep-modal-actions">
 				<button type="button" class="modal-deny-btn" onclick="decidePirep('deny')">Deny</button>
 				<button type="button" class="modal-approve-btn" onclick="decidePirep('approve')">Approve</button>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="applicationReviewModal" class="pirep-modal">
+		<div class="pirep-modal-card">
+			<button type="button" class="pirep-modal-close" onclick="closeApplicationModal()">×</button>
+			<h2>Application Review</h2>
+			<p id="modalApplicationSubtitle">Review submitted pilot application.</p>
+			<div id="modalApplicationContent" class="modal-pirep-content"></div>
+			<div class="pirep-modal-actions">
+				<button type="button" class="modal-deny-btn" onclick="decideApplication('deny')">Deny</button>
+				<button type="button" class="modal-approve-btn" onclick="decideApplication('approve')">Approve</button>
 			</div>
 		</div>
 	</div>
@@ -737,6 +749,160 @@
 		}
 	}
 	
+
+	let loadedApplications = [];
+	let activeApplicationId = null;
+
+	function escapeHtml(value) {
+		return String(value || "")
+			.replace(/&/g, "&amp;")
+			.replace(/</g, "&lt;")
+			.replace(/>/g, "&gt;")
+			.replace(/"/g, "&quot;")
+			.replace(/'/g, "&#039;");
+	}
+
+	async function loadApplications() {
+		const grid = document.getElementById("applicationsGrid");
+
+		if (!grid) return;
+
+		grid.innerHTML = "<p>Loading applications...</p>";
+
+		try {
+			const response = await fetch(PIREP_WEB_APP_URL, {
+			method: "POST",
+			body: JSON.stringify({
+				action: "getPendingApplications",
+				token: localStorage.getItem("boundlessToken")
+			})
+			});
+
+			const result = await response.json();
+
+			if (!result.success) {
+			if (result.message === "Unauthorized") {
+				window.location.replace("portal.html");
+				return;
+			}
+
+			throw new Error(result.message || "Unable to load applications.");
+			}
+
+			loadedApplications = result.applications || [];
+
+			if (!loadedApplications.length) {
+			grid.innerHTML = "<p>No applications waiting for review.</p>";
+			return;
+			}
+
+			grid.innerHTML = loadedApplications.map(app => `
+			<article class="application-review-card">
+				<div class="application-review-topline">
+				<h4>${escapeHtml(app.applicationId)}</h4>
+				<span>${escapeHtml(app.status || "Pending")}</span>
+				</div>
+
+				<strong>${escapeHtml(app.fullName || "Unknown Applicant")}</strong>
+				<p>${escapeHtml(app.discordUsername || "No Discord username")}</p>
+
+				<div class="application-review-meta">
+				<div><span>Home Base</span><b>${escapeHtml(app.homeBase || "----")}</b></div>
+				<div><span>Aircraft</span><b>${escapeHtml(app.preferredAircraft || "Not listed")}</b></div>
+				<div><span>Simulator</span><b>${escapeHtml(app.simulator || "Not listed")}</b></div>
+				</div>
+
+				<small>Submitted ${formatDate(app.submitted)}</small>
+
+				<button type="button" onclick="openApplicationModal('${escapeHtml(app.applicationId)}')">
+				Review Application
+				</button>
+			</article>
+			`).join("");
+		} catch (error) {
+			console.error("Failed to load applications:", error);
+			grid.innerHTML = "<p>Unable to load applications.</p>";
+		}
+		}
+
+	function openApplicationModal(applicationId) {
+		const app = loadedApplications.find(item => item.applicationId === applicationId);
+
+		if (!app) {
+			alert("Could not find this application.");
+			return;
+		}
+
+		activeApplicationId = app.applicationId;
+		document.getElementById("modalApplicationSubtitle").textContent = `${app.fullName || "Applicant"} • ${app.applicationId}`;
+		document.getElementById("modalApplicationContent").innerHTML = `
+			<div class="modal-section">
+				<h3>Applicant Info</h3>
+				<div class="modal-grid">
+					<div><span>Full Name</span><strong>${escapeHtml(app.fullName)}</strong></div>
+					<div><span>Discord</span><strong>${escapeHtml(app.discordUsername)}</strong></div>
+					<div><span>Email</span><strong>${escapeHtml(app.email)}</strong></div>
+					<div><span>Website Username</span><strong>${escapeHtml(app.websiteUsername)}</strong></div>
+					<div><span>Home Base</span><strong>${escapeHtml(app.homeBase)}</strong></div>
+					<div><span>Preferred Aircraft</span><strong>${escapeHtml(app.preferredAircraft)}</strong></div>
+					<div><span>Simulator</span><strong>${escapeHtml(app.simulator)}</strong></div>
+					<div><span>Experience</span><strong>${escapeHtml(app.experience)}</strong></div>
+					<div><span>ElevateX</span><strong>${escapeHtml(app.elevatex)}</strong></div>
+					<div><span>GSX Pro</span><strong>${escapeHtml(app.gsx)}</strong></div>
+				</div>
+			</div>
+			<div class="modal-section">
+				<h3>Responses</h3>
+				<div class="modal-wide"><span>Why Join?</span><strong>${escapeHtml(app.whyJoin)}</strong></div>
+				<div class="modal-wide"><span>Additional Notes</span><strong>${escapeHtml(app.notes)}</strong></div>
+			</div>
+		`;
+		document.getElementById("applicationReviewModal").classList.add("open");
+	}
+
+	function closeApplicationModal() {
+		document.getElementById("applicationReviewModal").classList.remove("open");
+	}
+
+	async function decideApplication(decision) {
+		if (!activeApplicationId) {
+			alert("No application selected.");
+			return;
+		}
+
+		const action = decision === "approve" ? "approveApplication" : "denyApplication";
+
+		try {
+			const response = await fetch(PIREP_WEB_APP_URL, {
+			method: "POST",
+			body: JSON.stringify({
+				action: action,
+				applicationId: activeApplicationId,
+				token: localStorage.getItem("boundlessToken")
+			})
+			});
+
+			const result = await response.json();
+
+			if (!result.success) {
+			if (result.message === "Unauthorized") {
+				window.location.replace("portal.html");
+				return;
+			}
+
+			alert(result.message || "Unable to update application.");
+			return;
+			}
+
+			alert(`Application ${decision === "approve" ? "approved" : "denied"}.`);
+			closeApplicationModal();
+			loadApplications();
+		} catch (error) {
+			console.error("Failed to update application:", error);
+			alert("Unable to update application.");
+		}
+		}
+
 	document.addEventListener("boundlessAuthReady", () => {
 		const overlay = document.getElementById("authLoadingOverlay");
 
@@ -747,6 +913,7 @@
 		loadPendingPireps();
 		loadFeaturedFlights();
 		loadEconomyStats();
+		loadApplications();
 	});
 	</script>
 </body>
