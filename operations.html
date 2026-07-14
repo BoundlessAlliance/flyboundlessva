@@ -228,6 +228,44 @@
 	</script>
 	<script>
 	const PIREP_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzsdeVDsh3OThkWqQG_gFnmjUYpiX3kjBQWUTYn3NNKBIpasVs26yHKij_KJZSgAcscOA/exec";
+	const PIREP_COL = Object.freeze({
+		AIRLINE: 0,
+		FLIGHT_NUMBER: 1,
+		CALLSIGN: 2,
+		AIRCRAFT_TYPE: 3,
+		DEPARTURE_AIRPORT: 4,
+		ARRIVAL_AIRPORT: 5,
+		DEPARTURE_GATE: 6,
+		ARRIVAL_GATE: 7,
+		DATE_OF_FLIGHT: 8,
+		EST_FLIGHT_TIME: 9,
+		BLOCK_TIME: 10,
+		FLIGHT_TIME: 11,
+		ROUTE: 12,
+		LANDING_RATE: 13,
+		GROUND_SPEED: 14,
+		G_FORCE: 15,
+		APPROACH_TYPE: 16,
+		PASSENGERS: 17,
+		TICKET_PRICE: 18,
+		ANOMALY_1: 19,
+		ANOMALY_2: 20,
+		ANOMALY_3: 21,
+		ANOMALY_4: 22,
+		ADDITIONAL_COMMENTS: 23,
+		USERNAME: 24,
+		PIREP_ID: 25,
+		STATUS: 26,
+		SUBMITTED_AT: 27,
+		DISCORD_THREAD_ID: 28,
+		TOTAL_REVENUE: 29,
+		TOTAL_EXPENSES: 30,
+		FLIGHT_PROFIT: 31,
+		PROFIT_MARGIN: 32,
+		FUELING_TOTAL: 33,
+		CATERING_TOTAL: 34,
+		HANDLING_TOTAL: 35
+	});
 	const pendingPirepGrid = document.getElementById("pendingPirepGrid");
 	const pendingPirepCount = document.getElementById("pendingPirepCount");
 	async function loadPendingPireps() {
@@ -261,19 +299,19 @@
               <span>Pending</span>
             </div>
 
-            <p class="ops-pirep-callsign">${values[2] || "Unknown Callsign"}</p>
+            <p class="ops-pirep-callsign">${values[PIREP_COL.CALLSIGN] || "Unknown Callsign"}</p>
 
-			<strong>${values[4] || "----"} → ${values[5] || "----"}</strong>
+			<strong>${values[PIREP_COL.DEPARTURE_AIRPORT] || "----"} → ${values[PIREP_COL.ARRIVAL_AIRPORT] || "----"}</strong>
 
 			<div class="ops-pirep-meta">
 				<div class="ops-pirep-row">
 					<span class="ops-pirep-label">Pilot:</span>
-					<span class="ops-pirep-value">${values[40]}</span>
+					<span class="ops-pirep-value">${values[PIREP_COL.USERNAME]}</span>
 				</div>
 
 				<div class="ops-pirep-row">
 					<span class="ops-pirep-label">Aircraft:</span>
-					<span class="ops-pirep-value">${values[3]}</span>
+					<span class="ops-pirep-value">${values[PIREP_COL.AIRCRAFT_TYPE]}</span>
 				</div>
 
 				<div class="ops-pirep-row">
@@ -282,9 +320,9 @@
 				</div>
 			</div>
 
-			<p>Submitted ${formatDate(values[43])}</p>
+			<p>Submitted ${formatDate(values[PIREP_COL.SUBMITTED_AT])}</p>
 
-            <button type="button" onclick="openPirepModal('${values[41]}')">
+            <button type="button" onclick="openPirepModal('${values[PIREP_COL.PIREP_ID]}')">
               Review PIREP
             </button>
           `;
@@ -312,12 +350,125 @@
 		return `on ${month}/${day}/${year} at ${hours}:${minutes}`;
 	}
 
-	function getAnomalySummary(values) {
+	function hasReviewValue(value) {
+		return value !== "" &&
+			value !== null &&
+			value !== undefined &&
+			String(value).trim() !== "";
+		}
+
+		function buildReviewGrid(fields) {
+		const visibleFields = fields.filter(field =>
+			hasReviewValue(field.value)
+		);
+
+		if (!visibleFields.length) {
+			return "";
+		}
+
+		return `
+			<div class="modal-grid">
+			${visibleFields.map(field => `
+				<div>
+				<span>${escapeHtml(field.label)}</span>
+				<strong>${field.formatted
+					? field.formatted
+					: escapeHtml(field.value)
+				}</strong>
+				</div>
+			`).join("")}
+			</div>
+		`;
+		}
+
+		function buildReviewWide(label, value) {
+		if (!hasReviewValue(value)) {
+			return "";
+		}
+
+		return `
+			<div class="modal-wide">
+			<span>${escapeHtml(label)}</span>
+			<strong>${escapeHtml(value)}</strong>
+			</div>
+		`;
+		}
+	
+	function formatPirepMoney(value) {
+		if (value === "" || value === null || value === undefined) {
+			return "";
+		}
+
+		const number = Number(
+			String(value)
+			.replace(/\$/g, "")
+			.replace(/,/g, "")
+			.trim()
+		);
+
+		if (!Number.isFinite(number)) {
+			return value;
+		}
+
+		return number.toLocaleString("en-US", {
+			style: "currency",
+			currency: "USD"
+		});
+		}
+
+		function formatPirepPercent(value) {
+		if (value === "" || value === null || value === undefined) {
+			return "";
+		}
+
+		const number = Number(value);
+
+		if (!Number.isFinite(number)) {
+			return value;
+		}
+
+		return `${(number * 100).toFixed(2)}%`;
+		}
+	
+	function buildAnomalyReviewHtml(values) {
 		const anomalies = [
-			values[35],
-			values[36],
-			values[37],
-			values[38]
+			values[PIREP_COL.ANOMALY_1],
+			values[PIREP_COL.ANOMALY_2],
+			values[PIREP_COL.ANOMALY_3],
+			values[PIREP_COL.ANOMALY_4]
+		].filter(value => {
+			const text = String(value || "").trim();
+
+			return text !== "" && text.toLowerCase() !== "none";
+		});
+
+		if (!anomalies.length) {
+			return `
+			<div class="modal-wide">
+				<span>Flight Anomalies</span>
+				<strong>None</strong>
+			</div>
+			`;
+		}
+
+		return `
+			<div class="modal-grid">
+			${anomalies.map((anomaly, index) => `
+				<div>
+				<span>Flight Anomaly ${index + 1}</span>
+				<strong>${escapeHtml(anomaly)}</strong>
+				</div>
+			`).join("")}
+			</div>
+		`;
+		}
+	
+		function getAnomalySummary(values) {
+		const anomalies = [
+			values[PIREP_COL.ANOMALY_1],
+			values[PIREP_COL.ANOMALY_2],
+			values[PIREP_COL.ANOMALY_3],
+			values[PIREP_COL.ANOMALY_4]
 		].filter(item => item && item !== "None");
 
 		return anomalies.length ? anomalies.join(", ") : "None";
@@ -327,96 +478,113 @@
 	let activePirepId = null;
 
 	function openPirepModal(pirepId) {
-		const pirep = loadedPireps.find(item => item.values[41] === pirepId);
+		const pirep = loadedPireps.find(item => item.values[PIREP_COL.PIREP_ID] === pirepId);
 
 		if(!pirep) {
 			alert("Could not find this PIREP.");
 			return;
 		}
 		const values = pirep.values;
-		activePirepId = values[41];
-		document.getElementById("modalPirepSubtitle").textContent = `${values[0] || ""} → ${values[2] || ""}`;
+		activePirepId = values[PIREP_COL.PIREP_ID];
+		document.getElementById("modalPirepSubtitle").textContent = `${values[PIREP_COL.AIRLINE] || ""} → ${values[PIREP_COL.CALLSIGN] || ""}`;
 		document.getElementById("modalPirepContent").innerHTML = `
-        <div class="modal-section">
+		<div class="modal-section">
           <h3>Flight Info</h3>
-          <div class="modal-grid">
-            <div><span>Airline</span><strong>${values[0] || ""}</strong></div>
-            <div><span>Flight Number</span><strong>${values[1] || ""}</strong></div>
-            <div><span>Callsign</span><strong>${values[2] || ""}</strong></div>
-            <div><span>Aircraft Type</span><strong>${values[3] || ""}</strong></div>
-            <div><span>Departure Airport</span><strong>${values[4] || ""}</strong></div>
-            <div><span>Arrival Airport</span><strong>${values[5] || ""}</strong></div>
-            <div><span>Departure Gate</span><strong>${values[6] || ""}</strong></div>
-            <div><span>Arrival Gate</span><strong>${values[7] || ""}</strong></div>
-            <div><span>Date of Flight</span><strong>${values[8] || ""}</strong></div>
-            <div><span>Est. Flight Time</span><strong>${values[9] || ""}</strong></div>
-            <div><span>Block Time</span><strong>${values[10] || ""}</strong></div>
-            <div><span>Flight Time</span><strong>${values[11] || ""}</strong></div>
-          </div>
-          <div class="modal-wide"><span>Route</span><strong>${values[12] || ""}</strong></div>
+
+          ${buildReviewGrid([
+            { label: "Airline", value: values[PIREP_COL.AIRLINE] },
+            { label: "Flight Number", value: values[PIREP_COL.FLIGHT_NUMBER] },
+            { label: "Callsign", value: values[PIREP_COL.CALLSIGN] },
+            { label: "Aircraft Type", value: values[PIREP_COL.AIRCRAFT_TYPE] },
+            { label: "Departure Airport", value: values[PIREP_COL.DEPARTURE_AIRPORT] },
+            { label: "Arrival Airport", value: values[PIREP_COL.ARRIVAL_AIRPORT] },
+            { label: "Departure Gate", value: values[PIREP_COL.DEPARTURE_GATE] },
+            { label: "Arrival Gate", value: values[PIREP_COL.ARRIVAL_GATE] },
+            { label: "Date of Flight", value: values[PIREP_COL.DATE_OF_FLIGHT] },
+            { label: "Est. Flight Time", value: values[PIREP_COL.EST_FLIGHT_TIME] },
+            { label: "Block Time", value: values[PIREP_COL.BLOCK_TIME] },
+            { label: "Flight Time", value: values[PIREP_COL.FLIGHT_TIME] }
+          ])}
+
+          ${buildReviewWide("Route", values[PIREP_COL.ROUTE])}
         </div>
 
-        <div class="modal-section">
+		<div class="modal-section">
           <h3>Landing</h3>
-          <div class="modal-grid">
-            <div><span>Landing Rate</span><strong>${values[13] || ""}</strong></div>
-            <div><span>Ground Speed</span><strong>${values[14] || ""}</strong></div>
-            <div><span>G-Force</span><strong>${values[15] || ""}</strong></div>
-            <div><span>Approach Type</span><strong>${values[16] || ""}</strong></div>
-          </div>
+
+          ${buildReviewGrid([
+            { label: "Landing Rate", value: values[PIREP_COL.LANDING_RATE] },
+            { label: "Ground Speed", value: values[PIREP_COL.GROUND_SPEED] },
+            { label: "G-Force", value: values[PIREP_COL.G_FORCE] },
+            { label: "Approach Type", value: values[PIREP_COL.APPROACH_TYPE] }
+          ])}
         </div>
 
-        <div class="modal-section">
-          <h3>Income</h3>
-          <div class="modal-grid">
-            <div><span>Passengers</span><strong>${values[17] || ""}</strong></div>
-            <div><span>Ticket Price</span><strong>${values[18] || ""}</strong></div>
-          </div>
+		<div class="modal-section">
+          <h3>Finance</h3>
+
+          ${buildReviewGrid([
+            {
+              label: "Passengers",
+              value: values[PIREP_COL.PASSENGERS]
+            },
+            {
+              label: "Ticket Price",
+              value: values[PIREP_COL.TICKET_PRICE],
+              formatted: formatPirepMoney(values[PIREP_COL.TICKET_PRICE])
+            },
+            {
+              label: "Fueling Total",
+              value: values[PIREP_COL.FUELING_TOTAL],
+              formatted: formatPirepMoney(values[PIREP_COL.FUELING_TOTAL])
+            },
+            {
+              label: "Catering Total",
+              value: values[PIREP_COL.CATERING_TOTAL],
+              formatted: formatPirepMoney(values[PIREP_COL.CATERING_TOTAL])
+            },
+            {
+              label: "Handling Total",
+              value: values[PIREP_COL.HANDLING_TOTAL],
+              formatted: formatPirepMoney(values[PIREP_COL.HANDLING_TOTAL])
+            },
+            {
+              label: "Total Revenue",
+              value: values[PIREP_COL.TOTAL_REVENUE],
+              formatted: formatPirepMoney(values[PIREP_COL.TOTAL_REVENUE])
+            },
+            {
+              label: "Total Expenses",
+              value: values[PIREP_COL.TOTAL_EXPENSES],
+              formatted: formatPirepMoney(values[PIREP_COL.TOTAL_EXPENSES])
+            },
+            {
+              label: "Flight Profit",
+              value: values[PIREP_COL.FLIGHT_PROFIT],
+              formatted: formatPirepMoney(values[PIREP_COL.FLIGHT_PROFIT])
+            },
+            {
+              label: "Profit Margin",
+              value: values[PIREP_COL.PROFIT_MARGIN],
+              formatted: formatPirepPercent(values[PIREP_COL.PROFIT_MARGIN])
+            }
+          ])}
         </div>
 
-        <div class="modal-section">
-          <h3>Fueling</h3>
-          <div class="modal-grid">
-            <div><span>Fuel Provider</span><strong>${values[19] || ""}</strong></div>
-            <div><span>Fueling Amount (Gallons)</span><strong>${values[20] || ""}</strong></div>
-            <div><span>Unit Price</span><strong>${values[21] || ""}</strong></div>
-            <div><span>Fuel Tax</span><strong>${values[22] || ""}</strong></div>
-            <div><span>Sales Tax / VAT</span><strong>${values[23] || ""}</strong></div>
-          </div>
-        </div>
-
-        <div class="modal-section">
-          <h3>Catering</h3>
-          <div class="modal-grid">
-            <div><span>Catering Provider</span><strong>${values[24] || ""}</strong></div>
-            <div><span>Catering Quantity</span><strong>${values[25] || ""}</strong></div>
-            <div><span>Unit Price</span><strong>${values[26] || ""}</strong></div>
-            <div><span>Sales Tax / VAT</span><strong>${values[27] || ""}</strong></div>
-          </div>
-        </div>
-
-        <div class="modal-section">
-          <h3>Ground</h3>
-          <div class="modal-grid">
-            <div><span>Handling Provider</span><strong>${values[28] || ""}</strong></div>
-            <div><span>Boarding Cost</span><strong>${values[29] || ""}</strong></div>
-            <div><span>Pushback Service Cost</span><strong>${values[30] || ""}</strong></div>
-            <div><span>Jetway / Stairs Connection Fee</span><strong>${values[31] || ""}</strong></div>
-            <div><span>Jetway / Stairs Operation Time</span><strong>${values[32] || ""}</strong></div>
-            <div><span>Jetway / Stairs Ops Cost / Hour</span><strong>${values[33] || ""}</strong></div>
-            <div><span>Sales Tax / VAT</span><strong>${values[34] || ""}</strong></div>
-          </div>
-        </div>
-
-        <div class="modal-section">
+		<div class="modal-section">
           <h3>Notes</h3>
-          <div class="modal-grid">
-            <div><span>Flight Anomaly 1</span><strong>${values[35] || ""}</strong></div>
-            <div><span>Flight Anomaly 2</span><strong>${values[36] || ""}</strong></div>
-            <div><span>Flight Anomaly 3</span><strong>${values[37] || ""}</strong></div>
-            <div><span>Flight Anomaly 4</span><strong>${values[38] || ""}</strong></div>
-          </div>
-          <div class="modal-wide"><span>Additional Comments</span><strong>${values[39] || ""}</strong></div>
+
+          ${buildAnomalyReviewHtml(values)}
+
+          ${values[PIREP_COL.ADDITIONAL_COMMENTS]
+            ? `
+              <div class="modal-wide">
+                <span>Additional Comments</span>
+                <strong>${escapeHtml(values[PIREP_COL.ADDITIONAL_COMMENTS])}</strong>
+              </div>
+            `
+            : ""
+          }
         </div>
       `;
 		document.getElementById("pirepReviewModal").classList.add("open");
