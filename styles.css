@@ -4682,3 +4682,298 @@ body {
     color: #000000 !important;
     opacity: 1 !important;
 }
+
+/* =========================================================
+   PIREP TYPE SELECTION PAGE
+   ========================================================= */
+
+.pirep-type-section {
+    width: min(1100px, calc(100% - 40px));
+    margin: 30px auto 70px;
+    padding: 36px;
+    background: #ffffff;
+    border: 1px solid #e1e4ec;
+    border-radius: 18px;
+    box-shadow: 0 16px 40px rgba(16, 22, 41, 0.08);
+}
+
+.pirep-type-heading {
+    margin-bottom: 30px;
+}
+
+.pirep-type-heading h2 {
+    margin: 0;
+    color: #101629;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.pirep-type-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.pirep-type-card {
+    display: flex;
+    min-height: 360px;
+    padding: 38px 32px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #f8f7fd;
+    border: 2px solid transparent;
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(16, 22, 41, 0.08);
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.pirep-type-card:hover {
+    transform: translateY(-5px);
+    border-color: #6338e7;
+    box-shadow: 0 18px 34px rgba(99, 56, 231, 0.16);
+}
+
+.pirep-type-icon {
+    display: grid;
+    width: 92px;
+    height: 92px;
+    margin-bottom: 24px;
+    place-items: center;
+    color: #ffffff;
+    font-size: 46px;
+    line-height: 1;
+    background: linear-gradient(135deg, #6338e7, #0aa4ff);
+    border-radius: 50%;
+    box-shadow: 0 12px 25px rgba(99, 56, 231, 0.25);
+}
+
+.pirep-type-card h3 {
+    margin: 0 0 14px;
+    color: #101629;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.pirep-type-card p {
+    max-width: 390px;
+    margin: 0 0 30px;
+    color: #5d6375;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.pirep-type-button {
+    display: inline-flex;
+    min-height: 50px;
+    margin-top: auto;
+    padding: 12px 24px;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    background: #6338e7;
+    border: 2px solid #6338e7;
+    border-radius: 10px;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.pirep-type-button:hover {
+    color: #ffffff;
+    background: #4b26d0;
+    border-color: #4b26d0;
+    transform: translateY(-2px);
+}
+
+.pirep-type-button.cargo {
+    background: #0a8fdc;
+    border-color: #0a8fdc;
+}
+
+.pirep-type-button.cargo:hover {
+    background: #087abb;
+    border-color: #087abb;
+}
+
+
+/* =========================================================
+   PIREP TYPE SELECTION — MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+    .pirep-type-section {
+        width: min(100% - 24px, 1100px);
+        margin-top: 20px;
+        padding: 24px 18px;
+    }
+
+    .pirep-type-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pirep-type-card {
+        min-height: 330px;
+        padding: 30px 22px;
+    }
+
+    .pirep-type-heading h2 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pirep-type-section {
+        padding: 20px 14px;
+    }
+
+    .pirep-type-card {
+        min-height: 0;
+    }
+
+    .pirep-type-icon {
+        width: 78px;
+        height: 78px;
+        font-size: 38px;
+    }
+
+    .pirep-type-button {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   OPERATIONS — PASSENGER / CARGO PIREP SECTIONS
+   ========================================================= */
+
+.operations-pirep-type-section {
+	margin-top: 28px;
+	padding: 24px;
+	background: #f8f9ff;
+	border: 1px solid #e3e5f5;
+	border-radius: 16px;
+	box-shadow: 0 8px 24px rgba(33, 26, 71, 0.06);
+}
+
+.operations-pirep-type-section + .operations-pirep-type-section {
+	margin-top: 22px;
+}
+
+.operations-pirep-type-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	margin-bottom: 22px;
+	padding-bottom: 18px;
+	border-bottom: 1px solid #dddff0;
+}
+
+.operations-pirep-type-header h3 {
+	margin: 0 0 5px;
+	font-size: 21px;
+	color: #151421;
+}
+
+.operations-pirep-type-header p {
+	margin: 0;
+	font-size: 14px;
+	color: #6d6a7b;
+}
+
+.operations-pirep-type-header > span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 94px;
+	padding: 9px 14px;
+	background: #6338e7;
+	border-radius: 999px;
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+/* Empty PIREP section */
+
+.operations-pirep-type-section .pirep-review-grid > p {
+	grid-column: 1 / -1;
+	margin: 0;
+	padding: 34px 20px;
+	background: #ffffff;
+	border: 1px dashed #c9c5dc;
+	border-radius: 12px;
+	color: #777486;
+	text-align: center;
+	font-size: 14px;
+}
+
+/* PIREP card grid */
+
+.operations-pirep-type-section .pirep-review-grid {
+	display: grid;
+	grid-template-columns: repeat(
+		auto-fill,
+		minmax(250px, 1fr)
+	);
+	gap: 20px;
+	align-items: stretch;
+}
+
+/* Keep individual review cards evenly sized */
+
+.operations-pirep-type-section .ops-pirep-card {
+	width: auto;
+	max-width: none;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+/* Passenger section accent */
+
+.passenger-pirep-section {
+	border-top: 4px solid #6338e7;
+}
+
+/* Cargo section accent */
+
+.cargo-pirep-section {
+	border-top: 4px solid #0aa4ff;
+}
+
+.cargo-pirep-section
+	.operations-pirep-type-header > span {
+	background: #0a94e8;
+}
+
+/* =========================================================
+   OPERATIONS — RESPONSIVE PIREP SECTIONS
+   ========================================================= */
+
+@media (max-width: 700px) {
+	.operations-pirep-type-section {
+		padding: 18px;
+	}
+
+	.operations-pirep-type-header {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.operations-pirep-type-header > span {
+		min-width: 0;
+	}
+
+	.operations-pirep-type-section .pirep-review-grid {
+		grid-template-columns: 1fr;
+	}
+}

@@ -71,11 +71,49 @@
 				<div class="operations-panel-header">
 					<div>
 						<h3>Pending PIREPs</h3>
-						<p>Review and approve/deny pilot reports.</p>
+						<p>Review and approve or deny Passenger and Cargo pilot reports.</p>
 					</div>
-					<button class="operations-outline-btn" type="button">View All PIREPs</button>
+
+					<button
+						class="operations-outline-btn"
+						type="button"
+						onclick="loadAllPendingPireps()"
+					>
+						Refresh PIREPs
+					</button>
 				</div>
-				<div class="pirep-review-grid" id="pendingPirepGrid"></div>
+
+				<div class="operations-pirep-type-section passenger-pirep-section">
+					<div class="operations-pirep-type-header">
+						<div>
+							<h3>Passenger PIREPs</h3>
+							<p>Pending passenger flight reports.</p>
+						</div>
+
+						<span id="pendingPassengerPirepCount">0 Pending</span>
+					</div>
+
+					<div
+						class="pirep-review-grid"
+						id="pendingPirepGrid"
+					></div>
+				</div>
+
+				<div class="operations-pirep-type-section cargo-pirep-section">
+					<div class="operations-pirep-type-header">
+						<div>
+							<h3>Cargo PIREPs</h3>
+							<p>Pending cargo flight reports.</p>
+						</div>
+
+						<span id="pendingCargoPirepCount">0 Pending</span>
+					</div>
+
+					<div
+						class="pirep-review-grid"
+						id="pendingCargoPirepGrid"
+					></div>
+				</div>
 			</section>
 			<section class="operations-panel" id="featuredFlights">
 				<div class="operations-panel-header">
@@ -266,8 +304,28 @@
 		CATERING_TOTAL: 34,
 		HANDLING_TOTAL: 35
 	});
-	const pendingPirepGrid = document.getElementById("pendingPirepGrid");
-	const pendingPirepCount = document.getElementById("pendingPirepCount");
+	const pendingPirepGrid =
+		document.getElementById("pendingPirepGrid");
+
+	const pendingCargoPirepGrid =
+		document.getElementById("pendingCargoPirepGrid");
+
+	const pendingPirepCount =
+		document.getElementById("pendingPirepCount");
+
+	const pendingPassengerPirepCount =
+		document.getElementById("pendingPassengerPirepCount");
+
+	const pendingCargoPirepCount =
+		document.getElementById("pendingCargoPirepCount");
+
+	let passengerPendingTotal = 0;
+	let cargoPendingTotal = 0;
+
+	function updateCombinedPendingCount() {
+		pendingPirepCount.textContent =
+			passengerPendingTotal + cargoPendingTotal;
+	}
 	async function loadPendingPireps() {
 		try {
 			const response = await fetch(PIREP_WEB_APP_URL, {
@@ -288,7 +346,18 @@
             }
 			loadedPireps = result.pireps;
 			pendingPirepGrid.innerHTML = "";
-			pendingPirepCount.textContent = result.pireps.length;
+			passengerPendingTotal = result.pireps.length;
+
+			pendingPassengerPirepCount.textContent =
+				`${passengerPendingTotal} Pending`;
+
+			updateCombinedPendingCount();
+			if (!result.pireps.length) {
+				pendingPirepGrid.innerHTML =
+					"<p>No Passenger PIREPs waiting for review.</p>";
+
+				return;
+			}
 			result.pireps.forEach((pirep, index) => {
 				const values = pirep.values;
 				const card = document.createElement("article");
@@ -332,6 +401,157 @@
 			console.error("Failed to load pending PIREPs:", error);
 			pendingPirepGrid.innerHTML = "<p>Unable to load pending PIREPs.</p>";
 		}
+	}
+
+	async function loadPendingCargoPireps() {
+		try {
+			const response = await fetch(PIREP_WEB_APP_URL, {
+				method: "POST",
+				body: JSON.stringify({
+					action: "getPendingCargoPireps",
+					token: localStorage.getItem("boundlessToken")
+				})
+			});
+
+			const result = await response.json();
+
+			if (!result.success) {
+				if (result.message === "Unauthorized") {
+					window.location.replace("portal.html");
+					return;
+				}
+
+				throw new Error(
+					result.message ||
+					"Unable to load pending Cargo PIREPs."
+				);
+			}
+
+			loadedCargoPireps = result.pireps || [];
+			cargoPendingTotal = loadedCargoPireps.length;
+
+			pendingCargoPirepCount.textContent =
+				`${cargoPendingTotal} Pending`;
+
+			updateCombinedPendingCount();
+
+			pendingCargoPirepGrid.innerHTML = "";
+
+			if (!loadedCargoPireps.length) {
+				pendingCargoPirepGrid.innerHTML =
+					"<p>No Cargo PIREPs waiting for review.</p>";
+
+				return;
+			}
+
+			loadedCargoPireps.forEach((pirep, index) => {
+				const values = pirep.values;
+				const headers = pirep.headers;
+
+				const getCargoValue = headerName => {
+					const columnIndex = headers.indexOf(headerName);
+
+					return columnIndex >= 0
+						? values[columnIndex]
+						: "";
+				};
+
+				const card = document.createElement("article");
+				card.className = "ops-pirep-card";
+
+				const pirepId =
+					pirep.pirepId ||
+					getCargoValue("PIREP ID");
+
+				const submittedAt =
+					pirep.submittedAt ||
+					getCargoValue("Submitted At");
+
+				const username =
+					getCargoValue("Username");
+
+				const callsign =
+					getCargoValue("Callsign");
+
+				const aircraft =
+					getCargoValue("Aircraft Type");
+
+				const departure =
+					getCargoValue("Departure Airport");
+
+				const arrival =
+					getCargoValue("Arrival Airport");
+
+				const cargoWeight =
+					getCargoValue("Cargo Weight (lbs)");
+
+				card.innerHTML = `
+					<div class="ops-pirep-topline">
+						<h4>Cargo #${String(index + 1).padStart(3, "0")}</h4>
+						<span>Pending</span>
+					</div>
+
+					<p class="ops-pirep-callsign">
+						${callsign || "Unknown Callsign"}
+					</p>
+
+					<strong>
+						${departure || "----"} → ${arrival || "----"}
+					</strong>
+
+					<div class="ops-pirep-meta">
+						<div class="ops-pirep-row">
+							<span class="ops-pirep-label">Pilot:</span>
+							<span class="ops-pirep-value">
+								${username || "Unknown"}
+							</span>
+						</div>
+
+						<div class="ops-pirep-row">
+							<span class="ops-pirep-label">Aircraft:</span>
+							<span class="ops-pirep-value">
+								${aircraft || "Unknown"}
+							</span>
+						</div>
+
+						<div class="ops-pirep-row">
+							<span class="ops-pirep-label">Cargo:</span>
+							<span class="ops-pirep-value">
+								${cargoWeight || "0"} lbs
+							</span>
+						</div>
+					</div>
+
+					<p>Submitted ${formatDate(submittedAt)}</p>
+
+					<button
+						type="button"
+						onclick="openCargoPirepModal('${pirepId}')"
+					>
+						Review Cargo PIREP
+					</button>
+				`;
+
+				pendingCargoPirepGrid.appendChild(card);
+			});
+		} catch (error) {
+			console.error(
+				"Failed to load pending Cargo PIREPs:",
+				error
+			);
+
+			cargoPendingTotal = 0;
+			updateCombinedPendingCount();
+
+			pendingCargoPirepGrid.innerHTML =
+				"<p>Unable to load pending Cargo PIREPs.</p>";
+		}
+	}
+
+
+	function loadAllPendingPireps() {
+		loadPendingPireps();
+		loadPendingCargoPireps();
 	}
 
 	function formatDate(dateString) {
@@ -475,7 +695,10 @@
 		}
 
 	let loadedPireps = [];
+	let loadedCargoPireps = [];
+
 	let activePirepId = null;
+	let activePirepType = "passenger";
 
 	function openPirepModal(pirepId) {
 		const pirep = loadedPireps.find(item => item.values[PIREP_COL.PIREP_ID] === pirepId);
@@ -486,6 +709,7 @@
 		}
 		const values = pirep.values;
 		activePirepId = values[PIREP_COL.PIREP_ID];
+		activePirepType = "passenger";
 		document.getElementById("modalPirepSubtitle").textContent = `${values[PIREP_COL.AIRLINE] || ""} → ${values[PIREP_COL.CALLSIGN] || ""}`;
 		document.getElementById("modalPirepContent").innerHTML = `
 		<div class="modal-section">
@@ -590,6 +814,238 @@
 		document.getElementById("pirepReviewModal").classList.add("open");
 	}
 
+	function openCargoPirepModal(pirepId) {
+		const pirep = loadedCargoPireps.find(item => {
+			const headers = item.headers || [];
+			const values = item.values || [];
+			const pirepIdIndex = headers.indexOf("PIREP ID");
+
+			const itemPirepId =
+				item.pirepId ||
+				(pirepIdIndex >= 0 ? values[pirepIdIndex] : "");
+
+			return String(itemPirepId) === String(pirepId);
+		});
+
+		if (!pirep) {
+			alert("Could not find this Cargo PIREP.");
+			return;
+		}
+
+		const headers = pirep.headers || [];
+		const values = pirep.values || [];
+
+		const getCargoValue = headerName => {
+			const columnIndex = headers.indexOf(headerName);
+
+			return columnIndex >= 0
+				? values[columnIndex]
+				: "";
+		};
+
+		activePirepId =
+			pirep.pirepId ||
+			getCargoValue("PIREP ID");
+
+		activePirepType = "cargo";
+
+		const airline = getCargoValue("Airline");
+		const callsign = getCargoValue("Callsign");
+
+		document.getElementById("modalPirepSubtitle").textContent =
+			`${airline || "Cargo"} → ${callsign || activePirepId}`;
+
+		document.getElementById("modalPirepContent").innerHTML = `
+			<div class="modal-section">
+				<h3>Flight Info</h3>
+
+				${buildReviewGrid([
+					{
+						label: "Airline",
+						value: getCargoValue("Airline")
+					},
+					{
+						label: "Flight Number",
+						value: getCargoValue("Flight Number")
+					},
+					{
+						label: "Callsign",
+						value: getCargoValue("Callsign")
+					},
+					{
+						label: "Aircraft Type",
+						value: getCargoValue("Aircraft Type")
+					},
+					{
+						label: "Departure Airport",
+						value: getCargoValue("Departure Airport")
+					},
+					{
+						label: "Arrival Airport",
+						value: getCargoValue("Arrival Airport")
+					},
+					{
+						label: "Departure Gate",
+						value: getCargoValue("Departure Gate")
+					},
+					{
+						label: "Arrival Gate",
+						value: getCargoValue("Arrival Gate")
+					},
+					{
+						label: "Date of Flight",
+						value: getCargoValue("Date of Flight")
+					},
+					{
+						label: "Est. Flight Time",
+						value: getCargoValue("Est. Flight Time")
+					},
+					{
+						label: "Block Time",
+						value: getCargoValue("Block Time")
+					},
+					{
+						label: "Flight Time",
+						value: getCargoValue("Flight Time")
+					}
+				])}
+
+				${buildReviewWide(
+					"Route",
+					getCargoValue("Route")
+				)}
+			</div>
+
+			<div class="modal-section">
+				<h3>Landing</h3>
+
+				${buildReviewGrid([
+					{
+						label: "Landing Rate",
+						value: getCargoValue("Landing Rate")
+					},
+					{
+						label: "Ground Speed",
+						value: getCargoValue("Ground Speed")
+					},
+					{
+						label: "G-Force",
+						value: getCargoValue("G-Force")
+					},
+					{
+						label: "Approach Type",
+						value: getCargoValue("Approach Type")
+					}
+				])}
+			</div>
+
+			<div class="modal-section">
+				<h3>Cargo Finance</h3>
+
+				${buildReviewGrid([
+					{
+						label: "Cargo Weight",
+						value: getCargoValue("Cargo Weight (lbs)"),
+						formatted:
+							`${Number(
+								String(
+									getCargoValue("Cargo Weight (lbs)") || 0
+								).replace(/,/g, "")
+							).toLocaleString()} lbs`
+					},
+					{
+						label: "Cost Per Pound",
+						value: getCargoValue("Cost Per Pound"),
+						formatted: formatPirepMoney(
+							getCargoValue("Cost Per Pound")
+						)
+					},
+					{
+						label: "Fueling Total",
+						value: getCargoValue("Fueling Total"),
+						formatted: formatPirepMoney(
+							getCargoValue("Fueling Total")
+						)
+					},
+					{
+						label: "Catering Total",
+						value: getCargoValue("Catering Total"),
+						formatted: formatPirepMoney(
+							getCargoValue("Catering Total")
+						)
+					},
+					{
+						label: "Handling Total",
+						value: getCargoValue("Handling Total"),
+						formatted: formatPirepMoney(
+							getCargoValue("Handling Total")
+						)
+					},
+					{
+						label: "Total Revenue",
+						value: getCargoValue("Total Revenue"),
+						formatted: formatPirepMoney(
+							getCargoValue("Total Revenue")
+						)
+					},
+					{
+						label: "Total Expenses",
+						value: getCargoValue("Total Expenses"),
+						formatted: formatPirepMoney(
+							getCargoValue("Total Expenses")
+						)
+					},
+					{
+						label: "Flight Profit",
+						value: getCargoValue("Flight Profit"),
+						formatted: formatPirepMoney(
+							getCargoValue("Flight Profit")
+						)
+					},
+					{
+						label: "Profit Margin",
+						value: getCargoValue("Profit Margin"),
+						formatted: formatPirepPercent(
+							getCargoValue("Profit Margin")
+						)
+					}
+				])}
+			</div>
+
+			<div class="modal-section">
+				<h3>Notes</h3>
+
+				${buildReviewGrid([
+					{
+						label: "Flight Anomaly 1",
+						value: getCargoValue("Anomaly 1")
+					},
+					{
+						label: "Flight Anomaly 2",
+						value: getCargoValue("Anomaly 2")
+					},
+					{
+						label: "Flight Anomaly 3",
+						value: getCargoValue("Anomaly 3")
+					},
+					{
+						label: "Flight Anomaly 4",
+						value: getCargoValue("Anomaly 4")
+					}
+				])}
+
+				${buildReviewWide(
+					"Additional Comments",
+					getCargoValue("Additional Comments")
+				)}
+			</div>
+		`;
+
+		document
+			.getElementById("pirepReviewModal")
+			.classList.add("open");
+	}
+
 	function closePirepModal() {
 		document.getElementById("pirepReviewModal").classList.remove("open");
 	}
@@ -598,7 +1054,19 @@
 			alert("No PIREP selected.");
 			return;
 		}
-		const action = decision === "approve" ? "approvePirep" : "denyPirep";
+		let action;
+
+		if (activePirepType === "cargo") {
+			action =
+				decision === "approve"
+					? "approveCargoPirep"
+					: "denyCargoPirep";
+		} else {
+			action =
+				decision === "approve"
+					? "approvePirep"
+					: "denyPirep";
+		}
 		const response = await fetch(PIREP_WEB_APP_URL, {
 			method: "POST",
 			body: JSON.stringify({
@@ -620,9 +1088,18 @@
 			return;
 		}
 
-		alert(`PIREP ${decision === "approve" ? "approved" : "denied"}.`);
+		alert(
+			`${activePirepType === "cargo" ? "Cargo " : ""}PIREP ${
+				decision === "approve"
+					? "approved"
+					: "denied"
+			}.`
+		);
+
 		closePirepModal();
-		loadPendingPireps();
+
+		loadAllPendingPireps();
+		loadEconomyStats();
 	}
 	</script>
 	<div id="pirepReviewModal" class="pirep-modal">
@@ -1078,7 +1555,7 @@
 			overlay.remove();
 		}
 
-		loadPendingPireps();
+		loadAllPendingPireps();
 		loadFeaturedFlights();
 		loadEconomyStats();
 		loadApplications();
