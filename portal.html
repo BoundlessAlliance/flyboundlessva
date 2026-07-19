@@ -300,7 +300,6 @@
           localStorage.getItem("boundlessUsername") ||
           "Pilot";
 
-        loadFlightTimeLabels();
         loadWeeklyFlightChart();
         loadPilotStats();
         loadRecentPireps();
@@ -388,6 +387,14 @@
 
             if (valueLabel) {
               valueLabel.textContent = week.displayTime;
+            }
+
+            const weekLabel = document.getElementById(
+              `weekLabel${index + 1}`
+            );
+
+            if (weekLabel) {
+              weekLabel.textContent = week.label;
             }
           });
 
@@ -571,7 +578,6 @@
           localStorage.setItem("boundlessFullName", result.fullName || "");
           localStorage.setItem("boundlessEmail", result.email || "");
           loadPortalProfile();
-          loadFlightTimeLabels();
           closeEditProfileModal();
         } catch (error) {
           console.error("Profile update error:", error);
