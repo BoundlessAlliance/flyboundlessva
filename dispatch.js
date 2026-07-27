@@ -6,19 +6,51 @@ const searchBtn = document.getElementById('searchBtn');
 const resultsGrid = document.getElementById('resultsGrid');
 
 const airlineTailMap = {
-  'American Airlines': 'assets/aal_tail.webp',
-  'Delta Airlines': 'assets/dal_tail.webp',
-  'Southwest Airlines': 'assets/swa_tail.webp',
-  'United Airlines': 'assets/ual_tail.webp',
-  'Alaska Airlines': 'assets/asa_tail.webp',
-  'JetBlue': 'assets/jbu_tail.webp',
-  'Frontier': 'assets/fft_tail.webp',
-  'easyJet': 'assets/ezy_tail.webp',
-  'British Airways': 'assets/baw_tail.webp',
-  'Lufthansa': 'assets/dlh_tail.webp',
-  'Jetstar': 'assets/jst_tail.webp',
-  'Eurowings': 'assets/ewg_tail.webp',
-  'Ryanair': 'assets/ryr_tail.webp',
+  // #region USA Carriers
+  'American Airlines': 'assets/AAL_Tail.webp',
+  'United Airlines': 'assets/UAL_Tail.webp',
+  'Delta Air Lines': 'assets/DAL_Tail.webp',
+  'Allegiant Air': 'assets/AAY_Tail.webp',
+  'GlobalX': 'assets/GXA_Tail.webp',
+  'JetBlue': 'assets/JBU_Tail.webp',
+  'Frontier Airlines': 'assets/FFT_Tail.webp',
+  'Southwest Airlines': 'assets/SWA_Tail.webp',
+  'Alaska Airlines': 'assets/ASA_Tail.webp',
+  'Sun Country Airlines': 'assets/SCX_Tail.webp',
+  'National Airlines': 'assets/NCR_Tail.webp',
+  'Hawaiian Airlines (Alaska)': 'assets/HAL_Tail.webp',
+  // #endregion
+
+  // #region EU Carriers
+  'easyJet': 'assets/EZY_Tail.webp',
+  'British Airways': 'assets/BAW_Tail.webp',
+  'Eurowings': 'assets/EWG_Tail.webp',
+  'Lufthansa': 'assets/DLH_Tail.webp',
+  'Brussels Airlines': 'assets/BEL_Tail.webp',
+  'Wizz Air': 'assets/WZZ_Tail.webp',
+  'Vueling': 'assets/VLG_Tail.webp',
+  'Air France': 'assets/AFR_Tail.webp',
+  'Finnair': 'assets/FIN_Tail.webp',
+  'easyJet': 'assets/EZY_Tail.webp',
+  'Jetstar': 'assets/JST_Tail.webp',
+  'Ryanair': 'assets/RYR_Tail.webp',
+  'Jet2.com': 'assets/EXS_Tail.webp',
+  'TUI fly': 'assets/TUI_Tail.webp',
+  'Transavia': 'assets/TRA_Tail.webp',
+  'Norwegian Air Shuttle': 'assets/NOZ_Tail.webp',
+  'Iberia': 'assets/IBE_Tail.webp',
+  'LEVEL': 'assets/LVL_Tail.webp',
+  'Swiss': 'assets/SWS_Tail.webp',
+  'Virgin Atlantic': 'assets/VIR_Tail.webp',
+  'Aer Lingus': 'assets/EIN_Tail.webp',
+  'TAP Air Portugal': 'assets/TAP_Tail.webp',
+  'Condor': 'assets/CFG_Tail.webp',
+  'ITA Airways': 'assets/ITY_Tail.webp',
+  'Corsair': 'assets/CRL_Tail.webp',
+  'KLM': 'assets/KLM_Tail.webp',
+  'EuroAtlantic Airways': 'assets/MMZ_Tail.webp',
+  'French Bee': 'assets/FBU_Tail.webp',
+  // #endregion
 };
 
 function uniqueValues(list, key) {
@@ -139,14 +171,6 @@ function getAircraftFamily(airframe) {
   const normalized = String(airframe || '').toUpperCase();
 
   if (
-    normalized.includes('737') ||
-    normalized.includes('B737') ||
-    normalized.includes('MAX')
-  ) {
-    return 'B737 Family';
-  }
-
-  if (
     normalized.includes('A319') ||
     normalized.includes('A320') ||
     normalized.includes('A321')
@@ -155,22 +179,44 @@ function getAircraftFamily(airframe) {
   }
 
   if (
-    normalized.includes('A330-200') ||
-    normalized.includes('A330-300') ||
-    normalized.includes('A330-900')
+    normalized.includes('B737') ||
+    normalized.includes('B738') ||
+    normalized.includes('B739') ||
+    normalized.includes('B38M')
+  ) {
+    return 'B737 Family';
+  }
+
+  if (
+    normalized.includes('A332') ||
+    normalized.includes('A333') ||
+    normalized.includes('A339')
   ) {
     return 'A330 Family';
   }
 
   if (
-    normalized.includes('A350-900') ||
-    normalized.includes('A350-1000')
+    normalized.includes('B772') ||
+    normalized.includes('B77W')
+  ) {
+    return 'B777 Family';
+  }
+
+  if (
+    normalized.includes('A359') ||
+    normalized.includes('A35K')
   ) {
     return 'A350 Family';
   }
 
   if (
-    normalized.includes('A380')
+    normalized.includes('B748')
+  ) {
+    return 'B747 Family';
+  }
+
+  if (
+    normalized.includes('A388')
   ) {
     return 'A380 Family';
   }
