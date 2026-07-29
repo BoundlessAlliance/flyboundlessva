@@ -68,44 +68,76 @@ function setSelectOptions(select, placeholder, values) {
   });
 }
 
+function getRandomValue(values) {
+  if (!values.length) return null;
+
+  return values[Math.floor(Math.random() * values.length)];
+}
+
 function getFilteredAircraft() {
-  const family = aircraftFamilySelect.value;
-  const airframe = airframeSelect.value;
-  const airline = airlineSelect.value;
-  let registration = registrationSelect.value;
+  const selectedFamily = aircraftFamilySelect.value;
+  const selectedAirframe = airframeSelect.value;
+  const selectedAirline = airlineSelect.value;
+  const selectedRegistration = registrationSelect.value;
 
-  const matchingAircraft = aircraftDatabase.filter(aircraft => {
-
-  const familyMatch =
-    family === 'RANDOM' ||
-    !family ||
-    getAircraftFamily(aircraft.airframe) === family;
-
-  const typeMatch =
-    airframe === 'RANDOM' ||
-    !airframe ||
-    aircraft.airframe === airframe;
-
-  const airlineMatch =
-    airline === 'RANDOM' ||
-    !airline ||
-    aircraft.airline === airline;
-
-  return familyMatch && typeMatch && airlineMatch;
-});
-
-  if (registration === 'RANDOM') {
-    if (!matchingAircraft.length) return [];
-
-    const randomAircraft =
-      matchingAircraft[Math.floor(Math.random() * matchingAircraft.length)];
-
-    return [randomAircraft];
+  if (
+    !selectedFamily ||
+    !selectedAirframe ||
+    !selectedAirline ||
+    !selectedRegistration
+  ) {
+    return [];
   }
 
-  return matchingAircraft.filter(aircraft => {
-    return !registration || aircraft.registration === registration;
-  });
+  let possibleAircraft = [...aircraftDatabase];
+  const family =
+    selectedFamily === 'RANDOM'
+      ? getRandomValue(
+          uniqueValues(
+            possibleAircraft.map(aircraft => ({
+              family: getAircraftFamily(aircraft.airframe)
+            })),
+            'family'
+          )
+        )
+      : selectedFamily;
+
+  possibleAircraft = possibleAircraft.filter(
+    aircraft => getAircraftFamily(aircraft.airframe) === family
+  );
+  const airframe =
+    selectedAirframe === 'RANDOM'
+      ? getRandomValue(
+          uniqueValues(possibleAircraft, 'airframe')
+        )
+      : selectedAirframe;
+
+  possibleAircraft = possibleAircraft.filter(
+    aircraft => aircraft.airframe === airframe
+  );
+  const airline =
+    selectedAirline === 'RANDOM'
+      ? getRandomValue(
+          uniqueValues(possibleAircraft, 'airline')
+        )
+      : selectedAirline;
+
+  possibleAircraft = possibleAircraft.filter(
+    aircraft => aircraft.airline === airline
+  );
+  if (selectedRegistration === 'RANDOM') {
+    const registration = getRandomValue(
+      uniqueValues(possibleAircraft, 'registration')
+    );
+
+    return possibleAircraft.filter(
+      aircraft => aircraft.registration === registration
+    ).slice(0, 1);
+  }
+
+  return possibleAircraft.filter(
+    aircraft => aircraft.registration === selectedRegistration
+  );
 }
 
 function getLogo(airline) {
