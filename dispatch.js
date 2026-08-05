@@ -263,6 +263,7 @@ function getAircraftFamily(airframe) {
 
   if (
     normalized.includes('CRJ7') ||
+    normalized.includes('CRJ7-550') ||
     normalized.includes('CRJ9')
   ) {
     return 'CRJ Family';
