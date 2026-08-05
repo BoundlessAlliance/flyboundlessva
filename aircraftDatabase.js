@@ -34547,4 +34547,3507 @@ const aircraftDatabase = [
     "registration": "G-XLEL"
   },
 // #endregion
+
+// #region Delta Connection CRJ7-550
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7-550",
+    "registration": "N374CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7-550",
+    "registration": "N656CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7-550",
+    "registration": "N708EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7-550",
+    "registration": "N717EV"
+  },
+
+// #region United Express CRJ7-550
+ {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N501GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N502GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N503GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N504GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N506GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N507GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N508GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N511GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N513GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N515GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N516GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N519GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N520GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N521GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N522GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N523GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N524GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N526GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N529GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N530GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N531GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N532GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N533GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N534GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N535GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N536GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N537GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N538GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N539GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N540GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N541GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N542GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N543GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N544GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N545GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N546GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N547GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N548GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N549GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N550GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N551GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N552GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N553GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N554GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N556GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N557GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N558GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N559GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N561GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N562GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N563GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N564GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N565GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N566GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N568GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N569GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N570GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N571GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N572GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N573GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N574GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N575GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N576GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N577GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N578GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N579GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N580GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N583GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N751EV"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7-550",
+    "registration": "N773SK"
+  },
+// #endregion
+
+// #region American Eagle CRJ-7
+ {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N500AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N501BG"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N502AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N503AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N504AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N505AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N506AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N507AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N508AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N509AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N510AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N511AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N512AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N513AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N514AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N515AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N516AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N517AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N518AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N519AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N520DC"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N521AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N522AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N523AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N524AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N525AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N526EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N527EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N528EG"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N529EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N530EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N531EG"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N532EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N533AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N534AE"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N535EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N536EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N537EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N538EG"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N539EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N540EG"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N541EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N542EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N543EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N544EA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N545PB"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N546FF"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N606SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N608SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N609SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N611SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N612QX"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N613SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N614QX"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N614SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N630SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N631SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N632SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N633SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N658CA"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N701SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N702PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N702SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N703PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N705PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N705SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N706PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N706SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N707SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N708PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N708SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N709SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N710EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N710PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N710SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N712PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N713SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N715SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N716PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N716SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N718PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N718SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N719EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N719PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N719SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N720EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N720PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N722EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N723PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N724EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N724SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N725PS"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N726SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N727SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N728SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N730EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N730SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N732SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N740EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N740SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N742SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N744EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N744SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N745SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N746SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N748EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N748SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N750EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N750SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N751SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N752EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N753EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N753SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N754SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N755EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N755SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N756SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N758EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N758SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N759EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N760EV"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N760SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N761ND"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N763SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N764SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N765SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N766SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N770SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N772SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N774SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N870DC"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ7",
+    "registration": "N872DC"
+  },
+// #endregion
+
+// #region Delta Connection CRJ-7
+ {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N317CA"
+   },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N331CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N340CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N354CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N355CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N367CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N368CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N371CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N374CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N376CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N379CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N390CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N391CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N398CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N625CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N641CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N655CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N656CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N668CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N669CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N690CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N703SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N707EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N708EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N709EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N712EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N712SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N713EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N717EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N738SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N776SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ7",
+    "registration": "N778SK"
+  },
+// #endregion
+
+// #region United Express CRJ-7
+ {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N509GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N517GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N581GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N583GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N584GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N587GJ"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N685SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N716EV"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N723EV"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N738EV"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N743SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N751EV"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N762SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N771SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N773SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N779SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N780SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N782SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N783SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N784SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N785SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N786SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N787SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N788SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N789SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N790SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N791SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N792SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N793SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N794SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N795SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N796SK"
+  },
+
+  {
+    "airline": "United Express",
+    "airframe": "CRJ7",
+    "registration": "N797SK"
+  },
+// #endregion
+
+// #region Delta Connection CRJ-9
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N131EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N132EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N133EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N134EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N135EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N136EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N137EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N138EV"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N146PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N147PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N153PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N161PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N162PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N166PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N170PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N176PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N181GJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N181PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N182GJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N183GJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N184GJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N185GJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N186GJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N186PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N187GJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N187PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N195PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N197PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N200PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N228PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N232PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N272PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N279PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N292PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N293PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N294PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N295PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N296PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N297PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N298PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N299PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N300PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N301PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N302PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N303PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N304PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N305PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N306PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N307PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N308PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N309PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N310PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N311PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N313PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N314PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N315PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N316PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N319PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N320PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N324PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N325PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N326PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N329PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N330PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N331PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N335PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N336PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N337PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N341PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N348PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N349PQ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N478PX"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N479PX"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N480PX"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N482PX"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N485PX"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N490PX"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N491PX"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N538CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N548CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N549CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N554CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N582CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N600LR"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N601LR"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N602LR"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N604LR"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N605LR"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N606LR"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N607LR"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N676CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N678CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N679CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N689CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N691CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N692CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N693CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N695CA"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N800SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N802SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N803SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N804SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N806SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N809SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N810SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N816SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N822SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N823SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N824SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N825SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N826SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N827SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N829SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N830SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N831SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N832SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N833SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N834SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N836SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N837SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N838SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N839SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N840SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N899SK"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N901XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N902XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N903XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N904XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N905XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N906XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N907XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N908XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N909XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N910XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N912XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N913XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N914XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N915XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N916XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N917XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N918XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N919XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N920XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N921XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N922XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N923XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N924XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N925XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N926XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N927XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N928XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N929XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N930XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N931XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N933XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N934XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N935XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N936XJ"
+  },
+
+  {
+    "airline": "Delta Connection",
+    "airframe": "CRJ9",
+    "registration": "N937XJ"
+  },
+// #endregion
+
+//# region American Eagle CRJ-9
+ {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N246LR"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N247LR"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N249LR"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N547NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N548NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N549NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N550NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N551NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N552NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N553NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N554NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N555NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N556NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N557NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N558NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N559NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N560NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N561NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N562NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N563NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N564NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N565NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N566NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N567NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N568NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N569NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N570NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N571NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N572NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N573NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N574NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N575NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N576NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N577NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N578NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N579NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N580NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N581NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N582NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N583NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N584NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N585NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N586NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N587NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N588NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N589NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N590NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N591NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N592NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N593NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N594NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N595NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N596NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N597NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N598NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N599NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N600NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N601EN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N602NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N603NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N604NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N605NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N606NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N607NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N608NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N609NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N610NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N611NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N612NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N613NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N614NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N615NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N616NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N617NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N618NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N619NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N629NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N630NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N631NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N632NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N633NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N634NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N635NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N636NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N637NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N638NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N639NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N640NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N641NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N642NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N643NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N644NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N645NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N646NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N647NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N648NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N649NN"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N805SK"
+  },
+
+  {
+    "airline": "American Eagle",
+    "airframe": "CRJ9",
+    "registration": "N896SK"
+  },
+// #endregion
+
+// #region Air Canada CRJ-9
+ {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FBJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FCJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FDJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FJFZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FJGZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FJJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FJQZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FJZD"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FJZL"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FKJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FLJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FNJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FTJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-FUJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GCJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GDJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GFJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GJAZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GJFZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GJHZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GJIZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GJNZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GJUZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GJZS"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GJZT"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GJZV"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GLJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GOJZ"
+  },
+
+  {
+    "airline": "Air Canada",
+    "airframe": "CRJ9",
+    "registration": "C-GPJZ"
+  },
+// #endregion
+
+// #region Lufthansa CityLine CRJ-9
+ {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNA"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNB"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNC"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACND"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNE"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNF"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNG"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNH"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNI"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNJ"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNK"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNL"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNM"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNN"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNO"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNP"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNQ"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNR"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNT"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNU"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNV"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNW"
+  },
+
+  {
+    "airline": "Lufthansa CityLine",
+    "airframe": "CRJ9",
+    "registration": "D-ACNX"
+  },
+// #endregion
 ];
