@@ -19,6 +19,9 @@ const airlineTailMap = {
   'Sun Country Airlines': 'assets/SCX_Tail.webp',
   'National Airlines': 'assets/NCR_Tail.webp',
   'Hawaiian Airlines (Alaska)': 'assets/HAL_Tail.webp',
+  'Delta Connection': 'assets/DAL_Tail.webp',
+  'United Express': 'assets/UAL_Tail.webp',
+  'American Eagle': 'assets/AAL_Tail.webp',
   // #endregion
 
   // #region EU Carriers
@@ -50,6 +53,7 @@ const airlineTailMap = {
   'KLM': 'assets/KLM_Tail.webp',
   'EuroAtlantic Airways': 'assets/MMZ_Tail.webp',
   'French Bee': 'assets/FBU_Tail.webp',
+  'Lufthansa CityLine': 'assets/DLH_Tail.webp',
   // #endregion
 
   // #region Other Carriers
