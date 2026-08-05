@@ -51,6 +51,10 @@ const airlineTailMap = {
   'EuroAtlantic Airways': 'assets/MMZ_Tail.webp',
   'French Bee': 'assets/FBU_Tail.webp',
   // #endregion
+
+  // #region Other Carriers
+  'Air Canada': 'assets/ACA_Tail.webp',
+  // #endregion
 };
 
 function uniqueValues(list, key) {
@@ -251,6 +255,13 @@ function getAircraftFamily(airframe) {
     normalized.includes('A388')
   ) {
     return 'A380 Family';
+  }
+
+  if (
+    normalized.includes('CRJ7') ||
+    normalized.includes('CRJ9')
+  ) {
+    return 'CRJ Family';
   }
 
   return 'Other';
